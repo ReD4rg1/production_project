@@ -1,22 +1,23 @@
 import "./styles/index.scss";
 import {Link, Route, Routes} from "react-router-dom";
-import {MainPageAsync} from "./pages/MainPage/MainPage.async";
-import {SecondPageAsync} from "./pages/SecondPage/SecondPage.async";
+import {MainPage} from "pages/MainPage";
+import {SecondPage} from "pages/SecondPage";
 import {Suspense} from "react";
-import {useTheme} from "./theme/useTheme";
+import {useTheme} from "app/providers/ThemeProvider";
+import {classNames} from "shared/lib/classNames/classNames";
 
 export default function App() {
     const {theme, toggleTheme} = useTheme();
 
     return (
-        <div className={`app ${theme}`}>
+        <div className={classNames('app', {}, [theme])}>
             <Link to={"/"}>{"Main"}</Link>
             <Link to={"/second"}>{"Second"}</Link>
             <button onClick={() => toggleTheme()}>Поменять оформление</button>
             <Suspense fallback={<div>{"...Loading"}</div>}>
                 <Routes>
-                    <Route path={"/"} Component={MainPageAsync}/>
-                    <Route path={"/second"} Component={SecondPageAsync}/>
+                    <Route path={"/"} Component={MainPage}/>
+                    <Route path={"/second"} Component={SecondPage}/>
                 </Routes>
             </Suspense>
         </div>
