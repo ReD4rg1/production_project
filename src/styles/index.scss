@@ -3,6 +3,23 @@
 @import "themes/normal";
 @import "themes/dark";
 
+
 .app {
-  font: var(--font-m);
+  $color: var(--primary-color);
+
+  font: var(--font-l);
+
+  background: var(--bg-color);
+  color: $color;
+
+  min-height: 100vh;
+  a {
+    color: $color;
+    text-decoration: underline;
+
+    &:visited {
+      $visited: #656565;
+      color: $visited;
+    }
+  }
 }
