@@ -1,10 +1,8 @@
 import "./styles/index.scss";
-import {Link, Route, Routes} from "react-router-dom";
-import {MainPage} from "pages/MainPage";
-import {SecondPage} from "pages/SecondPage";
-import {Suspense} from "react";
+import {Link} from "react-router-dom";
 import {useTheme} from "app/providers/ThemeProvider";
 import {classNames} from "shared/lib/classNames/classNames";
+import {AppRouter} from "app/providers/router";
 
 export default function App() {
     const {theme, toggleTheme} = useTheme();
@@ -14,12 +12,7 @@ export default function App() {
             <Link to={"/"}>{"Main"}</Link>
             <Link to={"/second"}>{"Second"}</Link>
             <button onClick={() => toggleTheme()}>Поменять оформление</button>
-            <Suspense fallback={<div>{"...Loading"}</div>}>
-                <Routes>
-                    <Route path={"/"} Component={MainPage}/>
-                    <Route path={"/second"} Component={SecondPage}/>
-                </Routes>
-            </Suspense>
+            <AppRouter/>
         </div>
     );
 };
