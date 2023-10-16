@@ -1,6 +1,6 @@
 {
-    "extends": ["react-app", "eslint:recommended"],
-    "plugins": ["prettier", "unused-imports", "react-hooks"],
+    "extends": ["react-app", "eslint:recommended", "plugin:i18next/recommended"],
+    "plugins": ["prettier", "unused-imports", "react-hooks", "i18next"],
     "rules": {
         "prettier/prettier": [
             "error",
@@ -25,7 +25,8 @@
         "prefer-const": "error",
         "no-eval": "error",
         "curly": ["error", "all"],
-        "no-empty": "off"
+        "no-empty": "off",
+        "i18next/no-literal-string": ["error", { "markupOnly": true }]
     },
     "globals": {
         "__IS_DEV__": true
