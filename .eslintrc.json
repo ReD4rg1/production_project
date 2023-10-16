@@ -1,0 +1,33 @@
+{
+    "extends": ["react-app", "eslint:recommended"],
+    "plugins": ["prettier", "unused-imports", "react-hooks"],
+    "rules": {
+        "prettier/prettier": [
+            "error",
+            {
+                "trailingComma": "es5"
+            }
+        ],
+        "unused-imports/no-unused-imports-ts": "error",
+        "comma-dangle": [
+            "error",
+            {
+                "arrays": "always-multiline",
+                "objects": "always-multiline",
+                "imports": "always-multiline",
+                "exports": "never",
+                "functions": "never"
+            }
+        ],
+        "no-unused-vars": "warn",
+        "no-console": "warn",
+        "no-var": "error",
+        "prefer-const": "error",
+        "no-eval": "error",
+        "curly": ["error", "all"],
+        "no-empty": "off"
+    },
+    "globals": {
+        "__IS_DEV__": true
+    }
+}
