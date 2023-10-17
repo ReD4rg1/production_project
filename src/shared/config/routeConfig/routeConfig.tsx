@@ -1,15 +1,18 @@
 import { RouteProps } from "react-router-dom";
 import { MainPage } from "pages/MainPage";
 import { SecondPage } from "pages/SecondPage";
+import { NotFoundPage } from "pages/NotFoundPage";
 
 export enum AppRoutes {
   MAIN = "main",
   SECOND = "second",
+  NOT_FOUND = "notFound",
 }
 
 export const RoutePath: Record<AppRoutes, string> = {
   [AppRoutes.MAIN]: "/",
   [AppRoutes.SECOND]: "/second",
+  [AppRoutes.NOT_FOUND]: "*",
 };
 
 export const routeConfig: Record<AppRoutes, RouteProps> = {
@@ -20,5 +23,9 @@ export const routeConfig: Record<AppRoutes, RouteProps> = {
   [AppRoutes.SECOND]: {
     path: RoutePath.second,
     element: <SecondPage />,
+  },
+  [AppRoutes.NOT_FOUND]: {
+    path: RoutePath.notFound,
+    element: <NotFoundPage />,
   },
 };
