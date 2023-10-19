@@ -1,6 +1,16 @@
 {
-    "extends": ["react-app", "eslint:recommended", "plugin:i18next/recommended"],
-    "plugins": ["prettier", "unused-imports", "react-hooks", "i18next"],
+    "extends": [
+        "react-app",
+        "eslint:recommended",
+        "plugin:i18next/recommended",
+        "plugin:storybook/recommended"
+    ],
+    "plugins": [
+        "prettier",
+        "unused-imports",
+        "react-hooks",
+        "i18next"
+    ],
     "rules": {
         "prettier/prettier": [
             "error",
@@ -24,18 +34,29 @@
         "no-var": "error",
         "prefer-const": "error",
         "no-eval": "error",
-        "curly": ["error", "all"],
+        "curly": [
+            "error",
+            "all"
+        ],
         "no-empty": "off",
-        "i18next/no-literal-string": ["error", { "markupOnly": true,
-            "ignoreAttribute": ["data-testid"]
-        }]
+        "i18next/no-literal-string": [
+            "error",
+            {
+                "markupOnly": true,
+                "ignoreAttribute": [
+                    "data-testid"
+                ]
+            }
+        ]
     },
     "globals": {
         "__IS_DEV__": true
     },
     "overrides": [
         {
-            "files": ["**/src/**/*.test.{ts,tsx}"],
+            "files": [
+                "**/src/**/*.test.{ts,tsx}"
+            ],
             "rules": {
                 "i18next/no-literal-string": "off"
             }
