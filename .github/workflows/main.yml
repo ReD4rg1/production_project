@@ -20,7 +20,7 @@ jobs:
       - name: install loki
         run: npm install loki --save-dev --force
       - name: install modules
-        run: npm install loki --save-dev --force
+        run: npm install
       - name: build production project
         run: npm run build:prod
       - name: linting typescript
