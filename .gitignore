@@ -5,8 +5,9 @@
 # production
 /build
 
-# tests
-/.loki/difference
+# ui test
+build-storybook.log
+/storybook-static
 
 # misc
 .env
