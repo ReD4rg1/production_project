@@ -5,6 +5,9 @@
 # production
 /build
 
+# tests
+/.loki/difference
+
 # misc
 .env
 .env.local
