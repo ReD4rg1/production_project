@@ -20,15 +20,14 @@ export function buildPlugins({
     new webpack.DefinePlugin({
       __IS_DEV__: JSON.stringify(isDev),
     }),
+    new BundleAnalyzerPlugin({
+      openAnalyzer: false,
+      analyzerMode: isDev ? "server" : "disabled",
+    }),
   ];
 
   if (isDev) {
     plugins.push(new webpack.HotModuleReplacementPlugin());
-    plugins.push(
-      new BundleAnalyzerPlugin({
-        openAnalyzer: false,
-      })
-    );
   }
 
   return plugins;
