@@ -1,5 +1,5 @@
 import { classNames } from "shared/lib/classNames/classNames";
-import { Button, ThemeButton } from "shared/ui/Button/Button";
+import { Button, ButtonTheme } from "shared/ui/Button/Button";
 import { Theme, useTheme } from "app/providers/ThemeProvider";
 import LightThemeIcon from "shared/assets/icons/language-light.svg";
 import DarkThemeIcon from "shared/assets/icons/language-dark.svg";
@@ -20,7 +20,7 @@ export const LanguageSwitcher = (props: LanguageSwitcherProps) => {
 
   return (
     <Button
-      theme={ThemeButton.CLEAR}
+      theme={ButtonTheme.CLEAR}
       className={classNames("", {}, [className])}
       onClick={toggleLanguage}
     >

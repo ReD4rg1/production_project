@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { Button, ThemeButton } from "./Button";
+import { Button, ButtonSize, ButtonTheme } from "./Button";
 import ThemeDecorator from "shared/config/storybook/ThemeDecorator/ThemeDecorator";
 import { Theme } from "app/providers/ThemeProvider";
 
@@ -24,14 +24,14 @@ export const PrimaryNormal: Story = {
 export const ClearNormal: Story = {
   args: {
     children: "ClearNormal",
-    theme: ThemeButton.CLEAR,
+    theme: ButtonTheme.CLEAR,
   },
 };
 
 export const OutlineNormal: Story = {
   args: {
     children: "OutlineNormal",
-    theme: ThemeButton.OUTLINE,
+    theme: ButtonTheme.OUTLINE,
   },
 };
 
@@ -45,7 +45,7 @@ export const PrimaryDark: Story = {
 export const ClearDark: Story = {
   args: {
     children: "ClearDark",
-    theme: ThemeButton.CLEAR,
+    theme: ButtonTheme.CLEAR,
   },
   decorators: [ThemeDecorator(Theme.DARK)],
 };
@@ -53,7 +53,28 @@ export const ClearDark: Story = {
 export const OutlineDark: Story = {
   args: {
     children: "OutlineDark",
-    theme: ThemeButton.OUTLINE,
+    theme: ButtonTheme.OUTLINE,
   },
   decorators: [ThemeDecorator(Theme.DARK)],
+};
+
+export const SizeM: Story = {
+  args: {
+    children: "SizeM",
+    size: ButtonSize.M,
+  },
+};
+
+export const SizeL: Story = {
+  args: {
+    children: "SizeL",
+    size: ButtonSize.L,
+  },
+};
+
+export const SizeXL: Story = {
+  args: {
+    children: "SizeXL",
+    size: ButtonSize.XL,
+  },
 };

@@ -1,6 +1,8 @@
 .button {
   cursor: pointer;
   color: var(--primary-color);
+  background: var(--bg-color);
+  border: none;
 }
 
 .clear {
@@ -12,7 +14,37 @@
 
 .outline {
   padding: 20px 15px;
-  border: 2px solid var(--primary-color);
+  border: 2px var(--secondary-color) solid;
   color: var(--primary-color);
   background: none;
+  transition: all 0.3s;
+
+  &:hover {
+    background: var(--secondary-bg-color);
+    border: 2px var(--primary-color) solid;
+    color: var(--secondary-color);
+  }
+
+  &:active {
+    background: var(--bg-color);
+    color: var(--primary-color);
+    border: 2px var(--secondary-color) solid;
+  }
+}
+
+// Sizes
+
+.size_m {
+  padding: 10px;
+  font: var(--font-m);
+}
+
+.size_l {
+  padding: 15px;
+  font: var(--font-l);
+}
+
+.size_xl {
+  padding: 20px;
+  font: var(--font-xl);
 }
