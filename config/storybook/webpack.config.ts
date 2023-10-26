@@ -26,6 +26,9 @@ export default ({ config }: { config: webpack.Configuration }) => {
     use: ["@svgr/webpack"],
   });
   config.module.rules.push(buildCssLoader(true));
+  config.resolve.alias = {
+    entities: path.resolve(__dirname, "..", "..", "src", "entities"),
+  };
 
   return config;
 };
