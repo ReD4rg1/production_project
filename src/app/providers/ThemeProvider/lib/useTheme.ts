@@ -3,7 +3,7 @@ import {
   Theme,
   ThemeContext,
 } from "../lib/ThemeContext";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 
 interface UseThemeResult {
   toggleTheme: () => void;
@@ -12,6 +12,10 @@ interface UseThemeResult {
 
 export function useTheme(): UseThemeResult {
   const { theme, setTheme } = useContext(ThemeContext);
+
+  useEffect(() => {
+    document.body.className = theme;
+  }, [theme]);
 
   const toggleTheme = () => {
     const newTheme = theme === Theme.DARK ? Theme.NORMAL : Theme.DARK;
