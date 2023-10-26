@@ -3,9 +3,9 @@ import cls from "./Navbar.module.scss";
 import { AppLink, AppLinkTheme } from "shared/ui/AppLink/AppLink";
 import { useTranslation } from "react-i18next";
 import { RoutePath } from "shared/config/routeConfig/routeConfig";
-import { Modal } from "shared/ui/Modal/Modal";
 import { useCallback, useState } from "react";
 import { Button, ButtonSize, ButtonTheme } from "shared/ui/Button/Button";
+import { LoginModal } from "features/AuthByUsername";
 
 interface NavbarProps {
   className?: string;
@@ -18,6 +18,10 @@ export const Navbar = (props: NavbarProps) => {
 
   const openModal = useCallback(() => {
     setModalIsOpen(true);
+  }, [setModalIsOpen]);
+
+  const closeModal = useCallback(() => {
+    setModalIsOpen(false);
   }, [setModalIsOpen]);
 
   return (
@@ -41,11 +45,7 @@ export const Navbar = (props: NavbarProps) => {
       <Button onClick={openModal} size={ButtonSize.M} theme={ButtonTheme.CLEAR}>
         {t("Войти")}
       </Button>
-      <Modal isOpen={modalIsOpen} onClose={() => setModalIsOpen(false)}>
-        {
-          "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci deserunt dolorum odit quam saepe sunt! Accusamus adipisci aperiam at exercitationem expedita facere molestias, natus, nostrum omnis pariatur quam quod, veritatis!"
-        }
-      </Modal>
+      <LoginModal isOpen={modalIsOpen} onClose={closeModal} />
     </div>
   );
 };
