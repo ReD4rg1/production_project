@@ -1,7 +1,7 @@
-import { counterReducer, CounterSchema } from "entities/Counter";
-import { counterActions } from "entities/Counter/model/slise/counterSlise";
+import { counterReducer, counterActions } from "./counterSlice";
+import { CounterSchema } from "../types/counterSchema";
 
-describe("counterSlise", () => {
+describe("counterSlice", () => {
   test("", () => {
     const state: CounterSchema = { value: 10 };
     expect(counterReducer(state, counterActions.decremented())).toEqual({
