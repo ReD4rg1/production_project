@@ -78,3 +78,18 @@ export const SizeXL: Story = {
     size: ButtonSize.XL,
   },
 };
+
+export const DisabledNormal: Story = {
+  args: {
+    children: "DisabledNormal",
+    disabled: true,
+  },
+};
+
+export const DisabledDark: Story = {
+  args: {
+    children: "DisabledDark",
+    disabled: true,
+  },
+  decorators: [ThemeDecorator(Theme.DARK)],
+};
