@@ -1,6 +1,12 @@
 import { classNames } from "shared/lib/classNames/classNames";
 import cls from "./Input.module.scss";
-import React, { InputHTMLAttributes, memo, useState } from "react";
+import React, {
+  InputHTMLAttributes,
+  memo,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 
 type HTMLInputProps = Omit<
   InputHTMLAttributes<HTMLInputElement>,
@@ -13,6 +19,7 @@ interface InputProps extends HTMLInputProps {
   onChange?: (value: string) => void;
   placeholder?: string;
   inputStyle?: InputStyle;
+  autofocus?: boolean;
 }
 
 export enum InputStyle {
@@ -28,11 +35,20 @@ export const Input = memo((props: InputProps) => {
     type = "text",
     placeholder,
     inputStyle = InputStyle.NORMAL,
+    autofocus,
     ...otherProps
   } = props;
 
   const [isFocused, setIsFocused] = useState(false);
   const [caretPosition, setCaretPosition] = useState(0);
+  const ref = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    if (autofocus) {
+      setIsFocused(true);
+      ref.current?.focus();
+    }
+  }, [autofocus]);
 
   const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     onChange?.(e.target.value);
@@ -55,11 +71,12 @@ export const Input = memo((props: InputProps) => {
     <div className={classNames(cls.inputWrapper, {}, [className])}>
       {inputStyle === InputStyle.CONSOLE && (
         <div className={cls.placeholder}>{`${
-          placeholder && placeholder
+          placeholder ? placeholder : ""
         }>`}</div>
       )}
       <div className={cls.caretWrapper}>
         <input
+          ref={ref}
           className={cls[inputStyle]}
           type={type}
           value={value}
