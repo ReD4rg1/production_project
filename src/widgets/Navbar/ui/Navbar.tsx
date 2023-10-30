@@ -6,6 +6,8 @@ import { RoutePath } from "shared/config/routeConfig/routeConfig";
 import { useCallback, useState } from "react";
 import { Button, ButtonSize, ButtonTheme } from "shared/ui/Button/Button";
 import { LoginModal } from "features/AuthByUsername";
+import { useDispatch, useSelector } from "react-redux";
+import { getUserAuthData, userActions } from "entities/User";
 
 interface NavbarProps {
   className?: string;
@@ -14,15 +16,36 @@ interface NavbarProps {
 export const Navbar = (props: NavbarProps) => {
   const { className } = props;
   const { t } = useTranslation();
-  const [modalIsOpen, setModalIsOpen] = useState(false);
+  const authData = useSelector(getUserAuthData);
+  const dispatch = useDispatch();
+  const [modalIsOpened, setModalIsOpened] = useState(false);
 
   const openModal = useCallback(() => {
-    setModalIsOpen(true);
-  }, [setModalIsOpen]);
+    setModalIsOpened(true);
+  }, [setModalIsOpened]);
 
   const closeModal = useCallback(() => {
-    setModalIsOpen(false);
-  }, [setModalIsOpen]);
+    setModalIsOpened(false);
+  }, [setModalIsOpened]);
+
+  const onLogout = useCallback(() => {
+    dispatch(userActions.logout());
+  }, [dispatch]);
+
+  if (!authData) {
+    return (
+      <div className={classNames(cls.navbar, {}, [className])}>
+        <Button
+          onClick={openModal}
+          size={ButtonSize.M}
+          theme={ButtonTheme.CLEAR}
+        >
+          {t("Войти")}
+        </Button>
+        <LoginModal isOpen={modalIsOpened} onClose={closeModal} />
+      </div>
+    );
+  }
 
   return (
     <div className={classNames(cls.navbar, {}, [className])}>
@@ -42,10 +65,9 @@ export const Navbar = (props: NavbarProps) => {
           {t("Второстепенная")}
         </AppLink>
       </div>
-      <Button onClick={openModal} size={ButtonSize.M} theme={ButtonTheme.CLEAR}>
-        {t("Войти")}
+      <Button onClick={onLogout} size={ButtonSize.M} theme={ButtonTheme.CLEAR}>
+        {t("Выйти")}
       </Button>
-      <LoginModal isOpen={modalIsOpen} onClose={closeModal} />
     </div>
   );
 };

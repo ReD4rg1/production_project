@@ -12,13 +12,6 @@
   outline: none;
 }
 
-.disabled {
-  background: var(--bg-color);
-  cursor: auto;
-  color: var(--secondary-color);
-  opacity: 0.5;
-}
-
 .outline {
   padding: 20px 15px;
   border: 2px var(--secondary-color) solid;
@@ -37,6 +30,13 @@
     color: var(--primary-color);
     border: 2px var(--secondary-color) solid;
   }
+}
+
+.disabled {
+  background: var(--bg-color);
+  cursor: auto;
+  color: var(--secondary-color);
+  opacity: 0.5;
 }
 
 // Sizes

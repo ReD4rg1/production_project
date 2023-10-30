@@ -1,0 +1,19 @@
+.normal {
+  .text {
+    color: var(--secondary-color)
+  }
+
+  .title {
+    color: var(--primary-color)
+  }
+}
+
+.error {
+  .text {
+    color: var(--error-color-dark)
+  }
+
+  .title {
+    color: var(--error-color)
+  }
+}
