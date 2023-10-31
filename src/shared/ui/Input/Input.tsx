@@ -84,7 +84,7 @@ export const Input = memo((props: InputProps) => {
           onBlur={onBlur}
           onFocus={onFocus}
           onSelect={onSelect}
-          placeholder={inputStyle !== InputStyle.CONSOLE && placeholder}
+          placeholder={inputStyle !== InputStyle.CONSOLE ? placeholder : ""}
           {...otherProps}
         />
         {inputStyle === InputStyle.CONSOLE && isFocused && (
