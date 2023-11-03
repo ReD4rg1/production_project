@@ -1,6 +1,6 @@
 import { classNames } from "shared/lib/classNames/classNames";
 import cls from "./Sidebar.module.scss";
-import { useState } from "react";
+import { memo, useState } from "react";
 import { ThemeSwitcher } from "shared/ui/ThemeSwitcher";
 import { LanguageSwitcher } from "shared/ui/LanguageSwitcher";
 import { Button, ButtonSize, ButtonTheme } from "shared/ui/Button/Button";
@@ -9,7 +9,7 @@ interface SidebarProps {
   className?: string;
 }
 
-export const Sidebar = (props: SidebarProps) => {
+export const Sidebar = memo((props: SidebarProps) => {
   const { className } = props;
   const [collapsed, setCollapsed] = useState(false);
 
@@ -40,4 +40,4 @@ export const Sidebar = (props: SidebarProps) => {
       </div>
     </div>
   );
-};
+});

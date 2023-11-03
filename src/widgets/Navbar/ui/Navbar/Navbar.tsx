@@ -1,19 +1,19 @@
 import { classNames } from "shared/lib/classNames/classNames";
 import cls from "./Navbar.module.scss";
-import { AppLink, AppLinkTheme } from "shared/ui/AppLink/AppLink";
 import { useTranslation } from "react-i18next";
-import { RoutePath } from "shared/config/routeConfig/routeConfig";
-import { useCallback, useState } from "react";
+import { memo, useCallback, useState } from "react";
 import { Button, ButtonSize, ButtonTheme } from "shared/ui/Button/Button";
 import { LoginModal } from "features/AuthByUsername";
 import { useDispatch, useSelector } from "react-redux";
 import { getUserAuthData, userActions } from "entities/User";
+import { NavbarItemsList } from "../../model/items";
+import { NavbarItem } from "../NavbarItem/NavbarItem";
 
 interface NavbarProps {
   className?: string;
 }
 
-export const Navbar = (props: NavbarProps) => {
+export const Navbar = memo((props: NavbarProps) => {
   const { className } = props;
   const { t } = useTranslation();
   const authData = useSelector(getUserAuthData);
@@ -32,6 +32,10 @@ export const Navbar = (props: NavbarProps) => {
     dispatch(userActions.logout());
   }, [dispatch]);
 
+  const itemsList = NavbarItemsList.map((item) => (
+    <NavbarItem item={item} key={item.path} />
+  ));
+
   if (!authData) {
     return (
       <div className={classNames(cls.navbar, {}, [className])}>
@@ -49,25 +53,10 @@ export const Navbar = (props: NavbarProps) => {
 
   return (
     <div className={classNames(cls.navbar, {}, [className])}>
-      <div className={classNames(cls.links)}>
-        <AppLink
-          className={cls.link}
-          theme={AppLinkTheme.SECONDARY}
-          to={RoutePath.main}
-        >
-          {t("Главная")}
-        </AppLink>
-        <AppLink
-          className={cls.link}
-          theme={AppLinkTheme.SECONDARY}
-          to={RoutePath.second}
-        >
-          {t("Второстепенная")}
-        </AppLink>
-      </div>
+      <div className={classNames(cls.links)}>{itemsList}</div>
       <Button onClick={onLogout} size={ButtonSize.M} theme={ButtonTheme.CLEAR}>
         {t("Выйти")}
       </Button>
     </div>
   );
-};
+});

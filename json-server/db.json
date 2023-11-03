@@ -25,5 +25,14 @@
       "password": "123"
     }
   ],
-  "profile": { "name": "typicode" }
+  "profile": {
+    "first": "Kirill",
+    "lastname": "Musenov",
+    "age": 21,
+    "currency": "KZT",
+    "country": "Kazakhstan",
+    "city": "Ust-Kamenogorsk",
+    "username": "admin",
+    "avatar": ""
+  }
 }

@@ -15,11 +15,11 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const NormalLoader: Story = {
+export const NormalTheme: Story = {
   args: {},
 };
 
-export const DarkLoader: Story = {
+export const DarkTheme: Story = {
   args: {},
   decorators: [ThemeDecorator(Theme.DARK)],
 };

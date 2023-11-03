@@ -4,12 +4,13 @@ import { Theme, useTheme } from "app/providers/ThemeProvider";
 import LightThemeIcon from "shared/assets/icons/language-light.svg";
 import DarkThemeIcon from "shared/assets/icons/language-dark.svg";
 import { useTranslation } from "react-i18next";
+import { memo } from "react";
 
 interface LanguageSwitcherProps {
   className?: string;
 }
 
-export const LanguageSwitcher = (props: LanguageSwitcherProps) => {
+export const LanguageSwitcher = memo((props: LanguageSwitcherProps) => {
   const { className } = props;
   const { theme } = useTheme();
   const { i18n } = useTranslation();
@@ -27,4 +28,4 @@ export const LanguageSwitcher = (props: LanguageSwitcherProps) => {
       {theme === Theme.DARK ? <LightThemeIcon /> : <DarkThemeIcon />}
     </Button>
   );
-};
+});
