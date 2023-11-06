@@ -8,14 +8,14 @@ import { StoreProvider } from "app/providers/StoreProvider";
 
 const root = document.getElementById("root");
 ReactDOM.render(
-  <StoreProvider>
-    <BrowserRouter>
+  <BrowserRouter>
+    <StoreProvider>
       <ErrorBoundary>
         <ThemeProvider>
           <App />
         </ThemeProvider>
       </ErrorBoundary>
-    </BrowserRouter>
-  </StoreProvider>,
+    </StoreProvider>
+  </BrowserRouter>,
   root
 );
