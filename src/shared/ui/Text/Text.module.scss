@@ -1,19 +1,33 @@
 .normal {
   .text {
-    color: var(--secondary-color)
+    color: var(--secondary-color);
   }
 
   .title {
-    color: var(--primary-color)
+    color: var(--primary-color);
+    font: var(--font-l);
   }
 }
 
 .error {
   .text {
-    color: var(--error-color-dark)
+    color: var(--error-color-dark);
   }
 
   .title {
-    color: var(--error-color)
+    color: var(--error-color);
+    font: var(--font-l);
   }
+}
+
+.left {
+  text-align: left;
+}
+
+.right {
+  text-align: right;
+}
+
+.center {
+  text-align: center;
 }

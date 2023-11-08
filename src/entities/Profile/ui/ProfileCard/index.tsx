@@ -1,41 +1,122 @@
 import { classNames } from "shared/lib/classNames/classNames";
 import cls from "./ProfileCard.module.scss";
-import { useSelector } from "react-redux";
-import { getProfileData } from "entities/Profile/model/selectors/getProfileData/getProfileData";
 import { useTranslation } from "react-i18next";
-import { Text } from "shared/ui/Text/Text";
-import { Button, ButtonTheme } from "shared/ui/Button/Button";
-import { Input } from "shared/ui/Input/Input";
+import { Text, TextAlign, TextTheme } from "shared/ui/Text/Text";
+import { Input, InputStyle } from "shared/ui/Input/Input";
+import { Profile } from "../../model/types/profile";
+import { Loader } from "shared/ui/Loader/Loader";
 
 interface ProfileCardProps {
   className?: string;
+  data?: Profile;
+  isLoading?: boolean;
+  error?: string;
+  readonly?: boolean;
+  onChangeLastname?: () => void;
+  onChangeFirstname?: () => void;
+  onChangeAge?: () => void;
+  onChangeCity?: () => void;
+  onChangeCurrency?: () => void;
+  onChangeCountry?: () => void;
+  onChangeAvatar?: () => void;
 }
 
 export const ProfileCard = (props: ProfileCardProps) => {
-  const { className } = props;
+  const {
+    className,
+    data,
+    error,
+    isLoading,
+    readonly,
+    onChangeLastname,
+    onChangeFirstname,
+    onChangeAge,
+    onChangeAvatar,
+    onChangeCity,
+  } = props;
   const { t } = useTranslation("profile");
-  const data = useSelector(getProfileData);
-  //const error = useSelector(getProfileError);
-  //const isLoading = useSelector(getProfileIsLoading);
+
+  if (isLoading) {
+    return (
+      <div
+        className={classNames(cls.profileCard, {}, [className, cls.loading])}
+      >
+        <Loader />
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className={classNames(cls.profileCard, {}, [className, cls.error])}>
+        <Text
+          theme={TextTheme.ERROR}
+          title={t("Произошла ошибка при загрузке профиля")}
+          text={t("Попробуйте обновить страницу")}
+          align={TextAlign.CENTER}
+        />
+      </div>
+    );
+  }
 
   return (
     <div className={classNames(cls.profileCard, {}, [className])}>
-      <div className={cls.header}>
-        <Text title={t("Профиль")} />
-        <Button className={cls.editBtn} theme={ButtonTheme.OUTLINE}>
-          {t("Редактировать")}
-        </Button>
-      </div>
       <div className={cls.data}>
         <Input
           className={cls.input}
           value={data?.first}
+          inputStyle={InputStyle.CONSOLE}
+          onChange={onChangeFirstname}
+          readonly={readonly}
           placeholder={t("Ваше имя")}
         />
         <Input
           className={cls.input}
           value={data?.lastname}
+          inputStyle={InputStyle.CONSOLE}
+          onChange={onChangeLastname}
+          readonly={readonly}
           placeholder={t("Ваша фамилия")}
+        />
+        <Input
+          className={cls.input}
+          value={data?.age}
+          inputStyle={InputStyle.CONSOLE}
+          onChange={onChangeAge}
+          readonly={readonly}
+          placeholder={t("Ваш возраст")}
+        />
+        <Input
+          className={cls.input}
+          value={data?.city}
+          inputStyle={InputStyle.CONSOLE}
+          onChange={onChangeCity}
+          readonly={readonly}
+          placeholder={t("Ваш город")}
+        />
+        {/*<Input
+          className={cls.input}
+          value={data?.currency}
+          inputStyle={InputStyle.CONSOLE}
+          onChange={onChangeLastname}
+          readonly={readonly}
+          placeholder={t("Ваша валюта")}
+        />
+        <Input
+          className={cls.input}
+          value={data?.country}
+          inputStyle={InputStyle.CONSOLE}
+          onChange={onChangeLastname}
+          readonly={readonly}
+          placeholder={t("Ваша страна")}
+        />*/}
+        <Input
+          className={cls.input}
+          value={data?.avatar}
+          inputStyle={InputStyle.CONSOLE}
+          onChange={onChangeAvatar}
+          readonly={readonly}
+          placeholder={t("Ссылка на аватар")}
         />
       </div>
     </div>

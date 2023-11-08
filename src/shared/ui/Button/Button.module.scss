@@ -32,6 +32,26 @@
   }
 }
 
+.outline_red {
+  padding: 20px 15px;
+  border: 2px var(--error-color-dark) solid;
+  color: var(--error-color-dark);
+  background: none;
+  transition: all 0.3s;
+
+  &:hover {
+    background: var(--secondary-bg-color);
+    border: 2px var(--error-color) solid;
+    color: var(--error-color);
+  }
+
+  &:active {
+    background: var(--bg-color);
+    color: var(--error-color);
+    border: 2px var(--error-color) solid;
+  }
+}
+
 .disabled {
   background: var(--bg-color);
   cursor: auto;
