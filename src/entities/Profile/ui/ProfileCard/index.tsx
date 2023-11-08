@@ -5,6 +5,7 @@ import { Text, TextAlign, TextTheme } from "shared/ui/Text/Text";
 import { Input, InputStyle } from "shared/ui/Input/Input";
 import { Profile } from "../../model/types/profile";
 import { Loader } from "shared/ui/Loader/Loader";
+import { Avatar } from "shared/ui/Avatar/Avatar";
 
 interface ProfileCardProps {
   className?: string;
@@ -19,6 +20,7 @@ interface ProfileCardProps {
   onChangeCurrency?: () => void;
   onChangeCountry?: () => void;
   onChangeAvatar?: () => void;
+  onChangeUsername?: () => void;
 }
 
 export const ProfileCard = (props: ProfileCardProps) => {
@@ -33,6 +35,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
     onChangeAge,
     onChangeAvatar,
     onChangeCity,
+    onChangeUsername,
   } = props;
   const { t } = useTranslation("profile");
 
@@ -62,6 +65,9 @@ export const ProfileCard = (props: ProfileCardProps) => {
   return (
     <div className={classNames(cls.profileCard, {}, [className])}>
       <div className={cls.data}>
+        <div className={cls.avatarWrapper}>
+          <Avatar src={data?.avatar} />
+        </div>
         <Input
           className={cls.input}
           value={data?.first}
@@ -117,6 +123,14 @@ export const ProfileCard = (props: ProfileCardProps) => {
           onChange={onChangeAvatar}
           readonly={readonly}
           placeholder={t("Ссылка на аватар")}
+        />
+        <Input
+          className={cls.input}
+          value={data?.username}
+          inputStyle={InputStyle.CONSOLE}
+          onChange={onChangeUsername}
+          readonly={readonly}
+          placeholder={t("Имя пользователя")}
         />
       </div>
     </div>

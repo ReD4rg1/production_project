@@ -85,6 +85,13 @@ const ProfilePage = () => {
     [dispatch]
   );
 
+  const onChangeUsername = useCallback(
+    (value: string = "") => {
+      dispatch(profileActions.updateProfile({ username: value }));
+    },
+    [dispatch]
+  );
+
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
       <div>
@@ -101,6 +108,7 @@ const ProfilePage = () => {
           onChangeCurrency={onChangeCurrency}
           onChangeAge={onChangeAge}
           onChangeAvatar={onChangeAvatar}
+          onChangeUsername={onChangeUsername}
         />
       </div>
     </DynamicModuleLoader>
