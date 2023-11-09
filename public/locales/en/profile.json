@@ -12,5 +12,8 @@
   "Ссылка на аватар": "Link to your avatar image",
   "Ваша страна": "Your country",
   "Ваша валюта": "Your current",
-  "Имя пользователя": "Username"
+  "Имя пользователя": "Username",
+  "Укажите валюту": "Select currency",
+  "Страна": "Country",
+  "Валюта": "Current"
 }

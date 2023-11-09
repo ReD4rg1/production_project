@@ -39,6 +39,7 @@ export const Navbar = memo((props: NavbarProps) => {
   if (!authData) {
     return (
       <div className={classNames(cls.navbar, {}, [className])}>
+        <div className={classNames(cls.links)}>{itemsList}</div>
         <Button
           onClick={openModal}
           size={ButtonSize.M}

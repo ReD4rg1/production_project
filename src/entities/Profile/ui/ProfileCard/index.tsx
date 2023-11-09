@@ -1,4 +1,4 @@
-import { classNames } from "shared/lib/classNames/classNames";
+import { classNames, Mods } from "shared/lib/classNames/classNames";
 import cls from "./ProfileCard.module.scss";
 import { useTranslation } from "react-i18next";
 import { Text, TextAlign, TextTheme } from "shared/ui/Text/Text";
@@ -6,6 +6,8 @@ import { Input, InputStyle } from "shared/ui/Input/Input";
 import { Profile } from "../../model/types/profile";
 import { Loader } from "shared/ui/Loader/Loader";
 import { Avatar } from "shared/ui/Avatar/Avatar";
+import { CurrencySelect } from "entities/Currency";
+import { CountrySelect } from "entities/Country";
 
 interface ProfileCardProps {
   className?: string;
@@ -36,6 +38,8 @@ export const ProfileCard = (props: ProfileCardProps) => {
     onChangeAvatar,
     onChangeCity,
     onChangeUsername,
+    onChangeCurrency,
+    onChangeCountry,
   } = props;
   const { t } = useTranslation("profile");
 
@@ -62,8 +66,12 @@ export const ProfileCard = (props: ProfileCardProps) => {
     );
   }
 
+  const mods: Mods = {
+    [cls.editing]: !readonly,
+  };
+
   return (
-    <div className={classNames(cls.profileCard, {}, [className])}>
+    <div className={classNames(cls.profileCard, mods, [className])}>
       <div className={cls.data}>
         <div className={cls.avatarWrapper}>
           <Avatar src={data?.avatar} />
@@ -100,22 +108,18 @@ export const ProfileCard = (props: ProfileCardProps) => {
           readonly={readonly}
           placeholder={t("Ваш город")}
         />
-        {/*<Input
+        <CurrencySelect
           className={cls.input}
           value={data?.currency}
-          inputStyle={InputStyle.CONSOLE}
-          onChange={onChangeLastname}
+          onChange={onChangeCurrency}
           readonly={readonly}
-          placeholder={t("Ваша валюта")}
         />
-        <Input
+        <CountrySelect
           className={cls.input}
           value={data?.country}
-          inputStyle={InputStyle.CONSOLE}
-          onChange={onChangeLastname}
+          onChange={onChangeCountry}
           readonly={readonly}
-          placeholder={t("Ваша страна")}
-        />*/}
+        />
         <Input
           className={cls.input}
           value={data?.avatar}

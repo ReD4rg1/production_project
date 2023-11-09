@@ -16,7 +16,8 @@ import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch";
 import { useCallback, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { ProfilePageHeader } from "./ProfilePageHeader/ProfilePageHeader";
-import { Country, Currency } from "shared/const/common";
+import { Currency } from "entities/Currency";
+import { Country } from "entities/Country/model/types/country";
 
 const reducers: ReducerList = {
   profile: profileReducer,
