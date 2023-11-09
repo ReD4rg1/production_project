@@ -15,5 +15,10 @@
   "Имя пользователя": "Username",
   "Укажите валюту": "Select currency",
   "Страна": "Country",
-  "Валюта": "Current"
+  "Валюта": "Current",
+  "Ошибка сервера": "Server error",
+  "Нет данных": "No data",
+  "Неверное название города": "Incorrect city",
+  "Неверный возраст": "Incorrect age",
+  "Неправильные имя или фамилия": "Incorrect firstname or lastname"
 }

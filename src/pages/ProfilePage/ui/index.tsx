@@ -8,9 +8,11 @@ import {
   getProfileForm,
   getProfileIsLoading,
   getProfileReadonly,
+  getProfileValidateErrors,
   profileActions,
   ProfileCard,
   profileReducer,
+  ValidateProfileError,
 } from "entities/Profile";
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch";
 import { useCallback, useEffect } from "react";
@@ -18,6 +20,8 @@ import { useSelector } from "react-redux";
 import { ProfilePageHeader } from "./ProfilePageHeader/ProfilePageHeader";
 import { Currency } from "entities/Currency";
 import { Country } from "entities/Country/model/types/country";
+import { Text, TextTheme } from "shared/ui/Text/Text";
+import { useTranslation } from "react-i18next";
 
 const reducers: ReducerList = {
   profile: profileReducer,
@@ -29,6 +33,18 @@ const ProfilePage = () => {
   const error = useSelector(getProfileError);
   const isLoading = useSelector(getProfileIsLoading);
   const readonly = useSelector(getProfileReadonly);
+  const validateErrors = useSelector(getProfileValidateErrors);
+  const { t } = useTranslation("profile");
+
+  const validateErrorTranslates = {
+    [ValidateProfileError.SERVER_ERROR]: t("Ошибка сервера"),
+    [ValidateProfileError.NO_DATA]: t("Нет данных"),
+    [ValidateProfileError.INCORRECT_CITY]: t("Неверное название города"),
+    [ValidateProfileError.INCORRECT_AGE]: t("Неверный возраст"),
+    [ValidateProfileError.INCORRECT_USER_DATA]: t(
+      "Неправильные имя или фамилия"
+    ),
+  };
 
   useEffect(() => {
     dispatch(fetchProfileData());
@@ -97,6 +113,14 @@ const ProfilePage = () => {
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
       <div>
         <ProfilePageHeader />
+        {validateErrors?.length &&
+          validateErrors.map((err) => (
+            <Text
+              theme={TextTheme.ERROR}
+              text={validateErrorTranslates[err]}
+              key={err}
+            />
+          ))}
         <ProfileCard
           data={form}
           isLoading={isLoading}
