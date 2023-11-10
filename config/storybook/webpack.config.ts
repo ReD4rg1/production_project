@@ -3,6 +3,7 @@ import { BuildPaths } from "../build/types/config";
 import path from "path";
 import { buildCssLoader } from "../build/loaders/buildCssLoader";
 
+// eslint-disable-next-line import/no-anonymous-default-export
 export default ({ config }: { config: webpack.Configuration }) => {
   const paths: BuildPaths = {
     build: "",
@@ -33,8 +34,9 @@ export default ({ config }: { config: webpack.Configuration }) => {
 
   config!.plugins!.push(
     new DefinePlugin({
-      __IS_DEV__: true,
-      __API__: "",
+      __IS_DEV__: JSON.stringify(true),
+      __API__: JSON.stringify(""),
+      __PROJECT__: JSON.stringify("storybook"),
     })
   );
 

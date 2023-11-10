@@ -2,9 +2,9 @@ import "app/styles/index.scss";
 import { Story } from "@storybook/react";
 
 const StyleDecorator = (Story: Story) => (
-  <div>
+  <body>
     <Story />
-  </div>
+  </body>
 );
 
 export default StyleDecorator;

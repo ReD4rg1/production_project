@@ -3,6 +3,7 @@ import { buildWebpackConfig } from "./config/build/buildWebpackConfig";
 import { BuildEnv, BuildMode, BuildPaths } from "./config/build/types/config";
 import path from "path";
 
+// eslint-disable-next-line import/no-anonymous-default-export
 export default (env: BuildEnv): webpack.Configuration => {
   const paths: BuildPaths = {
     entry: path.resolve(__dirname, "src", "index.tsx"),
@@ -23,5 +24,6 @@ export default (env: BuildEnv): webpack.Configuration => {
     isDev,
     port,
     apiUrl,
+    project: "frontend",
   });
 };
