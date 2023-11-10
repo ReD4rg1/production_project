@@ -28,6 +28,13 @@ export const TextDark: Story = {
   decorators: [ThemeDecorator(Theme.DARK)],
 };
 
+export const TextRed: Story = {
+  args: {
+    text: "TextRed",
+  },
+  decorators: [ThemeDecorator(Theme.RED)],
+};
+
 export const TitleNormal: Story = {
   args: {
     title: "TitleNormal",
@@ -39,6 +46,13 @@ export const TitleDark: Story = {
     title: "TitleDark",
   },
   decorators: [ThemeDecorator(Theme.DARK)],
+};
+
+export const TitleRed: Story = {
+  args: {
+    title: "TitleRed",
+  },
+  decorators: [ThemeDecorator(Theme.RED)],
 };
 
 export const TitleTextNormal: Story = {
@@ -56,11 +70,36 @@ export const TitleTextDark: Story = {
   decorators: [ThemeDecorator(Theme.DARK)],
 };
 
+export const TitleTextRed: Story = {
+  args: {
+    title: "TitleRed",
+    text: "TextRed",
+  },
+  decorators: [ThemeDecorator(Theme.RED)],
+};
+
 export const TitleTextError: Story = {
+  args: {
+    title: "TitleNormal",
+    text: "TextNormal",
+    theme: TextTheme.ERROR,
+  },
+};
+
+export const DarkTitleTextError: Story = {
   args: {
     title: "TitleDark",
     text: "TextDark",
     theme: TextTheme.ERROR,
   },
   decorators: [ThemeDecorator(Theme.DARK)],
+};
+
+export const RedTitleTextError: Story = {
+  args: {
+    title: "TitleRed",
+    text: "TextRed",
+    theme: TextTheme.ERROR,
+  },
+  decorators: [ThemeDecorator(Theme.RED)],
 };

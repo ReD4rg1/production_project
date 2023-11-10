@@ -35,6 +35,16 @@ export const DarkNavbar: Story = {
   ],
 };
 
+export const RedNavbar: Story = {
+  args: {},
+  decorators: [
+    ThemeDecorator(Theme.RED),
+    StoreDecorator({
+      user: { authData: { id: "1", username: "admin" } },
+    }),
+  ],
+};
+
 export const NormalUnAuthorizationNavbar: Story = {
   args: {},
   decorators: [StoreDecorator({})],
@@ -43,4 +53,9 @@ export const NormalUnAuthorizationNavbar: Story = {
 export const DarkUnAuthorizationNavbar: Story = {
   args: {},
   decorators: [ThemeDecorator(Theme.DARK), StoreDecorator({})],
+};
+
+export const RedUnAuthorizationNavbar: Story = {
+  args: {},
+  decorators: [ThemeDecorator(Theme.RED), StoreDecorator({})],
 };

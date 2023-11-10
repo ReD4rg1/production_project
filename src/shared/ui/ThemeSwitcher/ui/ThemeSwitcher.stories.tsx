@@ -23,3 +23,8 @@ export const DarkThemeSwitcher: Story = {
   args: {},
   decorators: [ThemeDecorator(Theme.DARK)],
 };
+
+export const RedThemeSwitcher: Story = {
+  args: {},
+  decorators: [ThemeDecorator(Theme.RED)],
+};

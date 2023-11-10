@@ -3,14 +3,14 @@ import { Button, ButtonTheme } from "shared/ui/Button/Button";
 import { Theme, useTheme } from "app/providers/ThemeProvider";
 import LightThemeIcon from "shared/assets/icons/language-light.svg";
 import DarkThemeIcon from "shared/assets/icons/language-dark.svg";
+import RedThemeIcon from "shared/assets/icons/language-red.svg";
 import { useTranslation } from "react-i18next";
-import { memo } from "react";
 
 interface LanguageSwitcherProps {
   className?: string;
 }
 
-export const LanguageSwitcher = memo((props: LanguageSwitcherProps) => {
+export const LanguageSwitcher = (props: LanguageSwitcherProps) => {
   const { className } = props;
   const { theme } = useTheme();
   const { i18n } = useTranslation();
@@ -25,7 +25,9 @@ export const LanguageSwitcher = memo((props: LanguageSwitcherProps) => {
       className={classNames("", {}, [className])}
       onClick={toggleLanguage}
     >
-      {theme === Theme.DARK ? <LightThemeIcon /> : <DarkThemeIcon />}
+      {theme === Theme.DARK && <LightThemeIcon />}
+      {theme === Theme.NORMAL && <RedThemeIcon />}
+      {theme === Theme.RED && <DarkThemeIcon />}
     </Button>
   );
-});
+};

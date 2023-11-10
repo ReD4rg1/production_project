@@ -42,3 +42,11 @@ export const DarkTheme: Story = {
     StoreDecorator({ profile: { form: data } }),
   ],
 };
+
+export const RedTheme: Story = {
+  args: {},
+  decorators: [
+    ThemeDecorator(Theme.RED),
+    StoreDecorator({ profile: { form: data } }),
+  ],
+};

@@ -23,3 +23,8 @@ export const DarkPageError: Story = {
   args: {},
   decorators: [ThemeDecorator(Theme.DARK)],
 };
+
+export const RedPageError: Story = {
+  args: {},
+  decorators: [ThemeDecorator(Theme.RED)],
+};

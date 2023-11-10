@@ -58,6 +58,29 @@ export const OutlineDark: Story = {
   decorators: [ThemeDecorator(Theme.DARK)],
 };
 
+export const PrimaryRed: Story = {
+  args: {
+    children: "PrimaryRed",
+  },
+  decorators: [ThemeDecorator(Theme.RED)],
+};
+
+export const ClearRed: Story = {
+  args: {
+    children: "ClearRed",
+    theme: ButtonTheme.CLEAR,
+  },
+  decorators: [ThemeDecorator(Theme.RED)],
+};
+
+export const OutlineRed: Story = {
+  args: {
+    children: "OutlineRed",
+    theme: ButtonTheme.OUTLINE,
+  },
+  decorators: [ThemeDecorator(Theme.RED)],
+};
+
 export const SizeM: Story = {
   args: {
     children: "SizeM",
@@ -92,4 +115,12 @@ export const DisabledDark: Story = {
     disabled: true,
   },
   decorators: [ThemeDecorator(Theme.DARK)],
+};
+
+export const DisabledRed: Story = {
+  args: {
+    children: "DisabledRed",
+    disabled: true,
+  },
+  decorators: [ThemeDecorator(Theme.RED)],
 };

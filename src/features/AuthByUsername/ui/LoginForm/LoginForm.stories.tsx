@@ -35,7 +35,26 @@ export const DarkLoginForm: Story = {
   ],
 };
 
+export const RedLoginForm: Story = {
+  args: {},
+  decorators: [
+    themeDecorator(Theme.RED),
+    storeDecorator({
+      loginForm: { username: "123", password: "123" },
+    }),
+  ],
+};
+
 export const NormalWithErrorLoginForm: Story = {
+  args: {},
+  decorators: [
+    storeDecorator({
+      loginForm: { error: "ERROR" },
+    }),
+  ],
+};
+
+export const DarkWithErrorLoginForm: Story = {
   args: {},
   decorators: [
     themeDecorator(Theme.DARK),
@@ -45,10 +64,39 @@ export const NormalWithErrorLoginForm: Story = {
   ],
 };
 
+export const RedWithErrorLoginForm: Story = {
+  args: {},
+  decorators: [
+    themeDecorator(Theme.RED),
+    storeDecorator({
+      loginForm: { error: "ERROR" },
+    }),
+  ],
+};
+
 export const NormalWithLoadingLoginForm: Story = {
   args: {},
   decorators: [
+    storeDecorator({
+      loginForm: { isLoading: true },
+    }),
+  ],
+};
+
+export const DarkWithLoadingLoginForm: Story = {
+  args: {},
+  decorators: [
     themeDecorator(Theme.DARK),
+    storeDecorator({
+      loginForm: { isLoading: true },
+    }),
+  ],
+};
+
+export const RedWithLoadingLoginForm: Story = {
+  args: {},
+  decorators: [
+    themeDecorator(Theme.RED),
     storeDecorator({
       loginForm: { isLoading: true },
     }),

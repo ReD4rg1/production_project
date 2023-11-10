@@ -23,3 +23,8 @@ export const DarkSidebar: Story = {
   args: {},
   decorators: [ThemeDecorator(Theme.DARK)],
 };
+
+export const RedSidebar: Story = {
+  args: {},
+  decorators: [ThemeDecorator(Theme.RED)],
+};

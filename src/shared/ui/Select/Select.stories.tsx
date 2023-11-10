@@ -15,7 +15,7 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Normal: Story = {
+export const NormalSelect: Story = {
   args: {
     label: "Normal",
     options: [
@@ -25,13 +25,24 @@ export const Normal: Story = {
   },
 };
 
-export const Dark: Story = {
+export const DarkSelect: Story = {
   args: {
-    label: "Normal",
+    label: "DarkSelect",
     options: [
       { value: "1", content: "1" },
       { value: "2", content: "2" },
     ],
   },
   decorators: [ThemeDecorator(Theme.DARK)],
+};
+
+export const RedSelect: Story = {
+  args: {
+    label: "RedSelect",
+    options: [
+      { value: "1", content: "1" },
+      { value: "2", content: "2" },
+    ],
+  },
+  decorators: [ThemeDecorator(Theme.RED)],
 };

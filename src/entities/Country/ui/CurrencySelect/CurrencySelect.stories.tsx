@@ -15,11 +15,16 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Normal: Story = {
+export const NormalCountrySelect: Story = {
   args: {},
 };
 
-export const Dark: Story = {
+export const DarkCountrySelect: Story = {
   args: {},
   decorators: [ThemeDecorator(Theme.DARK)],
+};
+
+export const RedCountrySelect: Story = {
+  args: {},
+  decorators: [ThemeDecorator(Theme.RED)],
 };

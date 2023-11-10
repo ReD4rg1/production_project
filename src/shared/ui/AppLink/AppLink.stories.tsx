@@ -33,7 +33,7 @@ export const SecondaryAppLink: Story = {
 
 export const DarkPrimaryAppLink: Story = {
   args: {
-    children: "PrimaryAppLink",
+    children: "DarkPrimaryAppLink",
     to: "/",
     theme: AppLinkTheme.PRIMARY,
   },
@@ -42,9 +42,27 @@ export const DarkPrimaryAppLink: Story = {
 
 export const DarkSecondaryAppLink: Story = {
   args: {
-    children: "SecondaryAppLink",
+    children: "DarkSecondaryAppLink",
     to: "/",
     theme: AppLinkTheme.SECONDARY,
   },
   decorators: [ThemeDecorator(Theme.DARK)],
+};
+
+export const RedPrimaryAppLink: Story = {
+  args: {
+    children: "RedPrimaryAppLink",
+    to: "/",
+    theme: AppLinkTheme.PRIMARY,
+  },
+  decorators: [ThemeDecorator(Theme.RED)],
+};
+
+export const RedSecondaryAppLink: Story = {
+  args: {
+    children: "RedSecondaryAppLink",
+    to: "/",
+    theme: AppLinkTheme.SECONDARY,
+  },
+  decorators: [ThemeDecorator(Theme.RED)],
 };
