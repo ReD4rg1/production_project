@@ -8,5 +8,6 @@
   "Форма авторизации": "Authorization form",
   "Неправильные логин или пароль": "Wrong username or password",
   "Выйти": "Logout",
-  "Страница профиля": "Profile page"
+  "Страница профиля": "Profile page",
+  "Страница постов": "Posts page"
 }
