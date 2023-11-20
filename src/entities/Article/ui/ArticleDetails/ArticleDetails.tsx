@@ -12,9 +12,14 @@ import { useSelector } from "react-redux";
 import {
   getArticleDetailsData,
   getArticleDetailsError,
+  getArticleDetailsIsLoading,
 } from "../../model/selectors/articleDetails";
 import { Text, TextTheme } from "shared/ui/Text/Text";
 import { Skeleton } from "shared/ui/Skeleton/Skeleton";
+import { Avatar } from "shared/ui/Avatar/Avatar";
+import EyeIcon from "shared/assets/icons/eye.svg";
+import CalendarIcon from "shared/assets/icons/calendar-lines-pen.svg";
+import { Icon } from "shared/ui/Icon/Icon";
 
 interface ArticleDetailsProps {
   className?: string;
@@ -29,7 +34,7 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
   const { className, id } = props;
   const dispatch = useAppDispatch();
   //const isLoading = useSelector(getArticleDetailsIsLoading);
-  const isLoading = true;
+  const isLoading = useSelector(getArticleDetailsIsLoading);
   const article = useSelector(getArticleDetailsData);
   const error = useSelector(getArticleDetailsError);
 
@@ -57,7 +62,26 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
   } else if (error) {
     content = <Text theme={TextTheme.ERROR} title={error} />;
   } else {
-    content = <div>{"ArticleDetailsPage"}</div>;
+    content = (
+      <div>
+        <div className={cls.avatarWrapper}>
+          <Avatar size={200} src={article?.img} className={cls.avatar} />
+        </div>
+        <Text
+          title={article?.title}
+          className={cls.title}
+          text={article?.subtitle}
+        />
+        <div className={cls.articleInfo}>
+          <Icon Svg={EyeIcon} className={cls.icon} />
+          <Text text={String(article?.views)} />
+        </div>
+        <div className={cls.articleInfo}>
+          <Icon Svg={CalendarIcon} className={cls.icon} />
+          <Text text={article?.createdAt} />
+        </div>
+      </div>
+    );
   }
 
   return (

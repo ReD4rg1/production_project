@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import ThemeDecorator from "shared/config/storybook/ThemeDecorator/ThemeDecorator";
 import { Theme } from "app/providers/ThemeProvider";
-import { Text, TextTheme } from "shared/ui/Text/Text";
+import { Text, TextSize, TextTheme } from "shared/ui/Text/Text";
 
 const meta = {
   title: "shared/Text",
@@ -102,4 +102,28 @@ export const RedTitleTextError: Story = {
     theme: TextTheme.ERROR,
   },
   decorators: [ThemeDecorator(Theme.RED)],
+};
+
+export const TextSizeM: Story = {
+  args: {
+    title: "TitleSizeM",
+    text: "TitleSizeM",
+    size: TextSize.M,
+  },
+};
+
+export const TextSizeL: Story = {
+  args: {
+    title: "TitleSizeL",
+    text: "TitleSizeL",
+    size: TextSize.L,
+  },
+};
+
+export const TextSizeXL: Story = {
+  args: {
+    title: "TitleSizeXL",
+    text: "TitleSizeXL",
+    size: TextSize.XL,
+  },
 };
