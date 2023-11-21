@@ -1,0 +1,42 @@
+import type { Meta, StoryObj } from "@storybook/react";
+import ThemeDecorator from "shared/config/storybook/ThemeDecorator/ThemeDecorator";
+import { Theme } from "app/providers/ThemeProvider";
+import { CommentCard } from "./CommentCard";
+import { CommentType } from "entities/Comment";
+
+const meta = {
+  title: "entities/CommentCard",
+  component: CommentCard,
+  parameters: {
+    layout: "centered",
+  },
+  tags: ["autodocs"],
+} satisfies Meta<typeof CommentCard>;
+
+export default meta;
+type Story = StoryObj<typeof meta>;
+
+const comment: CommentType = {
+  id: "3",
+  text: "some comment 3",
+  articleId: "1",
+  user: {
+    id: "1",
+    username: "admin",
+    avatar: "",
+  },
+};
+
+export const NormalTheme: Story = {
+  args: { comment },
+};
+
+export const DarkTheme: Story = {
+  args: { comment },
+  decorators: [ThemeDecorator(Theme.DARK)],
+};
+
+export const RedTheme: Story = {
+  args: { comment },
+  decorators: [ThemeDecorator(Theme.RED)],
+};
