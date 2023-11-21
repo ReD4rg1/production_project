@@ -19,6 +19,7 @@ export const PrimaryNormal: Story = {
   args: {
     children: "PrimaryNormal",
   },
+  decorators: [ThemeDecorator(Theme.NORMAL)],
 };
 
 export const ClearNormal: Story = {
@@ -26,6 +27,7 @@ export const ClearNormal: Story = {
     children: "ClearNormal",
     theme: ButtonTheme.CLEAR,
   },
+  decorators: [ThemeDecorator(Theme.NORMAL)],
 };
 
 export const OutlineNormal: Story = {
@@ -33,6 +35,7 @@ export const OutlineNormal: Story = {
     children: "OutlineNormal",
     theme: ButtonTheme.OUTLINE,
   },
+  decorators: [ThemeDecorator(Theme.NORMAL)],
 };
 
 export const PrimaryDark: Story = {
@@ -86,6 +89,7 @@ export const SizeM: Story = {
     children: "SizeM",
     size: ButtonSize.M,
   },
+  decorators: [ThemeDecorator(Theme.NORMAL)],
 };
 
 export const SizeL: Story = {
@@ -93,6 +97,7 @@ export const SizeL: Story = {
     children: "SizeL",
     size: ButtonSize.L,
   },
+  decorators: [ThemeDecorator(Theme.NORMAL)],
 };
 
 export const SizeXL: Story = {
@@ -100,6 +105,7 @@ export const SizeXL: Story = {
     children: "SizeXL",
     size: ButtonSize.XL,
   },
+  decorators: [ThemeDecorator(Theme.NORMAL)],
 };
 
 export const DisabledNormal: Story = {
@@ -107,6 +113,7 @@ export const DisabledNormal: Story = {
     children: "DisabledNormal",
     disabled: true,
   },
+  decorators: [ThemeDecorator(Theme.NORMAL)],
 };
 
 export const DisabledDark: Story = {

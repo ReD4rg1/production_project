@@ -21,6 +21,7 @@ export const PrimaryAppLink: Story = {
     to: "/",
     theme: AppLinkTheme.PRIMARY,
   },
+  decorators: [ThemeDecorator(Theme.NORMAL)],
 };
 
 export const SecondaryAppLink: Story = {
@@ -29,6 +30,7 @@ export const SecondaryAppLink: Story = {
     to: "/",
     theme: AppLinkTheme.SECONDARY,
   },
+  decorators: [ThemeDecorator(Theme.NORMAL)],
 };
 
 export const DarkPrimaryAppLink: Story = {

@@ -19,6 +19,7 @@ export const TextNormal: Story = {
   args: {
     text: "TextNormal",
   },
+  decorators: [ThemeDecorator(Theme.NORMAL)],
 };
 
 export const TextDark: Story = {
@@ -39,6 +40,7 @@ export const TitleNormal: Story = {
   args: {
     title: "TitleNormal",
   },
+  decorators: [ThemeDecorator(Theme.NORMAL)],
 };
 
 export const TitleDark: Story = {
@@ -60,6 +62,7 @@ export const TitleTextNormal: Story = {
     title: "TitleNormal",
     text: "TextNormal",
   },
+  decorators: [ThemeDecorator(Theme.NORMAL)],
 };
 
 export const TitleTextDark: Story = {
@@ -84,6 +87,7 @@ export const TitleTextError: Story = {
     text: "TextNormal",
     theme: TextTheme.ERROR,
   },
+  decorators: [ThemeDecorator(Theme.NORMAL)],
 };
 
 export const DarkTitleTextError: Story = {
@@ -110,6 +114,7 @@ export const TextSizeM: Story = {
     text: "TitleSizeM",
     size: TextSize.M,
   },
+  decorators: [ThemeDecorator(Theme.NORMAL)],
 };
 
 export const TextSizeL: Story = {
@@ -118,6 +123,7 @@ export const TextSizeL: Story = {
     text: "TitleSizeL",
     size: TextSize.L,
   },
+  decorators: [ThemeDecorator(Theme.NORMAL)],
 };
 
 export const TextSizeXL: Story = {
@@ -126,4 +132,5 @@ export const TextSizeXL: Story = {
     text: "TitleSizeXL",
     size: TextSize.XL,
   },
+  decorators: [ThemeDecorator(Theme.NORMAL)],
 };

@@ -19,6 +19,7 @@ type Story = StoryObj<typeof meta>;
 export const NormalLoginForm: Story = {
   args: {},
   decorators: [
+    themeDecorator(Theme.NORMAL),
     storeDecorator({
       loginForm: { username: "123", password: "123" },
     }),
@@ -48,6 +49,7 @@ export const RedLoginForm: Story = {
 export const NormalWithErrorLoginForm: Story = {
   args: {},
   decorators: [
+    themeDecorator(Theme.NORMAL),
     storeDecorator({
       loginForm: { error: "ERROR" },
     }),
@@ -77,6 +79,7 @@ export const RedWithErrorLoginForm: Story = {
 export const NormalWithLoadingLoginForm: Story = {
   args: {},
   decorators: [
+    themeDecorator(Theme.NORMAL),
     storeDecorator({
       loginForm: { isLoading: true },
     }),

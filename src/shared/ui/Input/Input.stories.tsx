@@ -2,6 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { Input, InputStyle } from "./Input";
 import themeDecorator from "shared/config/storybook/ThemeDecorator/ThemeDecorator";
 import { Theme } from "app/providers/ThemeProvider";
+import ThemeDecorator from "shared/config/storybook/ThemeDecorator/ThemeDecorator";
 
 const meta = {
   title: "shared/Input",
@@ -19,6 +20,7 @@ export const NormalInput: Story = {
   args: {
     inputStyle: InputStyle.NORMAL,
   },
+  decorators: [ThemeDecorator(Theme.NORMAL)],
 };
 
 export const DarkInput: Story = {
@@ -40,6 +42,7 @@ export const NormalInputWithPlaceholder: Story = {
     inputStyle: InputStyle.NORMAL,
     placeholder: "NormalInputWithPlaceholder",
   },
+  decorators: [ThemeDecorator(Theme.NORMAL)],
 };
 
 export const DarkInputWithPlaceholder: Story = {
@@ -62,6 +65,7 @@ export const ConsoleInput: Story = {
   args: {
     inputStyle: InputStyle.CONSOLE,
   },
+  decorators: [ThemeDecorator(Theme.NORMAL)],
 };
 
 export const DarkConsoleInput: Story = {
@@ -83,6 +87,7 @@ export const ConsoleInputWithPlaceholder: Story = {
     inputStyle: InputStyle.CONSOLE,
     placeholder: "ConsoleInputWithPlaceholder",
   },
+  decorators: [ThemeDecorator(Theme.NORMAL)],
 };
 
 export const DarkConsoleInputWithPlaceholder: Story = {

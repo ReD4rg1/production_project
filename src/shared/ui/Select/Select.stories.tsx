@@ -23,6 +23,7 @@ export const NormalSelect: Story = {
       { value: "2", content: "2" },
     ],
   },
+  decorators: [ThemeDecorator(Theme.NORMAL)],
 };
 
 export const DarkSelect: Story = {

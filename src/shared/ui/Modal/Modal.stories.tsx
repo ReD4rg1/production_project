@@ -21,6 +21,7 @@ export const PrimaryNormal: Story = {
     children:
       "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci deserunt dolorum odit quam saepe sunt! Accusamus adipisci aperiam at exercitationem expedita facere molestias, natus, nostrum omnis pariatur quam quod, veritatis!",
   },
+  decorators: [ThemeDecorator(Theme.NORMAL)],
 };
 
 export const PrimaryDark: Story = {

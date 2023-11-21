@@ -17,6 +17,7 @@ type Story = StoryObj<typeof meta>;
 
 export const NormalCurrencySelect: Story = {
   args: {},
+  decorators: [ThemeDecorator(Theme.NORMAL)],
 };
 
 export const DarkCurrencySelect: Story = {

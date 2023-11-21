@@ -32,7 +32,10 @@ const data = {
 
 export const NormalTheme: Story = {
   args: {},
-  decorators: [StoreDecorator({ profile: { form: data } })],
+  decorators: [
+    ThemeDecorator(Theme.NORMAL),
+    StoreDecorator({ profile: { form: data } }),
+  ],
 };
 
 export const DarkTheme: Story = {

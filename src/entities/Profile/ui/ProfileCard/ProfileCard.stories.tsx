@@ -31,6 +31,7 @@ const data = {
 
 export const NormalTheme: Story = {
   args: { data: data },
+  decorators: [ThemeDecorator(Theme.NORMAL)],
 };
 
 export const DarkTheme: Story = {
@@ -45,6 +46,7 @@ export const RedTheme: Story = {
 
 export const NormalReadonly: Story = {
   args: { data: data, readonly: true },
+  decorators: [ThemeDecorator(Theme.NORMAL)],
 };
 
 export const DarkReadonly: Story = {
@@ -59,6 +61,7 @@ export const RedReadonly: Story = {
 
 export const NormalWithError: Story = {
   args: { error: "error" },
+  decorators: [ThemeDecorator(Theme.NORMAL)],
 };
 
 export const DarkWithError: Story = {
@@ -73,6 +76,7 @@ export const RedWithError: Story = {
 
 export const NormalLoading: Story = {
   args: { isLoading: true },
+  decorators: [ThemeDecorator(Theme.NORMAL)],
 };
 
 export const DarkLoading: Story = {

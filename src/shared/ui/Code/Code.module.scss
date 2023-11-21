@@ -1,0 +1,15 @@
+.wrapper {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid var(--primary-color);
+  background: var(--code-bg);
+  padding: 20px;
+  position: relative;
+  overflow: auto;
+}
+
+.copyBtn {
+  position: absolute;
+  right: 20px;
+  border-radius: 15px;
+}

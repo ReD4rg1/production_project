@@ -19,6 +19,7 @@ type Story = StoryObj<typeof meta>;
 export const NormalNavbar: Story = {
   args: {},
   decorators: [
+    ThemeDecorator(Theme.NORMAL),
     StoreDecorator({
       user: { authData: { id: "1", username: "admin" } },
     }),
@@ -47,7 +48,7 @@ export const RedNavbar: Story = {
 
 export const NormalUnAuthorizationNavbar: Story = {
   args: {},
-  decorators: [StoreDecorator({})],
+  decorators: [ThemeDecorator(Theme.NORMAL), StoreDecorator({})],
 };
 
 export const DarkUnAuthorizationNavbar: Story = {

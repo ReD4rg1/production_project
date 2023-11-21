@@ -5,7 +5,7 @@ import {
   ReducerList,
 } from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
 import { articleDetailsReducer } from "../../model/slice/articleDetailsSlice";
-import { memo, useEffect } from "react";
+import { memo, useCallback, useEffect } from "react";
 import { fetchArticleById } from "../../model/services/fetchArticleById";
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch";
 import { useSelector } from "react-redux";
@@ -20,6 +20,13 @@ import { Avatar } from "shared/ui/Avatar/Avatar";
 import EyeIcon from "shared/assets/icons/eye.svg";
 import CalendarIcon from "shared/assets/icons/calendar-lines-pen.svg";
 import { Icon } from "shared/ui/Icon/Icon";
+import {
+  ArticleBlock,
+  ArticleBlocksType,
+} from "entities/Article/model/types/article";
+import { ArticleCodeBlockComponent } from "entities/Article/ui/ArticleCodeBlockComponent/ArticleCodeBlockComponent";
+import { ArticleImageBlockComponent } from "entities/Article/ui/ArticleImageBlockComponent/ArticleImageBlockComponent";
+import { ArticleTextBlockComponent } from "entities/Article/ui/ArticleTextBlockComponent/ArticleTextBlockComponent";
 
 interface ArticleDetailsProps {
   className?: string;
@@ -33,13 +40,33 @@ const reducers: ReducerList = {
 export const ArticleDetails = memo((props: ArticleDetailsProps) => {
   const { className, id } = props;
   const dispatch = useAppDispatch();
-  //const isLoading = useSelector(getArticleDetailsIsLoading);
   const isLoading = useSelector(getArticleDetailsIsLoading);
   const article = useSelector(getArticleDetailsData);
   const error = useSelector(getArticleDetailsError);
 
+  const renderBlock = useCallback((block: ArticleBlock) => {
+    switch (block.type) {
+      case ArticleBlocksType.CODE:
+        return (
+          <ArticleCodeBlockComponent block={block} withSpace key={block.id} />
+        );
+      case ArticleBlocksType.IMAGE:
+        return (
+          <ArticleImageBlockComponent block={block} withSpace key={block.id} />
+        );
+      case ArticleBlocksType.TEXT:
+        return (
+          <ArticleTextBlockComponent block={block} withSpace key={block.id} />
+        );
+      default:
+        return null;
+    }
+  }, []);
+
   useEffect(() => {
-    dispatch(fetchArticleById(id));
+    if (__PROJECT__ !== "storybook") {
+      dispatch(fetchArticleById(id));
+    }
   }, [dispatch, id]);
 
   let content;
@@ -80,6 +107,7 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
           <Icon Svg={CalendarIcon} className={cls.icon} />
           <Text text={article?.createdAt} />
         </div>
+        {article?.blocks.map(renderBlock)}
       </div>
     );
   }

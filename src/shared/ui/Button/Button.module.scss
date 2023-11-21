@@ -10,6 +10,19 @@
   border: none;
   background: none;
   outline: none;
+  transition: opacity 0.15s;
+
+  &:hover {
+    opacity: 0.7;
+    fill-opacity: 0.7;
+    stroke-opacity: 0.7;
+  }
+
+  &:active {
+    opacity: 0.4;
+    fill-opacity: 0.4;
+    stroke-opacity: 0.4;
+  }
 }
 
 .outline {

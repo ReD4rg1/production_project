@@ -1,24 +1,15 @@
-import type { Meta, StoryObj } from "@storybook/react";
-import ThemeDecorator from "shared/config/storybook/ThemeDecorator/ThemeDecorator";
-import { Theme } from "app/providers/ThemeProvider";
-import { ArticleDetails } from "./ArticleDetails";
-import StoreDecorator from "shared/config/storybook/StoreDecorator/StoreDecorator";
 import {
   Article,
+  articleDetailsReducer,
+  ArticleDetailsSchema,
+} from "entities/Article";
+import { fetchArticleById } from "entities/Article/model/services/fetchArticleById";
+import {
   ArticleBlocksType,
   ArticleType,
-} from "../../model/types/article";
+} from "entities/Article/model/types/article";
 
-const meta = {
-  title: "entities/ArticleDetails",
-  component: ArticleDetails,
-  parameters: {
-    layout: "centered",
-  },
-  tags: ["autodocs"],
-} satisfies Meta<typeof ArticleDetails>;
-
-const article: Article = {
+const data: Article = {
   id: "1",
   title: "Javascript news",
   subtitle: "Что нового в JS за 2022 год?",
@@ -51,47 +42,52 @@ const article: Article = {
   ],
 };
 
-export default meta;
-type Story = StoryObj<typeof meta>;
+describe("articleDetailsSlice", () => {
+  test("fetch article by id pending", () => {
+    const state: DeepPartial<ArticleDetailsSchema> = {
+      isLoading: false,
+    };
 
-export const NormalTheme: Story = {
-  args: { id: "1" },
-  decorators: [
-    ThemeDecorator(Theme.NORMAL),
-    StoreDecorator({ articleDetails: { data: article } }),
-  ],
-};
+    expect(
+      articleDetailsReducer(
+        state as ArticleDetailsSchema,
+        fetchArticleById.pending
+      )
+    ).toEqual({
+      isLoading: true,
+      error: undefined,
+    });
+  });
 
-export const DarkTheme: Story = {
-  args: { id: "1" },
-  decorators: [
-    ThemeDecorator(Theme.DARK),
-    StoreDecorator({ articleDetails: { data: article } }),
-  ],
-};
+  test("fetch article by id fulfilled", () => {
+    const state: DeepPartial<ArticleDetailsSchema> = {
+      isLoading: true,
+    };
 
-export const RedTheme: Story = {
-  args: { id: "1" },
-  decorators: [
-    ThemeDecorator(Theme.RED),
-    StoreDecorator({ articleDetails: { data: article } }),
-  ],
-};
+    expect(
+      articleDetailsReducer(
+        state as ArticleDetailsSchema,
+        fetchArticleById.fulfilled(data, "", "")
+      )
+    ).toEqual({
+      isLoading: false,
+      data,
+    });
+  });
 
-export const NormalThemeIsLoading: Story = {
-  args: { id: "1" },
-  decorators: [
-    ThemeDecorator(Theme.NORMAL),
-    StoreDecorator({ articleDetails: { isLoading: true } }),
-  ],
-};
+  test("fetch article by id rejected", () => {
+    const state: DeepPartial<ArticleDetailsSchema> = {
+      isLoading: true,
+    };
 
-export const NormalThemeWithError: Story = {
-  args: { id: "1" },
-  decorators: [
-    ThemeDecorator(Theme.NORMAL),
-    StoreDecorator({
-      articleDetails: { error: "Произошла непредвиденная ошибка" },
-    }),
-  ],
-};
+    expect(
+      articleDetailsReducer(
+        state as ArticleDetailsSchema,
+        fetchArticleById.rejected
+      )
+    ).toEqual({
+      isLoading: false,
+      error: undefined,
+    });
+  });
+});

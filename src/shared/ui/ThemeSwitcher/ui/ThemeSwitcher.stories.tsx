@@ -17,6 +17,7 @@ type Story = StoryObj<typeof meta>;
 
 export const NormalThemeSwitcher: Story = {
   args: {},
+  decorators: [ThemeDecorator(Theme.NORMAL)],
 };
 
 export const DarkThemeSwitcher: Story = {
