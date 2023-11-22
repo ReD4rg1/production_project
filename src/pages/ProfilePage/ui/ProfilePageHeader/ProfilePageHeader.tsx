@@ -39,7 +39,7 @@ export const ProfilePageHeader = (props: ProfilePageHeaderProps) => {
 
   return (
     <div className={classNames(cls.profilePageHeader, {}, [className])}>
-      <Text title={t("Профиль")} />
+      <Text title={t("Профиль")} className={cls.title} />
       {readonly ? (
         <div>
           <Button

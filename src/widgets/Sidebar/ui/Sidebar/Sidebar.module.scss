@@ -11,10 +11,10 @@
   top: 10px;
   right: 10px;
   z-index: 10;
-  height: 100%;
+  height: calc(100% - 20px);
 
   button {
-    height: calc(100% - 20px);
+    height: 100%;
   }
 }
 
