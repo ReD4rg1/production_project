@@ -10,10 +10,11 @@ interface CommentListProps {
   className?: string;
   comments?: CommentType[];
   isLoading?: boolean;
+  error?: string;
 }
 
 export const CommentList = memo((props: CommentListProps) => {
-  const { className, comments, isLoading } = props;
+  const { className, comments, isLoading, error } = props;
   const { t } = useTranslation();
 
   return (
@@ -25,7 +26,7 @@ export const CommentList = memo((props: CommentListProps) => {
       ) : isLoading ? (
         <CommentCard isLoading />
       ) : (
-        <Text text={t("Нет комментариев")} />
+        <Text text={error ? error : t("Нет комментариев")} />
       )}
     </div>
   );

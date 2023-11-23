@@ -19,6 +19,9 @@ import {
   getArticleDetailsCommentsError,
   getArticleDetailsCommentsIsLoading,
 } from "../../model/selectors/comments";
+import { useInitialEffect } from "shared/lib/hooks/useInitialEffect/useInitialEffect";
+import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch";
+import { fetchCommentsByArticleId } from "pages/ArticleDetailsPage/model/services/fetchCommentsByArticleId";
 
 interface ArticleDetailsPageProps {
   className?: string;
@@ -35,6 +38,11 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
   const comments = useSelector(getArticleComments.selectAll);
   const commentsIsLoading = useSelector(getArticleDetailsCommentsIsLoading);
   const commentsError = useSelector(getArticleDetailsCommentsError);
+  const dispatch = useAppDispatch();
+
+  useInitialEffect(() => {
+    dispatch(fetchCommentsByArticleId(id));
+  });
 
   if (!id) {
     return (
@@ -49,7 +57,11 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
       <div className={classNames(cls.wrapper, {}, [className])}>
         <ArticleDetails id={id} />
         <Text className={cls.commentsTitle} title={t("Комментарии")} />
-        <CommentList isLoading={commentsIsLoading} comments={comments} />
+        <CommentList
+          isLoading={commentsIsLoading}
+          comments={comments}
+          error={commentsError}
+        />
       </div>
     </DynamicModuleLoader>
   );

@@ -4,17 +4,21 @@ import { CommentType } from "entities/Comment";
 
 export const fetchCommentsByArticleId = createAsyncThunk<
   CommentType[],
-  string,
+  string | undefined,
   ThunkConfig<string>
 >(
   "articleDetailsComments/fetchCommentsByArticleId",
-  async (commentId, thunkAPI) => {
+  async (articleId, thunkAPI) => {
     const { extra, rejectWithValue } = thunkAPI;
+
+    if (!articleId) {
+      return rejectWithValue("error");
+    }
 
     try {
       const response = await extra.api.get<CommentType[]>(`/comments`, {
         params: {
-          commentId,
+          articleId,
           _expand: "user",
         },
       });
