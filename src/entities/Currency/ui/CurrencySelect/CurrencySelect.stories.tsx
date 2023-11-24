@@ -4,7 +4,7 @@ import { Theme } from "app/providers/ThemeProvider";
 import { CurrencySelect } from "./CurrencySelect";
 
 const meta = {
-  title: "entities/CurrencySelect",
+  title: "entities/CountrySelect",
   component: CurrencySelect,
   parameters: {
     layout: "centered",
