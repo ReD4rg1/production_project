@@ -1,13 +1,13 @@
 import { classNames } from "shared/lib/classNames/classNames";
 import cls from "./Navbar.module.scss";
 import { useTranslation } from "react-i18next";
-import { memo, useCallback, useState } from "react";
+import { memo, useCallback, useMemo, useState } from "react";
 import { Button, ButtonSize, ButtonTheme } from "shared/ui/Button/Button";
 import { LoginModal } from "features/AuthByUsername";
 import { useDispatch, useSelector } from "react-redux";
 import { getUserAuthData, userActions } from "entities/User";
-import { NavbarItemsList } from "../../model/items";
 import { NavbarItem } from "../NavbarItem/NavbarItem";
+import { getNavbarSelectors } from "../../model/selectors/getNavbarSelectors";
 
 interface NavbarProps {
   className?: string;
@@ -19,6 +19,7 @@ export const Navbar = memo((props: NavbarProps) => {
   const authData = useSelector(getUserAuthData);
   const dispatch = useDispatch();
   const [modalIsOpened, setModalIsOpened] = useState(false);
+  const navbarItemsList = useSelector(getNavbarSelectors);
 
   const openModal = useCallback(() => {
     setModalIsOpened(true);
@@ -32,9 +33,11 @@ export const Navbar = memo((props: NavbarProps) => {
     dispatch(userActions.logout());
   }, [dispatch]);
 
-  const itemsList = NavbarItemsList.map((item) => (
-    <NavbarItem item={item} key={item.path} />
-  ));
+  const itemsList = useMemo(
+    () =>
+      navbarItemsList.map((item) => <NavbarItem item={item} key={item.path} />),
+    [navbarItemsList]
+  );
 
   if (!authData) {
     return (

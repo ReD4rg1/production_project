@@ -1,7 +1,7 @@
 import cls from "./NavbarItem.module.scss";
 import { AppLink, AppLinkTheme } from "shared/ui/AppLink/AppLink";
 import { useTranslation } from "react-i18next";
-import { NavbarItemType } from "../../model/items";
+import { NavbarItemType } from "../../model/types/navbar";
 import { memo } from "react";
 import { useSelector } from "react-redux";
 import { getUserAuthData } from "entities/User";
