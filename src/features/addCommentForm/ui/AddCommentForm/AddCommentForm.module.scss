@@ -1,0 +1,10 @@
+.wrapper {
+  display: grid;
+  grid-template-columns: 10fr 1fr;
+
+  .input {
+    input {
+      height: calc(100% - 4px);
+    }
+  }
+}

@@ -19,7 +19,9 @@
       "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
       "views": 1022,
       "createdAt": "26.02.2022",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -100,6 +102,24 @@
       "text": "Серьёзно!",
       "articleId": "1",
       "userId": "1"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "F",
+      "id": "RKZ4OWJ"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "New Comment",
+      "id": "P4NRu_V"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "Another new comment",
+      "id": "1EYVmkH"
     }
   ],
   "users": [
