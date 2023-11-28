@@ -21,9 +21,9 @@ import {
 } from "../../model/selectors/comments";
 import { useInitialEffect } from "shared/lib/hooks/useInitialEffect/useInitialEffect";
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch";
-import { fetchCommentsByArticleId } from "pages/ArticleDetailsPage/model/services/fetchCommentsByArticleId/fetchCommentsByArticleId";
+import { fetchCommentsByArticleId } from "../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId";
 import { AddCommentForm } from "features/addCommentForm";
-import { addCommentForArticle } from "pages/ArticleDetailsPage/model/services/addCommentForArticle/addCommentForArticle";
+import { addCommentForArticle } from "../../model/services/addCommentForArticle/addCommentForArticle";
 
 interface ArticleDetailsPageProps {
   className?: string;

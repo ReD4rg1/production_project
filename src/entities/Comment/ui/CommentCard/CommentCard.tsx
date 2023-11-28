@@ -19,7 +19,11 @@ export const CommentCard = memo((props: CommentCardProps) => {
 
   if (isLoading) {
     return (
-      <div className={classNames(cls.wrapper, {}, [className])}>
+      <div
+        className={classNames(cls.wrapper, { [cls.isLoading]: isLoading }, [
+          className,
+        ])}
+      >
         <div className={cls.header}>
           <Skeleton
             className={cls.avatar}

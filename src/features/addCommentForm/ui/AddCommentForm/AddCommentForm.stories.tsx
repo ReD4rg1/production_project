@@ -3,6 +3,7 @@ import ThemeDecorator from "shared/config/storybook/ThemeDecorator/ThemeDecorato
 import { Theme } from "app/providers/ThemeProvider";
 import AddCommentForm from "./AddCommentForm";
 import StoreDecorator from "shared/config/storybook/StoreDecorator/StoreDecorator";
+import { action } from "@storybook/addon-actions";
 
 const meta = {
   title: "features/AddCommentForm",
@@ -17,7 +18,7 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const NormalTheme: Story = {
-  args: {},
+  args: { onSendComment: action("onSendComment") },
   decorators: [
     StoreDecorator({
       addCommentForm: { text: "", error: "" },
@@ -26,7 +27,7 @@ export const NormalTheme: Story = {
 };
 
 export const DarkTheme: Story = {
-  args: {},
+  args: { onSendComment: action("onSendComment") },
   decorators: [
     ThemeDecorator(Theme.DARK),
     StoreDecorator({
@@ -36,7 +37,7 @@ export const DarkTheme: Story = {
 };
 
 export const RedTheme: Story = {
-  args: {},
+  args: { onSendComment: action("onSendComment") },
   decorators: [
     ThemeDecorator(Theme.RED),
     StoreDecorator({
