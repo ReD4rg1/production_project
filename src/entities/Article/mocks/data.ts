@@ -6,12 +6,19 @@ import {
 
 export const articleMock: Article = {
   id: "1",
-  title: "Javascript news",
+  title: "Javascript news Javascript news",
   subtitle: "Что нового в JS за 2022 год?",
   img: "https://teknotower.com/wp-content/uploads/2020/11/js.png",
   views: 1022,
   createdAt: "26.02.2022",
-  type: [ArticleType.IT],
+  type: [
+    ArticleType.IT,
+    ArticleType.SCIENCE,
+    ArticleType.ECONOMICS,
+    ArticleType.IT,
+    ArticleType.SCIENCE,
+    ArticleType.ECONOMICS,
+  ],
   blocks: [
     {
       id: "1",

@@ -1,0 +1,16 @@
+.wrapper {
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+}
+
+.grid {
+  display: grid;
+  grid-gap: 30px;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}

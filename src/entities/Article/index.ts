@@ -1,6 +1,7 @@
-export { getArticleDetailsData } from "entities/Article/model/selectors/articleDetails";
+export { ArticleList } from "entities/Article/ui/ArticleList/ArticleList";
+export { ArticleView, Article } from "./model/types/article";
+export { getArticleDetailsData } from "./model/selectors/articleDetails";
 export { ArticleDetails } from "./ui/ArticleDetails/ArticleDetails";
-export type { Article } from "./model/types/article";
 export {
   articleDetailsReducer,
   articleDetailsActions,
