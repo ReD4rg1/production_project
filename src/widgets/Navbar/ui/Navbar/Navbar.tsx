@@ -43,13 +43,15 @@ export const Navbar = memo((props: NavbarProps) => {
     return (
       <div className={classNames(cls.navbar, {}, [className])}>
         <div className={classNames(cls.links)}>{itemsList}</div>
-        <Button
-          onClick={openModal}
-          size={ButtonSize.M}
-          theme={ButtonTheme.CLEAR}
-        >
-          {t("Войти")}
-        </Button>
+        <div className={cls.btn}>
+          <Button
+            onClick={openModal}
+            size={ButtonSize.M}
+            theme={ButtonTheme.CLEAR}
+          >
+            {t("Войти")}
+          </Button>
+        </div>
         <LoginModal isOpen={modalIsOpened} onClose={closeModal} />
       </div>
     );
@@ -58,9 +60,15 @@ export const Navbar = memo((props: NavbarProps) => {
   return (
     <div className={classNames(cls.navbar, {}, [className])}>
       <div className={classNames(cls.links)}>{itemsList}</div>
-      <Button onClick={onLogout} size={ButtonSize.M} theme={ButtonTheme.CLEAR}>
-        {t("Выйти")}
-      </Button>
+      <div className={cls.btn}>
+        <Button
+          onClick={onLogout}
+          size={ButtonSize.M}
+          theme={ButtonTheme.CLEAR}
+        >
+          {t("Выйти")}
+        </Button>
+      </div>
     </div>
   );
 });

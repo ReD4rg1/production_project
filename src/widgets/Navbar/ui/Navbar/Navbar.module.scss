@@ -1,9 +1,28 @@
 .navbar {
+  position: relative;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   padding: 20px;
   width: 100%;
   height: var(--navbar-height);
   background: var(--secondary-bg-color);
+
+  .links {
+    display: flex;
+    flex-grow: 1;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+
+    path {
+      stroke: var(--primary-color);
+    }
+  }
+
+  .btn {
+    position: absolute;
+    right: 20px;
+    top: 0;
+  }
 }
