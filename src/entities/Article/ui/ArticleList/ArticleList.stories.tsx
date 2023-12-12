@@ -3,6 +3,7 @@ import ThemeDecorator from "shared/config/storybook/ThemeDecorator/ThemeDecorato
 import { Theme } from "app/providers/ThemeProvider";
 import { ArticleList } from "./ArticleList";
 import { articleMock } from "entities/Article/mocks/data";
+import { ArticleView } from "entities/Article";
 
 const meta = {
   title: "entities/ArticleList",
@@ -16,49 +17,41 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
+const data = [
+  articleMock,
+  articleMock,
+  articleMock,
+  articleMock,
+  articleMock,
+  articleMock,
+  articleMock,
+  articleMock,
+];
+
 export const NormalTheme: Story = {
   args: {
-    articles: [
-      articleMock,
-      articleMock,
-      articleMock,
-      articleMock,
-      articleMock,
-      articleMock,
-      articleMock,
-      articleMock,
-    ],
+    articles: data,
   },
 };
 
 export const DarkTheme: Story = {
   args: {
-    articles: [
-      articleMock,
-      articleMock,
-      articleMock,
-      articleMock,
-      articleMock,
-      articleMock,
-      articleMock,
-      articleMock,
-    ],
+    articles: data,
   },
   decorators: [ThemeDecorator(Theme.DARK)],
 };
 
 export const RedTheme: Story = {
   args: {
-    articles: [
-      articleMock,
-      articleMock,
-      articleMock,
-      articleMock,
-      articleMock,
-      articleMock,
-      articleMock,
-      articleMock,
-    ],
+    articles: data,
   },
   decorators: [ThemeDecorator(Theme.RED)],
+};
+
+export const NormalThemeIsLoading: Story = {
+  args: {
+    articles: data,
+    isLoading: true,
+    view: ArticleView.LIST,
+  },
 };

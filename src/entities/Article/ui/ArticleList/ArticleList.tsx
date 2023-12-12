@@ -3,6 +3,7 @@ import cls from "./ArticleList.module.scss";
 import { memo } from "react";
 import { Article, ArticleView } from "../../model/types/article";
 import { ArticleListItem } from "../ArticleListItem/ArticleListItem";
+import { ArticleListItemSkeleton } from "entities/Article/ui/ArticleListItem/ArticleListItemSkeleton";
 
 interface ArticleListProps {
   className?: string;
@@ -12,11 +13,22 @@ interface ArticleListProps {
 }
 
 export const ArticleList = memo((props: ArticleListProps) => {
-  const { className, articles, view = ArticleView.GRID, isLoading } = props;
+  const { className, articles, view = ArticleView.LIST, isLoading } = props;
 
   const renderArticle = (article: Article, index: number) => (
     <ArticleListItem key={index} article={article} view={view} />
   );
+
+  if (isLoading) {
+    return (
+      <div className={classNames(cls.wrapper, {}, [className, cls[view]])}>
+        <ArticleListItemSkeleton view={view} />
+        <ArticleListItemSkeleton view={view} />
+        <ArticleListItemSkeleton view={view} />
+        <ArticleListItemSkeleton view={view} />
+      </div>
+    );
+  }
 
   return (
     <div className={classNames(cls.wrapper, {}, [className, cls[view]])}>

@@ -11,6 +11,12 @@ export const articleMock: Article = {
   img: "https://teknotower.com/wp-content/uploads/2020/11/js.png",
   views: 1022,
   createdAt: "26.02.2022",
+  user: {
+    id: "1",
+    username: "admin",
+    avatar:
+      "https://i.kym-cdn.com/entries/icons/original/000/042/690/Screen_Shot_2022-11-16_at_2.24.03_PM.jpg",
+  },
   type: [
     ArticleType.IT,
     ArticleType.SCIENCE,

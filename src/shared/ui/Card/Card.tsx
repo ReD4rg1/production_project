@@ -1,8 +1,8 @@
 import { classNames } from "shared/lib/classNames/classNames";
 import cls from "./Card.module.scss";
-import { memo, ReactNode } from "react";
+import { HTMLAttributes, memo, ReactNode } from "react";
 
-interface CardProps {
+interface CardProps extends HTMLAttributes<HTMLDivElement> {
   className?: string;
   children: ReactNode;
 }

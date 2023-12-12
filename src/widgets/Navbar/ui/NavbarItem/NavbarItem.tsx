@@ -1,6 +1,5 @@
 import cls from "./NavbarItem.module.scss";
 import { AppLink, AppLinkTheme } from "shared/ui/AppLink/AppLink";
-import { useTranslation } from "react-i18next";
 import { NavbarItemType } from "../../model/types/navbar";
 import { memo } from "react";
 import { useSelector } from "react-redux";
@@ -12,7 +11,6 @@ interface NavbarItemProps {
 
 export const NavbarItem = memo((props: NavbarItemProps) => {
   const { item } = props;
-  const { t } = useTranslation();
   const isAuth = useSelector(getUserAuthData);
 
   if (item.authOnly && !isAuth) {
