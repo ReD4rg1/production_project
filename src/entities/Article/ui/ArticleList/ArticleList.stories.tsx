@@ -31,12 +31,14 @@ const data = [
 export const NormalTheme: Story = {
   args: {
     articles: data,
+    view: ArticleView.LIST,
   },
 };
 
 export const DarkTheme: Story = {
   args: {
     articles: data,
+    view: ArticleView.LIST,
   },
   decorators: [ThemeDecorator(Theme.DARK)],
 };
@@ -44,6 +46,7 @@ export const DarkTheme: Story = {
 export const RedTheme: Story = {
   args: {
     articles: data,
+    view: ArticleView.LIST,
   },
   decorators: [ThemeDecorator(Theme.RED)],
 };
@@ -53,5 +56,12 @@ export const NormalThemeIsLoading: Story = {
     articles: data,
     isLoading: true,
     view: ArticleView.LIST,
+  },
+};
+
+export const NormalThemeGrid: Story = {
+  args: {
+    articles: data,
+    view: ArticleView.GRID,
   },
 };

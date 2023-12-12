@@ -9,11 +9,11 @@ interface ArticleListProps {
   className?: string;
   articles: Article[];
   isLoading?: boolean;
-  view?: ArticleView;
+  view: ArticleView;
 }
 
 export const ArticleList = memo((props: ArticleListProps) => {
-  const { className, articles, view = ArticleView.LIST, isLoading } = props;
+  const { className, articles, view, isLoading } = props;
 
   const renderArticle = (article: Article, index: number) => (
     <ArticleListItem key={index} article={article} view={view} />
