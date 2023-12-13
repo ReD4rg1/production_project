@@ -1,0 +1,9 @@
+.wrapper {
+  display: flex;
+
+  .nonSelected {
+    path {
+      stroke: var(--secondary-color);
+    }
+  }
+}
