@@ -1,4 +1,3 @@
-import { classNames } from "shared/lib/classNames/classNames";
 import cls from "./ArticleDetails.module.scss";
 import {
   DynamicModuleLoader,
@@ -36,7 +35,7 @@ const reducers: ReducerList = {
 };
 
 export const ArticleDetails = memo((props: ArticleDetailsProps) => {
-  const { className, id } = props;
+  const { id } = props;
   const dispatch = useAppDispatch();
   const isLoading = useSelector(getArticleDetailsIsLoading);
   const article = useSelector(getArticleDetailsData);
@@ -110,7 +109,7 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
 
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
-      <div className={classNames(cls.wrapper, {}, [className])}>{content}</div>
+      <div>{content}</div>
     </DynamicModuleLoader>
   );
 });

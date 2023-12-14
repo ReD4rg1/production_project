@@ -12,6 +12,11 @@ interface ArticleListProps {
   view: ArticleView;
 }
 
+const getSkeletons = (view: ArticleView) =>
+  new Array(view === ArticleView.GRID ? 12 : 3)
+    .fill(0)
+    .map((item, index) => <ArticleListItemSkeleton key={index} view={view} />);
+
 export const ArticleList = memo((props: ArticleListProps) => {
   const { className, articles, view, isLoading } = props;
 
@@ -19,22 +24,12 @@ export const ArticleList = memo((props: ArticleListProps) => {
     <ArticleListItem key={index} article={article} view={view} />
   );
 
-  if (isLoading) {
-    return (
-      <div className={classNames(cls.wrapper, {}, [className, cls[view]])}>
-        <ArticleListItemSkeleton view={view} />
-        <ArticleListItemSkeleton view={view} />
-        <ArticleListItemSkeleton view={view} />
-        <ArticleListItemSkeleton view={view} />
-      </div>
-    );
-  }
-
   return (
     <div className={classNames(cls.wrapper, {}, [className, cls[view]])}>
       {articles.length > 0
         ? articles?.map((article, index) => renderArticle(article, index))
         : null}
+      {isLoading && getSkeletons(view)}
     </div>
   );
 });
