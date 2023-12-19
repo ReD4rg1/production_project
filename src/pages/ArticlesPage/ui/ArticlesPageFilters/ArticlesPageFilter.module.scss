@@ -1,0 +1,19 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.sortWrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.select {
+  align-items: center;
+}
+
+.search {
+  background: none;
+  border-radius: 0;
+  padding: 10px 0;
+}
