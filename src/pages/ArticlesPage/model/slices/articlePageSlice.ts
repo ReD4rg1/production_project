@@ -4,11 +4,15 @@ import {
   PayloadAction,
 } from "@reduxjs/toolkit";
 import { StateSchema } from "app/providers/StoreProvider";
-import { Article, ArticleView } from "entities/Article";
+import {
+  Article,
+  ArticleSortField,
+  ArticleType,
+  ArticleView,
+} from "entities/Article";
 import { ArticlesPageSchema } from "../types/articlesPageSchema";
 import { fetchArticlesList } from "../services/fetchArticlesList/fetchArticlesList";
 import { ARTICLES_VIEW_LOCALSTORAGE_KEY } from "shared/const/localstorage";
-import { ArticleSortField } from "entities/Article/model/types/article";
 import { SortOrder } from "shared/types";
 
 const articlesAdapter = createEntityAdapter<Article>({
@@ -32,8 +36,9 @@ const articlePageSlice = createSlice({
     _inited: false,
     limit: 12,
     sort: ArticleSortField.CREATED,
-    order: "asc",
+    order: SortOrder.ASC,
     search: "",
+    type: ArticleType.ALL,
   }),
   reducers: {
     setView: (state, action: PayloadAction<ArticleView>) => {
@@ -52,6 +57,9 @@ const articlePageSlice = createSlice({
     setSearch: (state, action: PayloadAction<string>) => {
       state.search = action.payload;
     },
+    setType: (state, action: PayloadAction<ArticleType>) => {
+      state.type = action.payload;
+    },
     initState: (state) => {
       const view = localStorage.getItem(
         ARTICLES_VIEW_LOCALSTORAGE_KEY
@@ -63,18 +71,24 @@ const articlePageSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
-      .addCase(fetchArticlesList.pending, (state) => {
+      .addCase(fetchArticlesList.pending, (state, action) => {
         state.error = undefined;
         state.isLoading = true;
-      })
-      .addCase(
-        fetchArticlesList.fulfilled,
-        (state, action: PayloadAction<Article[]>) => {
-          state.isLoading = false;
-          articlesAdapter.addMany(state, action.payload);
-          state.hasMore = action.payload.length > 0;
+
+        if (action.meta.arg.replace) {
+          articlesAdapter.removeAll(state);
         }
-      )
+      })
+      .addCase(fetchArticlesList.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.hasMore = action.payload.length >= state.limit;
+
+        if (action.meta.arg.replace) {
+          articlesAdapter.setAll(state, action.payload);
+        } else {
+          articlesAdapter.addMany(state, action.payload);
+        }
+      })
       .addCase(fetchArticlesList.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.payload;

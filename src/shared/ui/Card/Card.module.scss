@@ -1,6 +1,13 @@
 .wrapper {
   border-radius: 15px;
-  background: var(--card-bg);
   padding: 10px;
   overflow: hidden;
+}
+
+.normal {
+  background: var(--card-bg);
+}
+
+.outlined {
+  border: 1px solid var(--primary-color);
 }

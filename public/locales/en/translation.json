@@ -14,6 +14,18 @@
   "Введите текст комментария": "Enter comment text",
   "Отправить": "Send",
   "Читать дальше": "Read more",
-  "Сортировка": "Sort by",
-  "Поиск": "Search"
+  "Сортировка": "Sort",
+  "Поиск": "Search",
+  "по": "by",
+  "возрастанию": "ascending",
+  "убыванию": "descending",
+  "дате создания": "created date",
+  "названию": "title",
+  "просмотрам": "views",
+  "Сортировать по": "Sort by",
+  "ALL": "All",
+  "IT": "IT",
+  "SCIENCE": "Science",
+  "ECONOMICS": "Economics",
+  "Статьи не найдены": "Articles not found"
 }
