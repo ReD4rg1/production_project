@@ -26,6 +26,23 @@
   width: 100%;
 }
 
+.menu {
+  display: flex;
+  justify-content: flex-start;
+  margin: 50px 0 0 20px;
+  width: 100%;
+
+  .item {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+
+    path {
+      stroke: var(--primary-color);
+    }
+  }
+}
+
 .lang {
   margin-left: 10px;
 }
@@ -41,6 +58,14 @@
 
   .lang {
     margin-left: 0;
+  }
+
+  .menu {
+    .item {
+      .text {
+        display: none;
+      }
+    }
   }
 }
 
