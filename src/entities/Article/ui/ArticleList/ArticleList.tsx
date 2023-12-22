@@ -24,7 +24,12 @@ export const ArticleList = memo((props: ArticleListProps) => {
   const { t } = useTranslation();
 
   const renderArticle = (article: Article, index: number) => (
-    <ArticleListItem key={index} article={article} view={view} />
+    <ArticleListItem
+      key={index}
+      article={article}
+      view={view}
+      target={"_blank"}
+    />
   );
 
   if (!isLoading && !articles.length) {
