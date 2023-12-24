@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import ThemeDecorator from "shared/config/storybook/ThemeDecorator/ThemeDecorator";
 import { Theme } from "app/providers/ThemeProvider";
 import { CommentCard } from "./CommentCard";
-import { CommentType } from "entities/Comment";
+import { CommentType } from "../../model/types/commentType";
 
 const meta = {
   title: "entities/CommentCard",

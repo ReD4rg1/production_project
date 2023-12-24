@@ -12,7 +12,7 @@ import { Text, TextSize } from "shared/ui/Text/Text";
 import { Button } from "shared/ui/Button/Button";
 import { Avatar } from "shared/ui/Avatar/Avatar";
 import { useTranslation } from "react-i18next";
-import { ArticleTextBlockComponent } from "entities/Article/ui/ArticleTextBlockComponent/ArticleTextBlockComponent";
+import { ArticleTextBlockComponent } from "../ArticleTextBlockComponent/ArticleTextBlockComponent";
 import { AppLink } from "shared/ui/AppLink/AppLink";
 import { RoutePath } from "shared/config/routeConfig/routeConfig";
 

@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import { Select } from "shared/ui/Select/Select";
+import { Select } from "./Select";
 
 describe("Select", () => {
   test("Test select render", () => {

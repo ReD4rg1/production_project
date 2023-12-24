@@ -9,7 +9,8 @@
         "prettier",
         "unused-imports",
         "react-hooks",
-        "i18next"
+        "i18next",
+        "d4rg1-fsd-plugin"
     ],
     "rules": {
         "prettier/prettier": [
@@ -48,7 +49,8 @@
                 ]
             }
         ],
-        "no-undef": "off"
+        "no-undef": "off",
+        "d4rg1-fsd-plugin/path-checker": "error"
     },
     "globals": {
         "__IS_DEV__": true,

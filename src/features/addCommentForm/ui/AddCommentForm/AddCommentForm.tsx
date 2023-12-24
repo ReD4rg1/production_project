@@ -4,10 +4,7 @@ import React, { memo, useCallback } from "react";
 import { Input } from "shared/ui/Input/Input";
 import { useTranslation } from "react-i18next";
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch";
-import {
-  getAddCommentFormError,
-  getAddCommentFormText,
-} from "../../model/selectors/addCommentFormSelectors";
+import { getAddCommentFormText } from "../../model/selectors/addCommentFormSelectors";
 import { Button, ButtonTheme } from "shared/ui/Button/Button";
 import { useSelector } from "react-redux";
 import {
@@ -29,7 +26,6 @@ const AddCommentForm = memo((props: AddCommentFormProps) => {
   const { t } = useTranslation();
   const dispatch = useAppDispatch();
   const text = useSelector(getAddCommentFormText);
-  const error = useSelector(getAddCommentFormError);
   const reducers: ReducerList = {
     addCommentForm: addCommentFormReducer,
   };

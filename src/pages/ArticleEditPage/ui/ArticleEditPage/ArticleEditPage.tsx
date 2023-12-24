@@ -17,7 +17,7 @@ const ArticleEditPage = memo((props: ArticleEditPageProps) => {
 
   return (
     <Page className={classNames(cls.wrapper, {}, [className])}>
-      {"ArticleEditPage " + "id: " + id}
+      {`ArticleEditPage id: ${id}`}
     </Page>
   );
 });

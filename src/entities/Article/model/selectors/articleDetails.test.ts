@@ -5,9 +5,9 @@ import {
   getArticleDetailsIsLoading,
   getArticleDetailsError,
 } from "./articleDetails";
-import { Article } from "entities/Article";
+import { Article } from "../types/article";
 
-import { articleMock } from "entities/Article/mocks/data";
+import { articleMock } from "../../mocks/data";
 
 const data: Article = articleMock;
 

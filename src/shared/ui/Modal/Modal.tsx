@@ -8,7 +8,7 @@ import React, {
   useRef,
   useState,
 } from "react";
-import { Portal } from "shared/ui/Portal/Portal";
+import { Portal } from "../../ui/Portal/Portal";
 
 interface ModalProps {
   className?: string;
