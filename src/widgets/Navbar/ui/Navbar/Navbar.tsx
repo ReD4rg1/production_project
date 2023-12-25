@@ -8,6 +8,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getUserAuthData, userActions } from "entities/User";
 import { NavbarItem } from "../NavbarItem/NavbarItem";
 import { getNavbarSelectors } from "../../model/selectors/getNavbarSelectors";
+import { HStack } from "shared/ui/Stack";
 
 interface NavbarProps {
   className?: string;
@@ -59,7 +60,14 @@ export const Navbar = memo((props: NavbarProps) => {
 
   return (
     <header className={classNames(cls.navbar, {}, [className])}>
-      <div className={classNames(cls.links)}>{itemsList}</div>
+      <HStack
+        max
+        align={"center"}
+        justify={"center"}
+        className={classNames(cls.links)}
+      >
+        {itemsList}
+      </HStack>
       <div className={cls.btn}>
         <Button
           onClick={onLogout}
