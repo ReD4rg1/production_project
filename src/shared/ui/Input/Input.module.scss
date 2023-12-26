@@ -31,13 +31,13 @@
   background: none;
   color: var(--primary-color);
   border: none;
-  outline: none;
+  outline: transparent;
   margin: 2px 0;
   padding: 0 5px;
 
   &:focus {
     border: none;
-    outline: none;
+    outline: transparent;
     color: transparent;
     text-shadow: 0 0 0 var(--primary-color);
   }
@@ -54,7 +54,7 @@
 
   &:focus {
     border: var(--secondary-color) 1px solid;
-    outline: none;
+    outline: transparent;
   }
 }
 

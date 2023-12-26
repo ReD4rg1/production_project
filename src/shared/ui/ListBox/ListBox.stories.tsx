@@ -24,15 +24,15 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const NormalTheme: Story = {
-  args: { items: initial },
+  args: { items: initial, defaultValue: "Выберите значение" },
 };
 
 export const DarkTheme: Story = {
-  args: { items: initial },
+  args: { items: initial, defaultValue: "Выберите значение" },
   decorators: [ThemeDecorator(Theme.DARK)],
 };
 
 export const RedTheme: Story = {
-  args: { items: initial },
+  args: { items: initial, defaultValue: "Выберите значение" },
   decorators: [ThemeDecorator(Theme.RED)],
 };

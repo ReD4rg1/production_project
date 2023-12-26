@@ -30,6 +30,9 @@ export const initArticlesPage = createAsyncThunk<
     if (searchFromURL) {
       dispatch(articlePageActions.setSearch(searchFromURL));
     }
+    // Замечена бага с загрузкой, если долистать ленту до конца и обновить страницу,
+    // то в адресную строку вставляется URL с последней страницей,это в свою очередь
+    // ведёт за собой инициализацию стейта с выбранной страницей и флаг hasMore остается false
     if (pageFromURL) {
       dispatch(articlePageActions.setPage(Number(pageFromURL)));
     }

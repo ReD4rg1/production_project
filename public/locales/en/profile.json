@@ -20,5 +20,6 @@
   "Нет данных": "No data",
   "Неверное название города": "Incorrect city",
   "Неверный возраст": "Incorrect age",
-  "Неправильные имя или фамилия": "Incorrect firstname or lastname"
+  "Неправильные имя или фамилия": "Incorrect firstname or lastname",
+  "Укажите страну": "Select country"
 }

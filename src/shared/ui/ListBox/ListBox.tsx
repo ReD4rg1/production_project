@@ -40,6 +40,7 @@ export const ListBox = memo((props: ListBoxProps) => {
     direction = "bottom",
     label,
   } = props;
+
   const optionsClasses = [mapDirectionClass[direction]];
 
   return (
@@ -48,11 +49,12 @@ export const ListBox = memo((props: ListBoxProps) => {
       <HListBox
         disabled={readonly}
         as="div"
-        className={classNames(cls.ListBox, {}, [className])}
+        className={classNames(cls.wrapper, {}, [className])}
         value={value}
         onChange={onChange}
       >
         <HListBox.Button className={cls.trigger}>
+          {/*Кнопку нужно заменить*/}
           <Button disabled={readonly}>{value ?? defaultValue}</Button>
         </HListBox.Button>
         <HListBox.Options
