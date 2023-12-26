@@ -9,6 +9,9 @@ import { getUserAuthData, userActions } from "entities/User";
 import { NavbarItem } from "../NavbarItem/NavbarItem";
 import { getNavbarSelectors } from "../../model/selectors/getNavbarSelectors";
 import { HStack } from "shared/ui/Stack";
+import { Dropdown } from "shared/ui/Dropdown/Dropdown";
+import { Avatar } from "shared/ui/Avatar/Avatar";
+import { RoutePath } from "shared/config/routeConfig/routeConfig";
 
 interface NavbarProps {
   className?: string;
@@ -43,7 +46,14 @@ export const Navbar = memo((props: NavbarProps) => {
   if (!authData) {
     return (
       <header className={classNames(cls.navbar, {}, [className])}>
-        <div className={classNames(cls.links)}>{itemsList}</div>
+        <HStack
+          max
+          align={"center"}
+          justify={"center"}
+          className={classNames(cls.links)}
+        >
+          {itemsList}
+        </HStack>
         <div className={cls.btn}>
           <Button
             onClick={openModal}
@@ -58,6 +68,23 @@ export const Navbar = memo((props: NavbarProps) => {
     );
   }
 
+  const DropdownMenu = () => (
+    <Dropdown
+      direction={"bottom left"}
+      items={[
+        {
+          content: t("Профиль"),
+          href: RoutePath.profile + authData.id,
+        },
+        {
+          content: t("Выйти"),
+          onClick: onLogout,
+        },
+      ]}
+      trigger={<Avatar size={40} src={authData.avatar} />}
+    />
+  );
+
   return (
     <header className={classNames(cls.navbar, {}, [className])}>
       <HStack
@@ -69,13 +96,7 @@ export const Navbar = memo((props: NavbarProps) => {
         {itemsList}
       </HStack>
       <div className={cls.btn}>
-        <Button
-          onClick={onLogout}
-          size={ButtonSize.M}
-          theme={ButtonTheme.CLEAR}
-        >
-          {t("Выйти")}
-        </Button>
+        <DropdownMenu />
       </div>
     </header>
   );

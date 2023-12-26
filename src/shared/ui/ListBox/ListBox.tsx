@@ -1,8 +1,8 @@
-import { Fragment, memo, ReactNode } from "react";
+import { forwardRef, Fragment, memo, ReactNode } from "react";
 import { Listbox as HListBox } from "@headlessui/react";
 import cls from "./ListBox.module.scss";
 import { classNames } from "shared/lib/classNames/classNames";
-import { Button } from "../Button/Button";
+import { Button, ButtonProps } from "../Button/Button";
 import { HStack } from "../Stack/HStack/HStack";
 
 export interface ListBoxItem {
@@ -43,6 +43,14 @@ export const ListBox = memo((props: ListBoxProps) => {
 
   const optionsClasses = [mapDirectionClass[direction]];
 
+  const ListBoxButton = forwardRef<HTMLDivElement, ButtonProps>(
+    (props, ref) => (
+      <div ref={ref}>
+        <Button {...props} />
+      </div>
+    )
+  );
+
   return (
     <HStack gap="4">
       {label && <span>{`${label}>`}</span>}
@@ -53,9 +61,8 @@ export const ListBox = memo((props: ListBoxProps) => {
         value={value}
         onChange={onChange}
       >
-        <HListBox.Button className={cls.trigger}>
-          {/*Кнопку нужно заменить*/}
-          <Button disabled={readonly}>{value ?? defaultValue}</Button>
+        <HListBox.Button as={"div"} className={cls.trigger}>
+          <ListBoxButton disabled={readonly} children={value ?? defaultValue} />
         </HListBox.Button>
         <HListBox.Options
           className={classNames(cls.options, {}, optionsClasses)}
