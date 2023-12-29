@@ -50,7 +50,6 @@ export const Dropdown = memo((props: DropdownProps) => {
           if (item.href) {
             return (
               <Menu.Item
-                refName={item.href}
                 as={AppLink}
                 to={item.href}
                 disabled={item.disabled}

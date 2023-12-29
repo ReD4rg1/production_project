@@ -14,12 +14,11 @@ interface AppLinkProps extends LinkProps {
   ref?: ForwardedRef<HTMLAnchorElement>;
 }
 
-export const AppLink: FC<AppLinkProps> = forwardRef((props) => {
+export const AppLink: FC<AppLinkProps> = forwardRef((props, ref) => {
   const {
     to,
     className,
     children,
-    ref,
     theme = AppLinkTheme.PRIMARY,
     ...otherProps
   } = props;
