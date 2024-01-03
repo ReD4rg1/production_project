@@ -1,19 +1,16 @@
-module.exports = (
-  layer,
-  componentName
-) => `import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react";
 import ThemeDecorator from "shared/config/storybook/ThemeDecorator/ThemeDecorator";
 import { Theme } from "app/providers/ThemeProvider";
-import { ${componentName} } from "./${componentName}";
+import { ArticleRecommendationsList } from "./ArticleRecommendationsList";
 
 const meta = {
-  title: "${layer}/${componentName}",
-  component: ${componentName},
+  title: "features/ArticleRecommendationsList",
+  component: ArticleRecommendationsList,
   parameters: {
     layout: "centered",
   },
   tags: ["autodocs"],
-} satisfies Meta<typeof ${componentName}>;
+} satisfies Meta<typeof ArticleRecommendationsList>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
@@ -31,4 +28,3 @@ export const RedTheme: Story = {
   args: {},
   decorators: [ThemeDecorator(Theme.RED)],
 };
-`;
