@@ -1,24 +1,24 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import ThemeDecorator from "shared/config/storybook/ThemeDecorator/ThemeDecorator";
 import { Theme } from "app/providers/ThemeProvider";
-import ArticlesPage from "./ArticlesPage";
+import { EditableProfileCard } from "./EditableProfileCard";
 import StoreDecorator from "shared/config/storybook/StoreDecorator/StoreDecorator";
 
 const meta = {
-  title: "pages/ArticlesPage/ArticlesPage",
-  component: ArticlesPage,
+  title: "features/EditableProfileCard",
+  component: EditableProfileCard,
   parameters: {
     layout: "centered",
   },
   tags: ["autodocs"],
-} satisfies Meta<typeof ArticlesPage>;
+} satisfies Meta<typeof EditableProfileCard>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const NormalTheme: Story = {
   args: {},
-  decorators: [ThemeDecorator(Theme.NORMAL), StoreDecorator({})],
+  decorators: [StoreDecorator({})],
 };
 
 export const DarkTheme: Story = {

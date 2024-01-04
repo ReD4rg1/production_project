@@ -2,9 +2,10 @@ import type { Meta, StoryObj } from "@storybook/react";
 import ThemeDecorator from "shared/config/storybook/ThemeDecorator/ThemeDecorator";
 import { Theme } from "app/providers/ThemeProvider";
 import { ArticleDetailsPageHeader } from "./ArticleDetailsPageHeader";
+import StoreDecorator from "shared/config/storybook/StoreDecorator/StoreDecorator";
 
 const meta = {
-  title: "pages/ArticleDetailsPageHeader",
+  title: "pages/ArticleDetailsPage/ArticleDetailsPageHeader",
   component: ArticleDetailsPageHeader,
   parameters: {
     layout: "centered",
@@ -17,14 +18,15 @@ type Story = StoryObj<typeof meta>;
 
 export const NormalTheme: Story = {
   args: {},
+  decorators: [StoreDecorator({})],
 };
 
 export const DarkTheme: Story = {
   args: {},
-  decorators: [ThemeDecorator(Theme.DARK)],
+  decorators: [ThemeDecorator(Theme.DARK), StoreDecorator({})],
 };
 
 export const RedTheme: Story = {
   args: {},
-  decorators: [ThemeDecorator(Theme.RED)],
+  decorators: [ThemeDecorator(Theme.RED), StoreDecorator({})],
 };

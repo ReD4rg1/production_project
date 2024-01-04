@@ -13,6 +13,7 @@ import {
   getArticleDetailsCommentsError,
 } from "../../model/selectors/comments";
 import { useTranslation } from "react-i18next";
+import { VStack } from "shared/ui/Stack";
 
 interface ArticleDetailsCommentsProps {
   className?: string;
@@ -35,7 +36,7 @@ export const ArticleDetailsComments = memo(
     );
 
     return (
-      <div className={classNames("", {}, [className])}>
+      <VStack gap={"16"} className={classNames("", {}, [className])}>
         <Text className={cls.commentsTitle} title={t("Комментарии")} />
         <AddCommentForm onSendComment={onSendComment} />
         <CommentList
@@ -43,7 +44,7 @@ export const ArticleDetailsComments = memo(
           comments={comments}
           error={commentsError}
         />
-      </div>
+      </VStack>
     );
   }
 );

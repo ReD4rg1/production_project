@@ -3,6 +3,7 @@ module.exports = (
   componentName
 ) => `import type { Meta, StoryObj } from "@storybook/react";
 import ThemeDecorator from "shared/config/storybook/ThemeDecorator/ThemeDecorator";
+import StoreDecorator from "shared/config/storybook/StoreDecorator/StoreDecorator";
 import { Theme } from "app/providers/ThemeProvider";
 import { ${componentName} } from "./${componentName}";
 
@@ -20,15 +21,16 @@ type Story = StoryObj<typeof meta>;
 
 export const NormalTheme: Story = {
   args: {},
+  decorators: [ThemeDecorator(Theme.NORMAL), StoreDecorator({})],
 };
 
 export const DarkTheme: Story = {
   args: {},
-  decorators: [ThemeDecorator(Theme.DARK)],
+  decorators: [ThemeDecorator(Theme.DARK), StoreDecorator({})],
 };
 
 export const RedTheme: Story = {
   args: {},
-  decorators: [ThemeDecorator(Theme.RED)],
+  decorators: [ThemeDecorator(Theme.RED), StoreDecorator({})],
 };
 `;
