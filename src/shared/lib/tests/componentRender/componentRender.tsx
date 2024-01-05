@@ -4,10 +4,12 @@ import { I18nextProvider } from "react-i18next";
 import i18nForTest from "shared/config/i18n/i18nForTest";
 import { MemoryRouter } from "react-router-dom";
 import { StateSchema, StoreProvider } from "app/providers/StoreProvider";
+import { ReducersMapObject } from "@reduxjs/toolkit";
 
 export interface componentRenderOptions {
   route?: string;
   initialState?: DeepPartial<StateSchema>;
+  asyncReducers?: DeepPartial<ReducersMapObject<StateSchema>>;
 }
 
 export function componentRender(
@@ -17,7 +19,10 @@ export function componentRender(
   const { route = "/" } = options;
   return render(
     <MemoryRouter initialEntries={[route]}>
-      <StoreProvider initialState={options.initialState}>
+      <StoreProvider
+        asyncReducers={options.asyncReducers}
+        initialState={options.initialState}
+      >
         <I18nextProvider i18n={i18nForTest}>{component}</I18nextProvider>
       </StoreProvider>
     </MemoryRouter>

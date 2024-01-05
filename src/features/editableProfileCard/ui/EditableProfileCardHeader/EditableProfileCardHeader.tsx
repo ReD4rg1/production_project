@@ -56,6 +56,7 @@ export const EditableProfileCardHeader = (props: ProfilePageHeaderProps) => {
                 onClick={onEdit}
                 className={cls.editBtn}
                 theme={ButtonTheme.OUTLINE}
+                data-testid={"EditableProfileCardHeader.EditButton"}
               >
                 {t("Редактировать")}
               </Button>
@@ -66,6 +67,7 @@ export const EditableProfileCardHeader = (props: ProfilePageHeaderProps) => {
                 onClick={onSave}
                 className={cls.editBtn}
                 theme={ButtonTheme.OUTLINE}
+                data-testid={"EditableProfileCardHeader.SaveButton"}
               >
                 {t("Сохранить")}
               </Button>
@@ -73,6 +75,7 @@ export const EditableProfileCardHeader = (props: ProfilePageHeaderProps) => {
                 onClick={onCancelEdit}
                 className={cls.editBtn}
                 theme={ButtonTheme.OUTLINE_RED}
+                data-testid={"EditableProfileCardHeader.CancelButton"}
               >
                 {t("Отмена")}
               </Button>
