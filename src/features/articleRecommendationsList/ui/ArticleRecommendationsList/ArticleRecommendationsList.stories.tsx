@@ -3,12 +3,25 @@ import ThemeDecorator from "shared/config/storybook/ThemeDecorator/ThemeDecorato
 import { Theme } from "app/providers/ThemeProvider";
 import { ArticleRecommendationsList } from "./ArticleRecommendationsList";
 import StoreDecorator from "shared/config/storybook/StoreDecorator/StoreDecorator";
+import { articleMock } from "entities/Article/mocks/data";
 
 const meta = {
   title: "features/ArticleRecommendationsList",
   component: ArticleRecommendationsList,
   parameters: {
     layout: "centered",
+    mockData: [
+      {
+        url: `${__API__}/articles?_limit=3`,
+        method: "GET",
+        status: 200,
+        response: [
+          { ...articleMock },
+          { ...articleMock, id: 2 },
+          { ...articleMock, id: 3 },
+        ],
+      },
+    ],
   },
   tags: ["autodocs"],
 } satisfies Meta<typeof ArticleRecommendationsList>;

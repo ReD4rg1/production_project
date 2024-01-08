@@ -27,7 +27,7 @@ import { useInitialEffect } from "shared/lib/hooks/useInitialEffect/useInitialEf
 
 interface ArticleDetailsProps {
   className?: string;
-  id: string;
+  id?: string;
 }
 
 const reducers: ReducerList = {

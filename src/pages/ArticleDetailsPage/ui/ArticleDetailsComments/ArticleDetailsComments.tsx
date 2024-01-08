@@ -1,5 +1,5 @@
 import { classNames } from "shared/lib/classNames/classNames";
-import { memo, useCallback } from "react";
+import { memo, Suspense, useCallback } from "react";
 import { Text } from "shared/ui/Text/Text";
 import cls from "../ArticleDetailsPage/ArticleDetailsPage.module.scss";
 import { AddCommentForm } from "features/addCommentForm";
@@ -14,14 +14,18 @@ import {
 } from "../../model/selectors/comments";
 import { useTranslation } from "react-i18next";
 import { VStack } from "shared/ui/Stack";
+import { fetchCommentsByArticleId } from "../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId";
+import { useInitialEffect } from "shared/lib/hooks/useInitialEffect/useInitialEffect";
+import { Loader } from "shared/ui/Loader/Loader";
 
 interface ArticleDetailsCommentsProps {
   className?: string;
+  id?: string;
 }
 
 export const ArticleDetailsComments = memo(
   (props: ArticleDetailsCommentsProps) => {
-    const { className } = props;
+    const { className, id } = props;
     const comments = useSelector(getArticleComments.selectAll);
     const commentsIsLoading = useSelector(getArticleDetailsCommentsIsLoading);
     const commentsError = useSelector(getArticleDetailsCommentsError);
@@ -35,10 +39,16 @@ export const ArticleDetailsComments = memo(
       [dispatch]
     );
 
+    useInitialEffect(() => {
+      dispatch(fetchCommentsByArticleId(id));
+    });
+
     return (
       <VStack gap={"16"} className={classNames("", {}, [className])}>
         <Text className={cls.commentsTitle} title={t("Комментарии")} />
-        <AddCommentForm onSendComment={onSendComment} />
+        <Suspense fallback={<Loader />}>
+          <AddCommentForm onSendComment={onSendComment} />
+        </Suspense>
         <CommentList
           isLoading={commentsIsLoading}
           comments={comments}
