@@ -3,7 +3,7 @@ import ThemeDecorator from "shared/config/storybook/ThemeDecorator/ThemeDecorato
 import { Theme } from "app/providers/ThemeProvider";
 import { ArticleList } from "./ArticleList";
 import { articleMock } from "../../mocks/data";
-import { ArticleView } from "../../model/types/article";
+import { ArticleView } from "../../model/consts/article";
 
 const meta = {
   title: "entities/ArticleList",

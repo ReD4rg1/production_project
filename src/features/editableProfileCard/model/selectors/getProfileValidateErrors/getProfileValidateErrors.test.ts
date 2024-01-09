@@ -1,7 +1,7 @@
 import { DeepPartial } from "@reduxjs/toolkit";
 import { StateSchema } from "app/providers/StoreProvider";
 import { getProfileValidateErrors } from "./getProfileValidateErrors";
-import { ValidateProfileError } from "../../types/editableProfileCardSchema";
+import { ValidateProfileError } from "../../consts/validateProfileError";
 
 describe("getProfileValidateErrors", () => {
   test("getProfileValidateErrors", () => {

@@ -1,12 +1,7 @@
 import { classNames, Mods } from "shared/lib/classNames/classNames";
 import cls from "./ArticleListItem.module.scss";
 import { HTMLAttributeAnchorTarget, memo, useState } from "react";
-import {
-  Article,
-  ArticleBlocksType,
-  ArticleTextBlock,
-  ArticleView,
-} from "../../model/types/article";
+import { Article, ArticleTextBlock } from "../../model/types/article";
 import Eye from "shared/assets/icons/eye.svg";
 import { Text, TextSize } from "shared/ui/Text/Text";
 import { Button } from "shared/ui/Button/Button";
@@ -15,6 +10,7 @@ import { useTranslation } from "react-i18next";
 import { ArticleTextBlockComponent } from "../ArticleTextBlockComponent/ArticleTextBlockComponent";
 import { AppLink } from "shared/ui/AppLink/AppLink";
 import { RoutePath } from "shared/config/routeConfig/routeConfig";
+import { ArticleBlocksType, ArticleView } from "../../model/consts/article";
 
 interface ArticleListItemProps {
   className?: string;

@@ -11,7 +11,7 @@ import {
   getArticlesPageType,
   getArticlesPageView,
 } from "../../model/selectors/articles";
-import { ArticleSortField, ArticleView } from "entities/Article";
+import { ArticleSortField, ArticleType, ArticleView } from "entities/Article";
 import { articlePageActions } from "../../model/slices/articlePageSlice";
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch";
 import { Card, CardTheme } from "shared/ui/Card/Card";
@@ -21,7 +21,6 @@ import { SortOrder } from "shared/types";
 import { fetchArticlesList } from "../../model/services/fetchArticlesList/fetchArticlesList";
 import { useDebounce } from "shared/lib/hooks/useDebounce/useDebounce";
 import { TabItem, Tabs } from "shared/ui/Tabs/Tabs";
-import { ArticleType } from "entities/Article/model/types/article";
 
 interface ArticlesPageFilterProps {
   className?: string;

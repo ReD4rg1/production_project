@@ -1,10 +1,5 @@
-export { ArticleList } from "entities/Article/ui/ArticleList/ArticleList";
-export {
-  ArticleView,
-  Article,
-  ArticleSortField,
-  ArticleType,
-} from "./model/types/article";
+export { ArticleList } from "./ui/ArticleList/ArticleList";
+export type { Article } from "./model/types/article";
 export { getArticleDetailsData } from "./model/selectors/articleDetails";
 export { ArticleDetails } from "./ui/ArticleDetails/ArticleDetails";
 export {
@@ -12,3 +7,6 @@ export {
   articleDetailsActions,
 } from "./model/slice/articleDetailsSlice";
 export type { ArticleDetailsSchema } from "./model/types/articleDetailsSchema";
+export { ArticleView } from "./model/consts/article";
+export { ArticleType } from "./model/consts/article";
+export { ArticleSortField } from "./model/consts/article";
