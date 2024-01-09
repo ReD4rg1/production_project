@@ -4,6 +4,7 @@ import StyleDecorator from "../../src/shared/config/storybook/StyleDecorator/Sty
 import ThemeDecorator from "../../src/shared/config/storybook/ThemeDecorator/ThemeDecorator";
 import { Theme } from "../../src/app/providers/ThemeProvider";
 import RouterDecorator from "../../src/shared/config/storybook/RouterDecorator/RouterDecorator";
+import SuspenseDecorator from "../../src/shared/config/storybook/SuspenseDecorator/SuspenseDecorator";
 
 const preview: Preview = {
   parameters: {
@@ -15,7 +16,12 @@ const preview: Preview = {
       },
     },
   },
-  decorators: [StyleDecorator, ThemeDecorator(Theme.NORMAL), RouterDecorator],
+  decorators: [
+    StyleDecorator,
+    ThemeDecorator(Theme.NORMAL),
+    RouterDecorator,
+    SuspenseDecorator,
+  ],
 };
 
 export default preview;

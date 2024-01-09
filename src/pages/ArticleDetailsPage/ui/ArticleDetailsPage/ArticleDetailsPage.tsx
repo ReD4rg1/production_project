@@ -35,21 +35,13 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
     dispatch(fetchCommentsByArticleId(id));
   });
 
-  if (!id) {
-    return (
-      <Page className={classNames(cls.wrapper, {}, [className])}>
-        {t("Статья не найдена")}
-      </Page>
-    );
-  }
-
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
       <Page className={classNames(cls.wrapper, {}, [className])}>
         <ArticleDetailsPageHeader />
         <ArticleDetails id={id} />
         <ArticleRecommendationsList />
-        <ArticleDetailsComments />
+        <ArticleDetailsComments id={id} />
       </Page>
     </DynamicModuleLoader>
   );

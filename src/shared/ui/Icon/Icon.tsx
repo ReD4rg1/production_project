@@ -4,7 +4,7 @@ import { memo } from "react";
 
 interface IconProps {
   className?: string;
-  Svg: React.VFC<React.SVGProps<SVGSVGElement>>;
+  Svg: React.FC<React.SVGProps<SVGSVGElement>>;
   fill?: boolean;
 }
 

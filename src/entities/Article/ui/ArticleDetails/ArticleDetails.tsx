@@ -19,15 +19,16 @@ import { Avatar } from "shared/ui/Avatar/Avatar";
 import EyeIcon from "shared/assets/icons/eye.svg";
 import CalendarIcon from "shared/assets/icons/calendar-lines-pen.svg";
 import { Icon } from "shared/ui/Icon/Icon";
-import { ArticleBlock, ArticleBlocksType } from "../../model/types/article";
+import { ArticleBlock } from "../../model/types/article";
 import { ArticleCodeBlockComponent } from "../ArticleCodeBlockComponent/ArticleCodeBlockComponent";
 import { ArticleImageBlockComponent } from "../ArticleImageBlockComponent/ArticleImageBlockComponent";
 import { ArticleTextBlockComponent } from "../ArticleTextBlockComponent/ArticleTextBlockComponent";
 import { useInitialEffect } from "shared/lib/hooks/useInitialEffect/useInitialEffect";
+import { ArticleBlocksType } from "../../model/consts/article";
 
 interface ArticleDetailsProps {
   className?: string;
-  id: string;
+  id?: string;
 }
 
 const reducers: ReducerList = {

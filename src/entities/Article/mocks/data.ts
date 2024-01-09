@@ -1,8 +1,5 @@
-import {
-  Article,
-  ArticleBlocksType,
-  ArticleType,
-} from "../model/types/article";
+import { Article } from "../model/types/article";
+import { ArticleBlocksType, ArticleType } from "../model/consts/article";
 
 export const articleMock: Article = {
   id: "1",
