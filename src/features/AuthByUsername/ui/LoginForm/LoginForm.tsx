@@ -17,6 +17,7 @@ import {
   ReducerList,
 } from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch";
+import { VStack } from "shared/ui/Stack";
 
 export interface LoginFormProps {
   className?: string;
@@ -59,7 +60,7 @@ const LoginForm = memo((props: LoginFormProps) => {
 
   return (
     <DynamicModuleLoader reducers={InitialReducers} removeAfterUnmount>
-      <div className={classNames(cls.loginForm, {}, [className])}>
+      <VStack className={classNames(cls.loginForm, {}, [className])}>
         <Text title={t("Форма авторизации")} />
         {error && (
           <Text
@@ -68,6 +69,7 @@ const LoginForm = memo((props: LoginFormProps) => {
           />
         )}
         <Input
+          className={cls.firstInput}
           placeholder={"Введите логин"}
           inputStyle={InputStyle.CONSOLE}
           autofocus
@@ -88,7 +90,7 @@ const LoginForm = memo((props: LoginFormProps) => {
         >
           {t("Войти")}
         </Button>
-      </div>
+      </VStack>
     </DynamicModuleLoader>
   );
 });

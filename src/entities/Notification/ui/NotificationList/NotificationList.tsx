@@ -1,5 +1,4 @@
 import { classNames } from "shared/lib/classNames/classNames";
-import cls from "./NotificationList.module.scss";
 import { memo } from "react";
 import { useNotifications } from "../../api/notificationApi";
 import { useTranslation } from "react-i18next";
@@ -25,7 +24,7 @@ export const NotificationList = memo((props: NotificationListProps) => {
         gap={"16"}
         justify={"center"}
         align={"center"}
-        className={cls.wrapper}
+        className={classNames("", {}, [className])}
       >
         <Skeleton width={"100%"} border={"8px"} height={"80px"} />
         <Skeleton width={"100%"} border={"8px"} height={"80px"} />
@@ -35,11 +34,11 @@ export const NotificationList = memo((props: NotificationListProps) => {
   }
 
   if (!data) {
-    return <div className={cls.wrapper}>{t("Нет уведомлений")}</div>;
+    return <div>{t("Нет уведомлений")}</div>;
   }
 
   return (
-    <VStack max gap={"16"} className={classNames(cls.wrapper, {}, [className])}>
+    <VStack max gap={"16"} className={classNames("", {}, [className])}>
       {data.map((item) => (
         <NotificationItem item={item} key={item.id} />
       ))}
