@@ -31,5 +31,7 @@
   "Создать пост": "Create new post",
   "Профиль": "Profile",
   "Рекомендуем": "Recommend",
-  "Нет уведомлений": "No notifications"
+  "Нет уведомлений": "No notifications",
+  "Панель администрирования": "Administration panel",
+  "У вас нет доступа к этой странице": "You do not have access to this page"
 }

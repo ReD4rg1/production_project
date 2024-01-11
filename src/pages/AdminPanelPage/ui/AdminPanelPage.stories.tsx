@@ -1,36 +1,32 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import ThemeDecorator from "shared/config/storybook/ThemeDecorator/ThemeDecorator";
 import { Theme } from "app/providers/ThemeProvider";
-import { AvatarDropdown } from "./AvatarDropdown";
+import StoreDecorator from "shared/config/storybook/StoreDecorator/StoreDecorator";
+import AdminPanelPage from "./AdminPanelPage";
 
 const meta = {
-  title: "shared/AvatarDropdown",
-  component: AvatarDropdown,
+  title: "pages/AdminPanelPage",
+  component: AdminPanelPage,
   parameters: {
     layout: "centered",
   },
-  args: {
-    authData: {
-      id: "1",
-      username: "Admin",
-    },
-  },
   tags: ["autodocs"],
-} satisfies Meta<typeof AvatarDropdown>;
+} satisfies Meta<typeof AdminPanelPage>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const NormalTheme: Story = {
   args: {},
+  decorators: [ThemeDecorator(Theme.NORMAL), StoreDecorator({})],
 };
 
 export const DarkTheme: Story = {
   args: {},
-  decorators: [ThemeDecorator(Theme.DARK)],
+  decorators: [ThemeDecorator(Theme.DARK), StoreDecorator({})],
 };
 
 export const RedTheme: Story = {
   args: {},
-  decorators: [ThemeDecorator(Theme.RED)],
+  decorators: [ThemeDecorator(Theme.RED), StoreDecorator({})],
 };
