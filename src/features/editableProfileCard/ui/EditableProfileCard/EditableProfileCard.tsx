@@ -1,12 +1,12 @@
-import { classNames } from "shared/lib/classNames/classNames";
+import { classNames } from "@/shared/lib/classNames/classNames";
 import { useTranslation } from "react-i18next";
 import { memo, useCallback } from "react";
-import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch";
+import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch";
 import { useSelector } from "react-redux";
-import { useInitialEffect } from "shared/lib/hooks/useInitialEffect/useInitialEffect";
-import { Country } from "entities/Country";
-import { Currency } from "entities/Currency";
-import { Text, TextTheme } from "shared/ui/Text/Text";
+import { useInitialEffect } from "@/shared/lib/hooks/useInitialEffect/useInitialEffect";
+import { Country } from "@/entities/Country";
+import { Currency } from "@/entities/Currency";
+import { Text, TextTheme } from "@/shared/ui/Text/Text";
 import { getProfileForm } from "../../model/selectors/getProfileForm/getProfileForm";
 import { getProfileError } from "../../model/selectors/getProfileError/getProfileError";
 import { getProfileReadonly } from "../../model/selectors/getProfileReadonly/getProfileReadonly";
@@ -14,13 +14,13 @@ import { getProfileValidateErrors } from "../../model/selectors/getProfileValida
 import { getProfileIsLoading } from "../../model/selectors/getProfileIsLoading/getProfileIsLoading";
 import { fetchProfileData } from "../../model/services/fetchProfileData/fetchProfileData";
 import { profileActions, profileReducer } from "../../model/slice/profileSlice";
-import { ProfileCard } from "entities/Profile";
+import { ProfileCard } from "@/entities/Profile";
 import {
   DynamicModuleLoader,
   ReducerList,
-} from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
+} from "@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
 import { EditableProfileCardHeader } from "../EditableProfileCardHeader/EditableProfileCardHeader";
-import { VStack } from "shared/ui/Stack";
+import { VStack } from "@/shared/ui/Stack";
 import { ValidateProfileError } from "../../model/consts/validateProfileError";
 
 const reducers: ReducerList = {

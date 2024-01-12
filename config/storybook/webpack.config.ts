@@ -42,5 +42,7 @@ export default ({ config }: { config: webpack.Configuration }) => {
     })
   );
 
+  config.resolve!.alias = { "@": paths.src };
+
   return config;
 };

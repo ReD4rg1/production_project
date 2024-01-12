@@ -2,15 +2,6 @@
   position: relative;
 }
 
-.btn {
-  background: none;
-  outline: none;
-  margin: 0;
-  padding: 0;
-  border: none;
-  cursor: pointer;
-}
-
 .menu {
   background: var(--card-bg);
   position: absolute;
@@ -21,6 +12,15 @@
   display: flex;
 }
 
+.btn {
+  background: none;
+  outline: none;
+  margin: 0;
+  padding: 0;
+  border: none;
+  cursor: pointer;
+}
+
 .item {
   padding: 10px 25px;
   width: 100%;
@@ -29,6 +29,10 @@
   outline: none;
   color: var(--primary-color);
   cursor: pointer;
+}
+
+.disabled {
+  opacity: 0.7;
 }
 
 .active {

@@ -1,13 +1,13 @@
-import { classNames } from "shared/lib/classNames/classNames";
+import { classNames } from "@/shared/lib/classNames/classNames";
 import cls from "./LoginForm.module.scss";
 import { useTranslation } from "react-i18next";
-import { Input, InputStyle } from "shared/ui/Input/Input";
-import { Button, ButtonTheme } from "shared/ui/Button/Button";
+import { Input, InputStyle } from "@/shared/ui/Input/Input";
+import { Button, ButtonTheme } from "@/shared/ui/Button/Button";
 import { memo, useCallback } from "react";
 import { loginActions, loginReducer } from "../../model/slice/loginSlice";
 import { useSelector } from "react-redux";
 import { loginByUsername } from "../../model/services/loginByUsername";
-import { Text, TextTheme } from "shared/ui/Text/Text";
+import { Text, TextTheme } from "@/shared/ui/Text/Text";
 import { getLoginUsername } from "../../model/selectors/getLoginUsername/getLoginUsername";
 import { getLoginIsLoading } from "../../model/selectors/getLoginIsLoading/getLoginIsLoading";
 import { getLoginError } from "../../model/selectors/getLoginError/getLoginError";
@@ -15,8 +15,9 @@ import { getLoginPassword } from "../../model/selectors/getLoginPassword/getLogi
 import {
   DynamicModuleLoader,
   ReducerList,
-} from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
-import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch";
+} from "@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
+import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch";
+import { VStack } from "@/shared/ui/Stack";
 
 export interface LoginFormProps {
   className?: string;
@@ -59,7 +60,7 @@ const LoginForm = memo((props: LoginFormProps) => {
 
   return (
     <DynamicModuleLoader reducers={InitialReducers} removeAfterUnmount>
-      <div className={classNames(cls.loginForm, {}, [className])}>
+      <VStack className={classNames(cls.loginForm, {}, [className])}>
         <Text title={t("Форма авторизации")} />
         {error && (
           <Text
@@ -68,6 +69,7 @@ const LoginForm = memo((props: LoginFormProps) => {
           />
         )}
         <Input
+          className={cls.firstInput}
           placeholder={"Введите логин"}
           inputStyle={InputStyle.CONSOLE}
           autofocus
@@ -88,7 +90,7 @@ const LoginForm = memo((props: LoginFormProps) => {
         >
           {t("Войти")}
         </Button>
-      </div>
+      </VStack>
     </DynamicModuleLoader>
   );
 });

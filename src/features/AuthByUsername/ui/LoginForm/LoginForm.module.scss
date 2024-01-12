@@ -1,7 +1,9 @@
 .loginForm {
-  display: flex;
-  flex-direction: column;
   width: 400px;
+}
+
+.firstInput {
+  margin-top: 15px;
 }
 
 .loginBtn {

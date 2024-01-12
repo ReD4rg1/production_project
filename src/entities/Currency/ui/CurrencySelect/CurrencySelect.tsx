@@ -1,7 +1,7 @@
 import { Currency } from "../../model/consts/currency";
 import { useTranslation } from "react-i18next";
 import { memo, useCallback } from "react";
-import { ListBox } from "shared/ui/ListBox/ListBox";
+import { ListBox } from "@/shared/ui/Popups";
 
 interface CurrencySelectProps {
   className?: string;
@@ -37,7 +37,7 @@ export const CurrencySelect = memo((props: CurrencySelectProps) => {
       defaultValue={t("Укажите валюту")}
       label={t("Валюта")}
       readonly={readonly}
-      direction={"top"}
+      direction={"top right"}
     />
   );
 });
