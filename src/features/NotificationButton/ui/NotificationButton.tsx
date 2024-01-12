@@ -1,7 +1,7 @@
 import { classNames } from "@/shared/lib/classNames/classNames";
 import { memo, useCallback, useState } from "react";
 import { Icon } from "@/shared/ui/Icon/Icon";
-import Notification from "@/shared/assets/icons/notification.svg";
+import Notification from "@/shared/assets/icons/notification.svg?react";
 import { VStack } from "@/shared/ui/Stack";
 import { NotificationList } from "@/entities/Notification";
 import { Popover } from "@/shared/ui/Popups";

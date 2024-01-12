@@ -1,6 +1,6 @@
 import { classNames } from "@/shared/lib/classNames/classNames";
 import { Button, ButtonTheme } from "../../Button/Button";
-import LanguageIcon from "@/shared/assets/icons/language.svg";
+import LanguageIcon from "@/shared/assets/icons/language.svg?react";
 import { useTranslation } from "react-i18next";
 import { Icon } from "../../Icon/Icon";
 

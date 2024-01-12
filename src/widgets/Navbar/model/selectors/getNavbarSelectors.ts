@@ -2,10 +2,10 @@ import { createSelector } from "@reduxjs/toolkit";
 import { getUserAuthData } from "@/entities/User";
 import { RoutePath } from "@/shared/config/routeConfig/routeConfig";
 import { NavbarItemType } from "../types/navbar";
-import MainIcon from "@/shared/assets/icons/home.svg";
-import SquareListIcon from "@/shared/assets/icons/square-list.svg";
-import ProfileIcon from "@/shared/assets/icons/profile.svg";
-import ArticlesIcon from "@/shared/assets/icons/posts.svg";
+import MainIcon from "@/shared/assets/icons/home.svg?react";
+import SquareListIcon from "@/shared/assets/icons/square-list.svg?react";
+import ProfileIcon from "@/shared/assets/icons/profile.svg?react";
+import ArticlesIcon from "@/shared/assets/icons/posts.svg?react";
 
 export const getNavbarSelectors = createSelector(
   getUserAuthData,

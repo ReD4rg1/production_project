@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
     "outDir": "./build/",
+    "types": ["vite-plugin-svgr/client"],
     "noImplicitAny": true,
     "module": "ESNext",
     "target": "es5",
