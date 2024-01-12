@@ -1,9 +1,9 @@
-import { classNames } from "shared/lib/classNames/classNames";
+import { classNames } from "@/shared/lib/classNames/classNames";
 import popupCls from "../../styles/popup.module.scss";
 import { Fragment, memo, ReactNode } from "react";
 import { Menu } from "@headlessui/react";
 import { AppLink } from "../../../AppLink/AppLink";
-import { DropdownDirection } from "shared/types/ui";
+import { DropdownDirection } from "@/shared/types/ui";
 import { mapDirectionClass } from "../../styles/consts";
 
 export interface DropdownItem {

@@ -1,6 +1,6 @@
-import { CounterSchema } from "entities/Counter";
-import { UserSchema } from "entities/User/model/types/user";
-import { LoginSchema } from "features/AuthByUsername";
+import { CounterSchema } from "@/entities/Counter";
+import { UserSchema } from "@/entities/User/model/types/user";
+import { LoginSchema } from "@/features/AuthByUsername";
 import {
   AnyAction,
   CombinedState,
@@ -10,13 +10,13 @@ import {
 } from "@reduxjs/toolkit";
 import { AxiosInstance } from "axios";
 import { NavigateOptions, To } from "react-router-dom";
-import { ArticleDetailsSchema } from "entities/Article";
-import { AddCommentFormSchema } from "features/addCommentForm";
-import { ArticlesPageSchema } from "pages/ArticlesPage";
-import { ScrollSaveSchema } from "features/scrollSave";
-import { ArticleDetailsPageSchema } from "pages/ArticleDetailsPage";
-import { rtkApi } from "shared/api/rtkApi";
-import { ProfileSchema } from "features/editableProfileCard";
+import { ArticleDetailsSchema } from "@/entities/Article";
+import { AddCommentFormSchema } from "@/features/addCommentForm";
+import { ArticlesPageSchema } from "@/pages/ArticlesPage";
+import { ScrollSaveSchema } from "@/features/scrollSave";
+import { ArticleDetailsPageSchema } from "@/pages/ArticleDetailsPage";
+import { rtkApi } from "@/shared/api/rtkApi";
+import { ProfileSchema } from "@/features/editableProfileCard";
 
 export interface StateSchema {
   counter: CounterSchema;

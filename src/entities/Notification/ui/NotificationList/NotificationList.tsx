@@ -1,10 +1,10 @@
-import { classNames } from "shared/lib/classNames/classNames";
+import { classNames } from "@/shared/lib/classNames/classNames";
 import { memo } from "react";
 import { useNotifications } from "../../api/notificationApi";
 import { useTranslation } from "react-i18next";
 import { NotificationItem } from "../NotificationItem/NotificationItem";
-import { VStack } from "shared/ui/Stack";
-import { Skeleton } from "shared/ui/Skeleton/Skeleton";
+import { VStack } from "@/shared/ui/Stack";
+import { Skeleton } from "@/shared/ui/Skeleton/Skeleton";
 
 interface NotificationListProps {
   className?: string;

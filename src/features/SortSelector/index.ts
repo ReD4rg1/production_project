@@ -1,1 +1,1 @@
-export { SortSelector } from "features/SortSelector/ui/SortSelector";
+export { SortSelector } from "@/features/SortSelector/ui/SortSelector";

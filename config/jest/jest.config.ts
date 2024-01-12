@@ -30,6 +30,7 @@ const config: Config = {
     "\\.svg": path.resolve(__dirname, "jestEmptyComponent.tsx"),
     "@/(.*)": "<rootDir>/src/$1",
     "entities/(.*)": "<rootDir>/src/entities/$1",
+    "^@/(.*)$": "<rootDir>src/$1",
   },
   globals: { __IS_DEV__: true, __API__: "", __PROJECT__: "jest" },
 

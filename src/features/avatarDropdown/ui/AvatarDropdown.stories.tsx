@@ -1,10 +1,11 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import ThemeDecorator from "shared/config/storybook/ThemeDecorator/ThemeDecorator";
-import { Theme } from "app/providers/ThemeProvider";
+import ThemeDecorator from "@/shared/config/storybook/ThemeDecorator/ThemeDecorator";
+import { Theme } from "@/app/providers/ThemeProvider";
 import { AvatarDropdown } from "./AvatarDropdown";
+import StoreDecorator from "@/shared/config/storybook/StoreDecorator/StoreDecorator";
 
 const meta = {
-  title: "shared/AvatarDropdown",
+  title: "features/AvatarDropdown",
   component: AvatarDropdown,
   parameters: {
     layout: "centered",
@@ -12,9 +13,12 @@ const meta = {
   args: {
     authData: {
       id: "1",
-      username: "Admin",
+      username: "admin",
+      avatar:
+        "https://i.kym-cdn.com/entries/icons/original/000/042/690/Screen_Shot_2022-11-16_at_2.24.03_PM.jpg",
     },
   },
+  decorators: [StoreDecorator({})],
   tags: ["autodocs"],
 } satisfies Meta<typeof AvatarDropdown>;
 
