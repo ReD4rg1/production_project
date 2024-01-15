@@ -22,7 +22,7 @@ export const LanguageSwitcher = (props: LanguageSwitcherProps) => {
       className={classNames("", {}, [className])}
       onClick={toggleLanguage}
     >
-      <Icon Svg={LanguageIcon} fill />
+      <Icon Svg={LanguageIcon} fillIcon />
     </Button>
   );
 };

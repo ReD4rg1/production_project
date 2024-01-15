@@ -18,7 +18,7 @@ export const ThemeSwitcher = (props: ThemeSwitcherProps) => {
       className={classNames("", {}, [className])}
       onClick={toggleTheme}
     >
-      <Icon Svg={ThemeIcon} fill />
+      <Icon Svg={ThemeIcon} fillIcon />
     </Button>
   );
 };
