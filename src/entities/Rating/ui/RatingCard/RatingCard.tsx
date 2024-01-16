@@ -1,5 +1,3 @@
-import { classNames } from "@/shared/lib/classNames/classNames";
-import cls from "./RatingCard.module.scss";
 import { memo, useCallback, useState } from "react";
 import { Card } from "@/shared/ui/Card/Card";
 import { HStack, VStack } from "@/shared/ui/Stack";
@@ -19,13 +17,21 @@ interface RatingCardProps {
   feedbackTitle?: string;
   onCancel?: (starsCount: number) => void;
   onAccept?: (starsCount: number, feedback?: string) => void;
+  rate?: number;
 }
 
 export const RatingCard = memo((props: RatingCardProps) => {
-  const { className, onAccept, hasFeedback, onCancel, feedbackTitle, title } =
-    props;
+  const {
+    className,
+    onAccept,
+    hasFeedback,
+    onCancel,
+    feedbackTitle,
+    title,
+    rate = 0,
+  } = props;
   const { t } = useTranslation();
-  const [starsCount, setStarsCount] = useState(0);
+  const [starsCount, setStarsCount] = useState(rate);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [feedback, setFeedback] = useState("");
   const isMobile = useDevice();
@@ -65,10 +71,14 @@ export const RatingCard = memo((props: RatingCardProps) => {
   );
 
   return (
-    <Card className={classNames(cls.RatingCard, {}, [className])}>
+    <Card className={className}>
       <VStack align="center" gap="8">
         <Text title={title} />
-        <StarRating size={40} onSelect={onSelectStars} />
+        <StarRating
+          selectedStars={starsCount}
+          size={40}
+          onSelect={onSelectStars}
+        />
       </VStack>
       {isMobile ? (
         <Drawer isOpen={isModalOpen} lazy onClose={cancelHandle}>

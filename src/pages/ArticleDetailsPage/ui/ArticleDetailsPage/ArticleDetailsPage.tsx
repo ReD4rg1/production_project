@@ -1,6 +1,5 @@
 import { classNames } from "@/shared/lib/classNames/classNames";
 import cls from "./ArticleDetailsPage.module.scss";
-import { useTranslation } from "react-i18next";
 import { memo } from "react";
 import { ArticleDetails } from "@/entities/Article";
 import { useParams } from "react-router-dom";
@@ -16,6 +15,7 @@ import { articleDetailsPageReducer } from "../../model/slices";
 import { ArticleDetailsPageHeader } from "../ArticleDetailsPageHeader/ArticleDetailsPageHeader";
 import { ArticleRecommendationsList } from "@/features/articleRecommendationsList";
 import { ArticleDetailsComments } from "../ArticleDetailsComments/ArticleDetailsComments";
+import { ArticleRating } from "@/features/articleRating";
 
 interface ArticleDetailsPageProps {
   className?: string;
@@ -27,7 +27,6 @@ const reducers: ReducerList = {
 
 const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
   const { className } = props;
-  const { t } = useTranslation("article");
   const { id } = useParams<{ id: string }>();
   const dispatch = useAppDispatch();
 
@@ -35,11 +34,16 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
     dispatch(fetchCommentsByArticleId(id));
   });
 
+  if (!id) {
+    return null;
+  }
+
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
       <Page className={classNames(cls.wrapper, {}, [className])}>
         <ArticleDetailsPageHeader />
         <ArticleDetails id={id} />
+        <ArticleRating articleId={id} />
         <ArticleRecommendationsList />
         <ArticleDetailsComments id={id} />
       </Page>
