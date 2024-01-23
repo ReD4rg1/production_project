@@ -1,6 +1,6 @@
 import { classNames } from "@/shared/lib/classNames/classNames";
 import { Button, ButtonTheme } from "../../Button/Button";
-import LanguageIcon from "@/shared/assets/icons/language.svg";
+import LanguageIcon from "@/shared/assets/icons/language.svg?react";
 import { useTranslation } from "react-i18next";
 import { Icon } from "../../Icon/Icon";
 
@@ -22,7 +22,7 @@ export const LanguageSwitcher = (props: LanguageSwitcherProps) => {
       className={classNames("", {}, [className])}
       onClick={toggleLanguage}
     >
-      <Icon Svg={LanguageIcon} fill />
+      <Icon Svg={LanguageIcon} fillIcon />
     </Button>
   );
 };

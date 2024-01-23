@@ -1,0 +1,12 @@
+.wrapper {
+  display: flex;
+  flex-direction: row;
+}
+
+.starIcon {
+  cursor: pointer;
+}
+
+.isSelected {
+  cursor: auto;
+}

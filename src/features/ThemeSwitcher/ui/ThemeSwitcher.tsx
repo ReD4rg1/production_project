@@ -1,6 +1,6 @@
 import { classNames } from "@/shared/lib/classNames/classNames";
 import { useTheme } from "@/app/providers/ThemeProvider";
-import ThemeIcon from "@/shared/assets/icons/theme.svg";
+import ThemeIcon from "@/shared/assets/icons/theme.svg?react";
 import { Button, ButtonTheme } from "../../../shared/ui/Button/Button";
 import { Icon } from "../../../shared/ui/Icon/Icon";
 
@@ -18,7 +18,7 @@ export const ThemeSwitcher = (props: ThemeSwitcherProps) => {
       className={classNames("", {}, [className])}
       onClick={toggleTheme}
     >
-      <Icon Svg={ThemeIcon} fill />
+      <Icon Svg={ThemeIcon} fillIcon />
     </Button>
   );
 };

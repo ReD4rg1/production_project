@@ -18,6 +18,7 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   className?: string;
   theme?: ButtonTheme;
   size?: ButtonSize;
+  fullWidth?: boolean;
 }
 
 export const Button: FC<ButtonProps> = memo((props: ButtonProps) => {
@@ -27,11 +28,13 @@ export const Button: FC<ButtonProps> = memo((props: ButtonProps) => {
     theme = ButtonTheme.OUTLINE,
     size = ButtonSize.M,
     disabled,
+    fullWidth,
     ...otherProps
   } = props;
 
   const mods: Mods = {
     [cls.disabled]: disabled,
+    [cls.fullWidth]: fullWidth,
   };
 
   return (

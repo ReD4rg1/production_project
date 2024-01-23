@@ -4,7 +4,7 @@ import { memo, useState } from "react";
 import { ThemeSwitcher } from "@/features/ThemeSwitcher";
 import { LanguageSwitcher } from "@/shared/ui/LanguageSwitcher";
 import { Button, ButtonSize, ButtonTheme } from "@/shared/ui/Button/Button";
-import AddPost from "@/shared/assets/icons/add-square.svg";
+import AddPost from "@/shared/assets/icons/add-square.svg?react";
 import { AppLink } from "@/shared/ui/AppLink/AppLink";
 import { RoutePath } from "@/shared/config/routeConfig/routeConfig";
 import { useTranslation } from "react-i18next";
