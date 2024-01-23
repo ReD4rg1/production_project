@@ -11,7 +11,7 @@
     "start:json-server": "node ./json-server/index.js",
     "build:dev": "npx webpack --env mode=development",
     "build:prod": "npx webpack --env mode=production",
-    "lint:ts": "eslint src",
+    "lint:ts": "eslint --quiet src",
     "lint:ts:fix": "eslint --fix --max-warnings=0 src",
     "lint:scss": "npx stylelint \"**/*.scss\"",
     "lint:scss:fix": "npx stylelint \"**/*.scss\" --fix",

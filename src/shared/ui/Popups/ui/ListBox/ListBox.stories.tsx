@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import ThemeDecorator from "@/shared/config/storybook/ThemeDecorator/ThemeDecorator";
-import { Theme } from "@/app/providers/ThemeProvider";
 import { ListBox, ListBoxItem } from "./ListBox";
+import { Theme } from "@/shared/const/theme";
 
 const initial: ListBoxItem[] = [
   { value: "1", content: "Durward Reynolds", disabled: false },
