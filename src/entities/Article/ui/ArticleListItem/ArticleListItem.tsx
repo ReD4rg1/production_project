@@ -9,8 +9,8 @@ import { Avatar } from "@/shared/ui/Avatar/Avatar";
 import { useTranslation } from "react-i18next";
 import { ArticleTextBlockComponent } from "../ArticleTextBlockComponent/ArticleTextBlockComponent";
 import { AppLink } from "@/shared/ui/AppLink/AppLink";
-import { RoutePath } from "@/shared/config/routeConfig/routeConfig";
 import { ArticleBlocksType, ArticleView } from "../../model/consts/article";
+import { RoutePath } from "@/shared/const/rouner";
 
 interface ArticleListItemProps {
   className?: string;
