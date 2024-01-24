@@ -55,6 +55,13 @@
             {
                 "alias": "@"
             }
+        ],
+        "d4rg1-fsd-plugin/public-api-imports": [
+            "error",
+            {
+                "alias": "@",
+                "testFilesPatterns": ["**/*.test.*", "**/*.stories.*", "**/StoreDecorator.tsx"]
+            }
         ]
     },
     "globals": {

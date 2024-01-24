@@ -1,4 +1,4 @@
-import { Page } from "@/widgets/Page/Page";
+import { Page } from "@/widgets/Page";
 import { EditableProfileCard } from "@/features/editableProfileCard";
 import { useParams } from "react-router-dom";
 import { VStack } from "@/shared/ui/Stack";
