@@ -62,6 +62,13 @@
                 "alias": "@",
                 "testFilesPatterns": ["**/*.test.*", "**/*.stories.*", "**/StoreDecorator.tsx"]
             }
+        ],
+        "d4rg1-fsd-plugin/layer-imports": [
+            "error",
+            {
+                "alias": "@",
+                "ignoreImportPatterns": ["**/StoreProvider", "**/testing"]
+            }
         ]
     },
     "globals": {
