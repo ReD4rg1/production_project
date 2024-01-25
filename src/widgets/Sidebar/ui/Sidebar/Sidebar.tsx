@@ -3,11 +3,11 @@ import cls from "./Sidebar.module.scss";
 import { memo, useState } from "react";
 import { ThemeSwitcher } from "@/features/ThemeSwitcher";
 import { LanguageSwitcher } from "@/shared/ui/LanguageSwitcher";
-import { Button, ButtonSize, ButtonTheme } from "@/shared/ui/Button/Button";
+import { Button, ButtonSize, ButtonTheme } from "@/shared/ui/Button";
 import AddPost from "@/shared/assets/icons/add-square.svg?react";
-import { AppLink } from "@/shared/ui/AppLink/AppLink";
+import { AppLink } from "@/shared/ui/AppLink";
 import { useTranslation } from "react-i18next";
-import { Text } from "@/shared/ui/Text/Text";
+import { Text } from "@/shared/ui/Text";
 import { RoutePath } from "@/shared/const/rouner";
 
 interface SidebarProps {
