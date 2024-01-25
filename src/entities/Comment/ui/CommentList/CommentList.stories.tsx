@@ -1,9 +1,9 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import ThemeDecorator from "@/shared/config/storybook/ThemeDecorator/ThemeDecorator";
-import { Theme } from "@/app/providers/ThemeProvider";
 import { CommentList } from "./CommentList";
 import { CommentType } from "../../model/types/commentType";
 import avatar from "@/shared/assets/avatar/avatar.png";
+import { Theme } from "@/shared/const/theme";
 
 const meta = {
   title: "entities/CommentList",

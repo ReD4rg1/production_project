@@ -2,7 +2,7 @@ import { classNames } from "@/shared/lib/classNames/classNames";
 import cls from "./Navbar.module.scss";
 import { useTranslation } from "react-i18next";
 import { memo, useCallback, useMemo, useState } from "react";
-import { Button, ButtonSize, ButtonTheme } from "@/shared/ui/Button/Button";
+import { Button, ButtonSize, ButtonTheme } from "@/shared/ui/Button";
 import { LoginModal } from "@/features/AuthByUsername";
 import { useSelector } from "react-redux";
 import { getUserAuthData } from "@/entities/User";

@@ -1,5 +1,5 @@
 import { CounterSchema } from "@/entities/Counter";
-import { UserSchema } from "@/entities/User/model/types/user";
+import { UserSchema } from "@/entities/User";
 import { LoginSchema } from "@/features/AuthByUsername";
 import {
   AnyAction,

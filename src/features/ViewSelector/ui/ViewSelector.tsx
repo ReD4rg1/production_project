@@ -4,8 +4,8 @@ import { memo } from "react";
 import GridIcon from "@/shared/assets/icons/grid.svg?react";
 import ListIcon from "@/shared/assets/icons/list.svg?react";
 import { ArticleView } from "@/entities/Article";
-import { Button, ButtonTheme } from "@/shared/ui/Button/Button";
-import { Icon } from "@/shared/ui/Icon/Icon";
+import { Button, ButtonTheme } from "@/shared/ui/Button";
+import { Icon } from "@/shared/ui/Icon";
 
 interface ViewSelectorProps {
   className?: string;

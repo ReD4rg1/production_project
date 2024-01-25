@@ -1,9 +1,9 @@
 import { classNames } from "@/shared/lib/classNames/classNames";
 import cls from "./ProfilePageHeader.module.scss";
-import { Text } from "@/shared/ui/Text/Text";
+import { Text } from "@/shared/ui/Text";
 import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
-import { Button, ButtonTheme } from "@/shared/ui/Button/Button";
+import { Button, ButtonTheme } from "@/shared/ui/Button";
 import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch";
 import { useCallback } from "react";
 import { getUserAuthData } from "@/entities/User";

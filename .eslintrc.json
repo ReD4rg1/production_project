@@ -50,7 +50,26 @@
             }
         ],
         "no-undef": "off",
-        "d4rg1-fsd-plugin/path-checker": "error"
+        "d4rg1-fsd-plugin/path-checker": [
+            "error",
+            {
+                "alias": "@"
+            }
+        ],
+        "d4rg1-fsd-plugin/public-api-imports": [
+            "error",
+            {
+                "alias": "@",
+                "testFilesPatterns": ["**/*.test.*", "**/*.stories.*", "**/StoreDecorator.tsx"]
+            }
+        ],
+        "d4rg1-fsd-plugin/layer-imports": [
+            "error",
+            {
+                "alias": "@",
+                "ignoreImportPatterns": ["**/StoreProvider", "**/testing"]
+            }
+        ]
     },
     "globals": {
         "__IS_DEV__": true,

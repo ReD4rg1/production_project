@@ -6,7 +6,7 @@ import {
   ReducerList,
 } from "@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
 import { articlePageReducer } from "../../model/slices/articlePageSlice";
-import { Page } from "@/widgets/Page/Page";
+import { Page } from "@/widgets/Page";
 import { ArticlesPageFilter } from "../ArticlesPageFilters/ArticlesPageFilter";
 import { fetchNextArticlesPage } from "../../model/services/fetchNextArticlesPage/fetchNextArticlesPage";
 import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch";

@@ -3,14 +3,14 @@ import cls from "./ArticleListItem.module.scss";
 import { HTMLAttributeAnchorTarget, memo, useState } from "react";
 import { Article, ArticleTextBlock } from "../../model/types/article";
 import Eye from "@/shared/assets/icons/eye.svg?react";
-import { Text, TextSize } from "@/shared/ui/Text/Text";
-import { Button } from "@/shared/ui/Button/Button";
-import { Avatar } from "@/shared/ui/Avatar/Avatar";
+import { Text, TextSize } from "@/shared/ui/Text";
+import { Button } from "@/shared/ui/Button";
+import { Avatar } from "@/shared/ui/Avatar";
 import { useTranslation } from "react-i18next";
 import { ArticleTextBlockComponent } from "../ArticleTextBlockComponent/ArticleTextBlockComponent";
-import { AppLink } from "@/shared/ui/AppLink/AppLink";
-import { RoutePath } from "@/shared/config/routeConfig/routeConfig";
+import { AppLink } from "@/shared/ui/AppLink";
 import { ArticleBlocksType, ArticleView } from "../../model/consts/article";
+import { RoutePath } from "@/shared/const/rouner";
 
 interface ArticleListItemProps {
   className?: string;

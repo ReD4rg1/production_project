@@ -1,11 +1,13 @@
 import { Story } from "@storybook/react";
 import { StateSchema, StoreProvider } from "@/app/providers/StoreProvider";
-import { loginReducer } from "@/features/AuthByUsername/model/slice/loginSlice";
+import { loginReducer } from "@/features/AuthByUsername/testing";
 import { ReducerList } from "../../../lib/components/DynamicModuleLoader/DynamicModuleLoader";
+// eslint-disable-next-line d4rg1-fsd-plugin/layer-imports
 import { articleDetailsReducer } from "@/entities/Article";
+// eslint-disable-next-line d4rg1-fsd-plugin/layer-imports
 import { addCommentFormReducer } from "@/features/addCommentForm";
-import { articleDetailsPageReducer } from "@/pages/ArticleDetailsPage/model/slices";
-import { profileReducer } from "@/features/editableProfileCard/model/slice/profileSlice";
+import { articleDetailsPageReducer } from "@/pages/ArticleDetailsPage/testing";
+import { profileReducer } from "@/features/editableProfileCard/testing";
 
 const defaultAsyncReducers: ReducerList = {
   loginForm: loginReducer,
