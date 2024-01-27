@@ -8,7 +8,10 @@ import { useSelector } from "react-redux";
 import { getUserAuthData } from "@/entities/User";
 import { getArticleDetailsData } from "@/entities/Article";
 import { getCanEditArticle } from "../../model/selectors/article";
-import { RoutePath } from "@/shared/const/rouner";
+import {
+  getRouteArticleDetails,
+  getRouteArticles,
+} from "@/shared/const/router";
 
 interface ArticleDetailsPageHeaderProps {
   className?: string;
@@ -24,11 +27,13 @@ export const ArticleDetailsPageHeader = memo(
     const canEdit = useSelector(getCanEditArticle);
 
     const onBackToList = useCallback(() => {
-      navigate(RoutePath.articles);
+      navigate(getRouteArticles());
     }, [navigate]);
 
     const onEditArticle = useCallback(() => {
-      navigate(`${RoutePath.articleDetails}${article?.id}/edit`);
+      if (article) {
+        navigate(getRouteArticleDetails(article.id));
+      }
     }, [navigate, article]);
 
     return (

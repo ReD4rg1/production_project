@@ -10,7 +10,7 @@ import { useTranslation } from "react-i18next";
 import { ArticleTextBlockComponent } from "../ArticleTextBlockComponent/ArticleTextBlockComponent";
 import { AppLink } from "@/shared/ui/AppLink";
 import { ArticleBlocksType, ArticleView } from "../../model/consts/article";
-import { RoutePath } from "@/shared/const/rouner";
+import { getRouteArticleDetails } from "@/shared/const/router";
 
 interface ArticleListItemProps {
   className?: string;
@@ -46,7 +46,7 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
           </div>
           <Text className={cls.date} text={article.createdAt} />
         </div>
-        <AppLink to={RoutePath.articleDetails + article.id} target={target}>
+        <AppLink to={getRouteArticleDetails(article.id)} target={target}>
           <div className={cls.titleContainer}>
             <Text className={cls.title} title={article.title} />
           </div>
@@ -63,7 +63,7 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
         </div>
         <div>{content && <ArticleTextBlockComponent block={content} />}</div>
         <div className={cls.views}>
-          <AppLink to={RoutePath.articleDetails + article.id} target={target}>
+          <AppLink to={getRouteArticleDetails(article.id)} target={target}>
             <Button>{t("Читать дальше")}</Button>
           </AppLink>
           <div className={cls.views}>
@@ -80,7 +80,7 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
   return (
     <AppLink
       target={target}
-      to={RoutePath.articleDetails + article.id}
+      to={getRouteArticleDetails(article.id)}
       className={classNames(cls.wrapper, {}, [className, cls[view]])}
     >
       <div className={cls.image}>
