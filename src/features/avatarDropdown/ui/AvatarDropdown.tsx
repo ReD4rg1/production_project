@@ -6,7 +6,7 @@ import { Dropdown } from "@/shared/ui/Popups";
 import { useTranslation } from "react-i18next";
 import { isUserAdmin, isUserManager, User, userActions } from "@/entities/User";
 import { useDispatch, useSelector } from "react-redux";
-import { RoutePath } from "@/shared/const/rouner";
+import { getRouteAdminPanel, getRouteProfile } from "@/shared/const/router";
 
 interface AvatarDropdownProps {
   className?: string;
@@ -35,13 +35,13 @@ export const AvatarDropdown = memo((props: AvatarDropdownProps) => {
             ? [
                 {
                   content: t("Панель администрирования"),
-                  href: RoutePath.admin_panel,
+                  href: getRouteAdminPanel(),
                 },
               ]
             : []),
           {
             content: t("Профиль"),
-            href: RoutePath.profile + authData.id,
+            href: getRouteProfile(authData.id),
           },
           {
             content: t("Выйти"),

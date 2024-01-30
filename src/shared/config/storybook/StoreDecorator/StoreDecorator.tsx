@@ -2,10 +2,8 @@ import { Story } from "@storybook/react";
 import { StateSchema, StoreProvider } from "@/app/providers/StoreProvider";
 import { loginReducer } from "@/features/AuthByUsername/testing";
 import { ReducerList } from "../../../lib/components/DynamicModuleLoader/DynamicModuleLoader";
-// eslint-disable-next-line d4rg1-fsd-plugin/layer-imports
-import { articleDetailsReducer } from "@/entities/Article";
-// eslint-disable-next-line d4rg1-fsd-plugin/layer-imports
-import { addCommentFormReducer } from "@/features/addCommentForm";
+import { articleDetailsReducer } from "@/entities/Article/testing";
+import { addCommentFormReducer } from "@/features/addCommentForm/testing";
 import { articleDetailsPageReducer } from "@/pages/ArticleDetailsPage/testing";
 import { profileReducer } from "@/features/editableProfileCard/testing";
 

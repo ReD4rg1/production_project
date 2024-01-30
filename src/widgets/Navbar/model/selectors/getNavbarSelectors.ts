@@ -5,26 +5,31 @@ import MainIcon from "@/shared/assets/icons/home.svg?react";
 import SquareListIcon from "@/shared/assets/icons/square-list.svg?react";
 import ProfileIcon from "@/shared/assets/icons/profile.svg?react";
 import ArticlesIcon from "@/shared/assets/icons/posts.svg?react";
-import { RoutePath } from "@/shared/const/rouner";
+import {
+  getRouteArticles,
+  getRouteMain,
+  getRouteProfile,
+  getRouteSecond,
+} from "@/shared/const/router";
 
 export const getNavbarSelectors = createSelector(
   getUserAuthData,
   (userData) => {
     const navbarItemsList: NavbarItemType[] = [
-      { path: RoutePath.main, text: "Главная", Icon: MainIcon },
-      { path: RoutePath.second, text: "Второстепенная", Icon: SquareListIcon },
+      { path: getRouteMain(), text: "Главная", Icon: MainIcon },
+      { path: getRouteSecond(), text: "Второстепенная", Icon: SquareListIcon },
     ];
 
     if (userData) {
       navbarItemsList.push(
         {
-          path: RoutePath.profile + userData?.id,
+          path: getRouteProfile(userData.id),
           text: "Страница профиля",
           authOnly: true,
           Icon: ProfileIcon,
         },
         {
-          path: RoutePath.articles,
+          path: getRouteArticles(),
           text: "Страница постов",
           authOnly: true,
           Icon: ArticlesIcon,

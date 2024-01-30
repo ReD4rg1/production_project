@@ -8,7 +8,7 @@ import AddPost from "@/shared/assets/icons/add-square.svg?react";
 import { AppLink } from "@/shared/ui/AppLink";
 import { useTranslation } from "react-i18next";
 import { Text } from "@/shared/ui/Text";
-import { RoutePath } from "@/shared/const/rouner";
+import { getRouteArticleCreate } from "@/shared/const/router";
 
 interface SidebarProps {
   className?: string;
@@ -32,7 +32,7 @@ export const Sidebar = memo((props: SidebarProps) => {
     >
       <div className={cls.menu}>
         {/*Нужно добавить доступ только для авторизованных пользователей*/}
-        <AppLink to={RoutePath.articleCreate} className={cls.item}>
+        <AppLink to={getRouteArticleCreate()} className={cls.item}>
           <AddPost />
           <Text title={t("Создать пост")} className={cls.text} />
         </AppLink>
