@@ -5,7 +5,7 @@ import { Page } from "@/widgets/Page";
 const SecondPage = () => {
   const { t } = useTranslation("second");
 
-  return <Page>{t("Второстепенная страница")}</Page>;
+  return <Page data-testid={"SecondPage"}>{t("Второстепенная страница")}</Page>;
 };
 
 export default SecondPage;

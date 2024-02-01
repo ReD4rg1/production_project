@@ -7,7 +7,7 @@ import { Page } from "@/widgets/Page";
 const NotFoundPage = () => {
   const { t } = useTranslation();
   return (
-    <Page className={classNames(cls.notFoundPage)}>
+    <Page className={classNames(cls.notFoundPage)} data-testid="NotFoundPage">
       {t("Страница не найдена")}
     </Page>
   );
