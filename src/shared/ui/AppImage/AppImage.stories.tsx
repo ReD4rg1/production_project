@@ -1,40 +1,30 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import ThemeDecorator from "@/shared/config/storybook/ThemeDecorator/ThemeDecorator";
-import { SortSelector } from "./SortSelector";
-import { ArticleSortField } from "@/entities/Article";
-import { SortOrder } from "@/shared/types/sort";
-import { action } from "@storybook/addon-actions";
+import { AppImage } from "./AppImage";
 import { Theme } from "@/shared/const/theme";
 
 const meta = {
-  title: "features/SortSelector",
-  component: SortSelector,
+  title: "shared/AppImage",
+  component: AppImage,
   parameters: {
     layout: "centered",
   },
   tags: ["autodocs"],
-} satisfies Meta<typeof SortSelector>;
+} satisfies Meta<typeof AppImage>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-const args = {
-  sort: ArticleSortField.CREATED,
-  order: SortOrder.ASC,
-  onChangeOrder: action("onChangeOrder"),
-  onChangeSort: action("onChangeSort"),
-};
-
 export const NormalTheme: Story = {
-  args: { ...args },
+  args: {},
 };
 
 export const DarkTheme: Story = {
-  args: { ...args },
+  args: {},
   decorators: [ThemeDecorator(Theme.DARK)],
 };
 
 export const RedTheme: Story = {
-  args: { ...args },
+  args: {},
   decorators: [ThemeDecorator(Theme.RED)],
 };
