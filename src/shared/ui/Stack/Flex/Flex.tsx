@@ -56,6 +56,7 @@ export const Flex: FC<FlexProps> = (props) => {
     gap,
     max,
     children,
+    ...otherProps
   } = props;
 
   const classes = [
@@ -71,6 +72,8 @@ export const Flex: FC<FlexProps> = (props) => {
   };
 
   return (
-    <div className={classNames(cls.wrapper, mods, classes)}>{children}</div>
+    <div className={classNames(cls.wrapper, mods, classes)} {...otherProps}>
+      {children}
+    </div>
   );
 };
