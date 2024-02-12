@@ -645,6 +645,15 @@
       "roles": [
         "ADMIN"
       ],
+      "features": {
+        "isArticleRatingEnabled": true,
+        "isCounterEnabled": true
+      },
+      "jsonSettings": {
+        "theme": "app_dark_theme",
+        "isFirstVisit": true,
+        "settingsPageHasBeenOpen": false
+      },
       "avatar": "https://i.kym-cdn.com/entries/icons/original/000/042/690/Screen_Shot_2022-11-16_at_2.24.03_PM.jpg"
     },
     {
@@ -654,6 +663,10 @@
       "roles": [
         "USER"
       ],
+      "features": {
+        "isArticleRatingEnabled": true,
+        "isCounterEnabled": true
+      },
       "avatar": "https://cdn.azbooka.ru/cv/w1100/74179a19-42d8-44d7-b26d-3d01badd4d3b.jpg"
     },
     {
@@ -663,6 +676,10 @@
       "roles": [
         "ADMIN"
       ],
+      "features": {
+        "isArticleRatingEnabled": true,
+        "isCounterEnabled": true
+      },
       "avatar": "https://xakep.ru/wp-content/uploads/2018/05/171485/KuroiSH-hacker.jpg"
     }
   ],
