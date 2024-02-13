@@ -25,6 +25,7 @@ import { ArticleImageBlockComponent } from "../ArticleImageBlockComponent/Articl
 import { ArticleTextBlockComponent } from "../ArticleTextBlockComponent/ArticleTextBlockComponent";
 import { useInitialEffect } from "@/shared/lib/hooks/useInitialEffect/useInitialEffect";
 import { ArticleBlocksType } from "../../model/consts/article";
+import { VStack } from "@/shared/ui/Stack";
 
 interface ArticleDetailsProps {
   className?: string;
@@ -90,19 +91,21 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
         <div className={cls.avatarWrapper}>
           <Avatar size={200} src={article?.img} className={cls.avatar} />
         </div>
-        <Text
-          title={article?.title}
-          className={cls.title}
-          text={article?.subtitle}
-        />
-        <div className={cls.articleInfo}>
-          <Icon Svg={EyeIcon} className={cls.icon} />
-          <Text text={String(article?.views)} />
-        </div>
-        <div className={cls.articleInfo}>
-          <Icon Svg={CalendarIcon} className={cls.icon} />
-          <Text text={article?.createdAt} />
-        </div>
+        <VStack data-testid="ArticleDetails.Info">
+          <Text
+            title={article?.title}
+            className={cls.title}
+            text={article?.subtitle}
+          />
+          <div className={cls.articleInfo}>
+            <Icon Svg={EyeIcon} className={cls.icon} />
+            <Text text={String(article?.views)} />
+          </div>
+          <div className={cls.articleInfo}>
+            <Icon Svg={CalendarIcon} className={cls.icon} />
+            <Text text={article?.createdAt} />
+          </div>
+        </VStack>
         {article?.blocks.map(renderBlock)}
       </div>
     );
