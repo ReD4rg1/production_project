@@ -652,7 +652,8 @@
       "jsonSettings": {
         "theme": "app_dark_theme",
         "isFirstVisit": true,
-        "settingsPageHasBeenOpen": false
+        "settingsPageHasBeenOpen": false,
+        "isArticlesPageWasOpened": true
       },
       "avatar": "https://i.kym-cdn.com/entries/icons/original/000/042/690/Screen_Shot_2022-11-16_at_2.24.03_PM.jpg"
     },
@@ -667,7 +668,10 @@
         "isArticleRatingEnabled": true,
         "isCounterEnabled": true
       },
-      "avatar": "https://cdn.azbooka.ru/cv/w1100/74179a19-42d8-44d7-b26d-3d01badd4d3b.jpg"
+      "avatar": "https://cdn.azbooka.ru/cv/w1100/74179a19-42d8-44d7-b26d-3d01badd4d3b.jpg",
+      "jsonSettings": {
+        "isArticlesPageWasOpened": true
+      }
     },
     {
       "id": "4",
