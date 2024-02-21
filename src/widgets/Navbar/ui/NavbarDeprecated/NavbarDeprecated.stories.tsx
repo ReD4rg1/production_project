@@ -1,44 +1,52 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { Navbar } from "./Navbar";
+import { NavbarDeprecated } from "./NavbarDeprecated";
 import ThemeDecorator from "@/shared/config/storybook/ThemeDecorator/ThemeDecorator";
 import StoreDecorator from "@/shared/config/storybook/StoreDecorator/StoreDecorator";
 import { Theme } from "@/shared/const/theme";
 
 const meta = {
-  title: "widget/Navbar",
-  component: Navbar,
+  title: "widget/NavbarDeprecated",
+  component: NavbarDeprecated,
   parameters: {
     layout: "centered",
   },
+  args: {
+    authData: { id: "1", username: "admin" },
+  },
   tags: ["autodocs"],
-} satisfies Meta<typeof Navbar>;
+} satisfies Meta<typeof NavbarDeprecated>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-const data = {
-  user: {
-    authData: {
-      id: "1",
-      username: "admin",
-      features: { isAppRedesigned: true },
-    },
-  },
-};
-
 export const NormalNavbar: Story = {
   args: {},
-  decorators: [ThemeDecorator(Theme.NORMAL), StoreDecorator(data)],
+  decorators: [
+    ThemeDecorator(Theme.NORMAL),
+    StoreDecorator({
+      user: { authData: { id: "1", username: "admin" } },
+    }),
+  ],
 };
 
 export const DarkNavbar: Story = {
   args: {},
-  decorators: [ThemeDecorator(Theme.DARK), StoreDecorator(data)],
+  decorators: [
+    ThemeDecorator(Theme.DARK),
+    StoreDecorator({
+      user: { authData: { id: "1", username: "admin" } },
+    }),
+  ],
 };
 
 export const RedNavbar: Story = {
   args: {},
-  decorators: [ThemeDecorator(Theme.RED), StoreDecorator(data)],
+  decorators: [
+    ThemeDecorator(Theme.RED),
+    StoreDecorator({
+      user: { authData: { id: "1", username: "admin" } },
+    }),
+  ],
 };
 
 export const NormalUnAuthorizationNavbar: Story = {
