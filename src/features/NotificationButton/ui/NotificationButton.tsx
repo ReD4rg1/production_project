@@ -28,7 +28,7 @@ export const NotificationButton = memo((props: NotificationButtonProps) => {
 
   const trigger = (
     <div onClick={onOpenDrawer}>
-      <Icon Svg={Notification} fillIcon />
+      <Icon width={30} height={30} Svg={Notification} fillIcon />
     </div>
   );
 

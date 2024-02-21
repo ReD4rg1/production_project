@@ -9,7 +9,14 @@ interface IconProps extends React.SVGProps<SVGSVGElement> {
 }
 
 export const Icon = memo((props: IconProps) => {
-  const { className, Svg, fillIcon, ...otherProps } = props;
+  const {
+    className,
+    Svg,
+    fillIcon,
+    width = 40,
+    height = 40,
+    ...otherProps
+  } = props;
 
   const mods: Mods = {
     [cls.fillIcon]: fillIcon,
@@ -17,6 +24,8 @@ export const Icon = memo((props: IconProps) => {
 
   return (
     <Svg
+      width={width}
+      height={height}
       className={classNames(cls.wrapper, mods, [className])}
       {...otherProps}
     />

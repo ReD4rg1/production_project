@@ -33,7 +33,7 @@ export const SidebarDeprecated = memo((props: SidebarDeprecatedProps) => {
       <div className={cls.menu}>
         {/*Нужно добавить доступ только для авторизованных пользователей*/}
         <AppLink to={getRouteArticleCreate()} className={cls.item}>
-          <AddPost />
+          <AddPost width={30} height={30} />
           <Text title={t("Создать пост")} className={cls.text} />
         </AppLink>
       </div>

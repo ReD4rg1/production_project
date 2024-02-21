@@ -19,7 +19,7 @@ export const NavbarItem = memo((props: NavbarItemProps) => {
 
   return (
     <AppLink className={cls.link} theme={AppLinkTheme.SECONDARY} to={item.path}>
-      {item.Icon && <item.Icon className={cls.icon} />}
+      {item.Icon && <item.Icon width={30} height={30} className={cls.icon} />}
       {/*{t(item.text)}*/}
     </AppLink>
   );

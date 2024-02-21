@@ -6,18 +6,22 @@ import { classNames } from "@/shared/lib/classNames/classNames";
 
 interface AppLogoProps {
   className?: string;
+  width?: number;
+  height?: number;
 }
 
-export const AppLogo = memo(({ className }: AppLogoProps) => {
-  return (
-    <HStack
-      max
-      justify="center"
-      className={classNames(cls.appLogoWrapper, {}, [className])}
-    >
-      <AppSvg className={cls.appLogo} />
-      <div className={cls.gradientBig} />
-      <div className={cls.gradientSmall} />
-    </HStack>
-  );
-});
+export const AppLogo = memo(
+  ({ className, width = 80, height = 80 }: AppLogoProps) => {
+    return (
+      <HStack
+        max
+        justify="center"
+        className={classNames(cls.appLogoWrapper, {}, [className])}
+      >
+        <AppSvg width={width} height={height} className={cls.appLogo} />
+        <div className={cls.gradientBig} />
+        <div className={cls.gradientSmall} />
+      </HStack>
+    );
+  }
+);
