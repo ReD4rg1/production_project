@@ -1,7 +1,7 @@
 import { classNames } from "@/shared/lib/classNames/classNames";
 import cls from "./SortSelector.module.scss";
 import { memo, useMemo } from "react";
-import { Select, SelectOption } from "@/shared/ui/Select";
+import { Select, SelectOption } from "@/shared/ui/deprecated/Select";
 import { useTranslation } from "react-i18next";
 import { SortOrder } from "@/shared/types/sort";
 import { ArticleSortField } from "@/entities/Article";

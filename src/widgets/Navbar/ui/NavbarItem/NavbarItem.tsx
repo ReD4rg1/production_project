@@ -1,5 +1,5 @@
 import cls from "./NavbarItem.module.scss";
-import { AppLink, AppLinkTheme } from "@/shared/ui/AppLink";
+import { AppLink, AppLinkTheme } from "@/shared/ui/deprecated/AppLink";
 import { NavbarItemType } from "../../model/types/navbar";
 import { memo } from "react";
 import { useSelector } from "react-redux";

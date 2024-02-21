@@ -1,8 +1,8 @@
 import { classNames } from "@/shared/lib/classNames/classNames";
 import cls from "./AvatarDropdown.module.scss";
 import { memo, useCallback } from "react";
-import { Avatar } from "@/shared/ui/Avatar";
-import { Dropdown } from "@/shared/ui/Popups";
+import { Avatar } from "@/shared/ui/deprecated/Avatar";
+import { Dropdown } from "@/shared/ui/deprecated/Popups";
 import { useTranslation } from "react-i18next";
 import { isUserAdmin, isUserManager, User, userActions } from "@/entities/User";
 import { useDispatch, useSelector } from "react-redux";

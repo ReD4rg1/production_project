@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 import { getSidebarItems } from "../../model/selectors/getSidebarItems";
 import { SidebarItem } from "../SidebarItem/SidebarItem";
 import { ToggleFeatures } from "@/shared/lib/features";
-import { AppLogo } from "@/shared/ui/Applogo";
+import { AppLogo } from "@/shared/ui/deprecated/Applogo";
 import { SidebarDeprecated } from "../SidebarDeprecated/SidebarDeprecated";
 
 interface SidebarProps {

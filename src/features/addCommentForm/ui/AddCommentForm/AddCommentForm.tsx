@@ -1,11 +1,11 @@
 import { classNames } from "@/shared/lib/classNames/classNames";
 import cls from "./AddCommentForm.module.scss";
 import React, { memo, useCallback } from "react";
-import { Input } from "@/shared/ui/Input";
+import { Input } from "@/shared/ui/deprecated/Input";
 import { useTranslation } from "react-i18next";
 import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch";
 import { getAddCommentFormText } from "../../model/selectors/addCommentFormSelectors";
-import { Button, ButtonTheme } from "@/shared/ui/Button";
+import { Button, ButtonTheme } from "@/shared/ui/deprecated/Button";
 import { useSelector } from "react-redux";
 import {
   addCommentFormActions,

@@ -1,12 +1,12 @@
 import { classNames } from "@/shared/lib/classNames/classNames";
 import { memo, useCallback, useState } from "react";
-import { Icon } from "@/shared/ui/Icon";
+import { Icon } from "@/shared/ui/deprecated/Icon";
 import Notification from "@/shared/assets/icons/notification.svg?react";
-import { VStack } from "@/shared/ui/Stack";
+import { VStack } from "@/shared/ui/deprecated/Stack";
 import { NotificationList } from "@/entities/Notification";
-import { Popover } from "@/shared/ui/Popups";
+import { Popover } from "@/shared/ui/deprecated/Popups";
 import { useDevice } from "@/shared/lib/hooks/useDevice/useDevice";
-import { Drawer } from "@/shared/ui/Drawer";
+import { Drawer } from "@/shared/ui/deprecated/Drawer";
 import cls from "./NotificationButton.module.scss";
 
 interface NotificationButtonProps {

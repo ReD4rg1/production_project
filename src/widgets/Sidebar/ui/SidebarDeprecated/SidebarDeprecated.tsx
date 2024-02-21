@@ -1,12 +1,12 @@
 import { classNames } from "@/shared/lib/classNames/classNames";
 import cls from "./SidebarDeprecated.module.scss";
 import { memo, useState } from "react";
-import { AppLink } from "@/shared/ui/AppLink";
+import { AppLink } from "@/shared/ui/deprecated/AppLink";
 import { getRouteArticleCreate } from "@/shared/const/router";
-import { Text } from "@/shared/ui/Text";
+import { Text } from "@/shared/ui/deprecated/Text";
 import { ThemeSwitcher } from "@/features/ThemeSwitcher";
-import { LanguageSwitcher } from "@/shared/ui/LanguageSwitcher";
-import { Button, ButtonSize, ButtonTheme } from "@/shared/ui/Button";
+import { LanguageSwitcher } from "@/shared/ui/deprecated/LanguageSwitcher";
+import { Button, ButtonSize, ButtonTheme } from "@/shared/ui/deprecated/Button";
 import AddPost from "@/shared/assets/icons/add-square.svg?react";
 import { useTranslation } from "react-i18next";
 

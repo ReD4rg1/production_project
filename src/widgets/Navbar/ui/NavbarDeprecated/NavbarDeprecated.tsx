@@ -6,7 +6,7 @@ import { useSelector } from "react-redux";
 import { User } from "@/entities/User";
 import { NavbarItem } from "../NavbarItem/NavbarItem";
 import { getNavbarSelectors } from "../../model/selectors/getNavbarSelectors";
-import { HStack } from "@/shared/ui/Stack";
+import { HStack } from "@/shared/ui/deprecated/Stack";
 import { NotificationButton } from "@/features/NotificationButton";
 import { AvatarDropdown } from "@/features/avatarDropdown";
 
