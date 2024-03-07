@@ -1,25 +1,18 @@
 import { classNames, Mods } from "@/shared/lib/classNames/classNames";
 import cls from "./Button.module.scss";
-import { ButtonHTMLAttributes, FC, memo } from "react";
+import { ButtonHTMLAttributes, FC, memo, ReactNode } from "react";
 
-export enum ButtonTheme {
-  CLEAR = "clear",
-  OUTLINE = "outline",
-  OUTLINE_RED = "outline_red",
-}
+export type ButtonVariant = "clear" | "outline";
 
-export enum ButtonSize {
-  M = "size_m",
-  L = "size_l",
-  XL = "size_xl",
-}
-/**
- * @deprecated
- * */
+export type ButtonSize = "m" | "l" | "xl";
+
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   className?: string;
-  theme?: ButtonTheme;
+  variant?: ButtonVariant;
+  square?: boolean;
   size?: ButtonSize;
+  disabled?: boolean;
+  children?: ReactNode;
   fullWidth?: boolean;
 }
 
@@ -27,26 +20,29 @@ export const Button: FC<ButtonProps> = memo((props: ButtonProps) => {
   const {
     className,
     children,
-    theme = ButtonTheme.OUTLINE,
-    size = ButtonSize.M,
+    variant = "outline",
+    square,
     disabled,
     fullWidth,
+    size = "m",
     ...otherProps
   } = props;
 
   const mods: Mods = {
+    [cls.square]: square,
     [cls.disabled]: disabled,
     [cls.fullWidth]: fullWidth,
   };
 
   return (
     <button
-      disabled={disabled}
-      className={classNames(cls.button, mods, [
+      type="button"
+      className={classNames(cls.Button, mods, [
         className,
-        cls[theme],
+        cls[variant],
         cls[size],
       ])}
+      disabled={disabled}
       {...otherProps}
     >
       {children}

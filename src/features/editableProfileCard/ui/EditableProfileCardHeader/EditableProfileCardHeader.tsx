@@ -3,7 +3,7 @@ import cls from "./ProfilePageHeader.module.scss";
 import { Text } from "@/shared/ui/deprecated/Text";
 import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
-import { Button, ButtonTheme } from "@/shared/ui/deprecated/Button";
+import { Button } from "@/shared/ui/redesigned/Button";
 import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch";
 import { useCallback } from "react";
 import { getUserAuthData } from "@/entities/User";
@@ -55,7 +55,7 @@ export const EditableProfileCardHeader = (props: ProfilePageHeaderProps) => {
               <Button
                 onClick={onEdit}
                 className={cls.editBtn}
-                theme={ButtonTheme.OUTLINE}
+                variant={"outline"}
                 data-testid={"EditableProfileCardHeader.EditButton"}
               >
                 {t("Редактировать")}
@@ -66,7 +66,7 @@ export const EditableProfileCardHeader = (props: ProfilePageHeaderProps) => {
               <Button
                 onClick={onSave}
                 className={cls.editBtn}
-                theme={ButtonTheme.OUTLINE}
+                variant={"outline"}
                 data-testid={"EditableProfileCardHeader.SaveButton"}
               >
                 {t("Сохранить")}
@@ -74,7 +74,7 @@ export const EditableProfileCardHeader = (props: ProfilePageHeaderProps) => {
               <Button
                 onClick={onCancelEdit}
                 className={cls.editBtn}
-                theme={ButtonTheme.OUTLINE_RED}
+                variant={"outline"}
                 data-testid={"EditableProfileCardHeader.CancelButton"}
               >
                 {t("Отмена")}

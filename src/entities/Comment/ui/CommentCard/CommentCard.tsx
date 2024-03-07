@@ -5,7 +5,7 @@ import { CommentType } from "../../model/types/commentType";
 import { Text } from "@/shared/ui/deprecated/Text";
 import { Avatar } from "@/shared/ui/deprecated/Avatar";
 import { Skeleton } from "@/shared/ui/deprecated/Skeleton";
-import { AppLink } from "@/shared/ui/deprecated/AppLink";
+import { AppLink } from "@/shared/ui/redesigned/AppLink";
 import { VStack } from "@/shared/ui/deprecated/Stack";
 import { getRouteProfile } from "@/shared/const/router";
 

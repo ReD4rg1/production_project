@@ -3,7 +3,7 @@ import cls from "./Avatar.module.scss";
 import { CSSProperties, useMemo } from "react";
 import { AppImage } from "../AppImage";
 import UserIcon from "@/shared/assets/icons/profile.svg?react";
-import { Icon } from "../Icon";
+import { Icon } from "../../redesigned/Icon";
 import { Skeleton } from "../Skeleton";
 
 interface AvatarProps {

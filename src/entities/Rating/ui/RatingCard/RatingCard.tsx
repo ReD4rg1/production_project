@@ -6,7 +6,7 @@ import { Text } from "@/shared/ui/deprecated/Text";
 import { Modal } from "@/shared/ui/deprecated/Modal";
 import { Input, InputStyle } from "@/shared/ui/deprecated/Input";
 import { useTranslation } from "react-i18next";
-import { Button, ButtonSize, ButtonTheme } from "@/shared/ui/deprecated/Button";
+import { Button } from "@/shared/ui/redesigned/Button";
 import { useDevice } from "@/shared/lib/hooks/useDevice/useDevice";
 import { Drawer } from "@/shared/ui/deprecated/Drawer";
 
@@ -89,7 +89,7 @@ export const RatingCard = memo((props: RatingCardProps) => {
               data-testid="RatingCard.Send"
               fullWidth
               onClick={acceptHandle}
-              size={ButtonSize.L}
+              size={"l"}
             >
               {t("Отправить")}
             </Button>
@@ -103,7 +103,7 @@ export const RatingCard = memo((props: RatingCardProps) => {
               <Button
                 data-testid="RatingCard.Close"
                 onClick={cancelHandle}
-                theme={ButtonTheme.OUTLINE_RED}
+                variant={"outline"}
               >
                 {t("Закрыть")}
               </Button>

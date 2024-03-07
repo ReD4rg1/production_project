@@ -1,12 +1,12 @@
 import { classNames } from "@/shared/lib/classNames/classNames";
 import cls from "./SidebarDeprecated.module.scss";
 import { memo, useState } from "react";
-import { AppLink } from "@/shared/ui/deprecated/AppLink";
+import { AppLink } from "@/shared/ui/redesigned/AppLink";
 import { getRouteArticleCreate } from "@/shared/const/router";
 import { Text } from "@/shared/ui/deprecated/Text";
 import { ThemeSwitcher } from "@/features/ThemeSwitcher";
 import { LanguageSwitcher } from "@/shared/ui/deprecated/LanguageSwitcher";
-import { Button, ButtonSize, ButtonTheme } from "@/shared/ui/deprecated/Button";
+import { Button } from "@/shared/ui/redesigned/Button";
 import AddPost from "@/shared/assets/icons/add-square.svg?react";
 import { useTranslation } from "react-i18next";
 
@@ -45,8 +45,8 @@ export const SidebarDeprecated = memo((props: SidebarDeprecatedProps) => {
         <Button
           data-testid={"sidebar-toggle"}
           onClick={onToggle}
-          size={ButtonSize.M}
-          theme={ButtonTheme.OUTLINE}
+          size={"m"}
+          variant={"outline"}
         >
           {collapsed ? ">" : "<"}
         </Button>

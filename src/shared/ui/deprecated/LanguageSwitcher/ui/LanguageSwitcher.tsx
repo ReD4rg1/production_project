@@ -1,8 +1,8 @@
 import { classNames } from "../../../../lib/classNames/classNames";
-import { Button, ButtonTheme } from "../../Button/Button";
+import { Button } from "../../../redesigned/Button/Button";
 import LanguageIcon from "../../../../assets/icons/language.svg?react";
 import { useTranslation } from "react-i18next";
-import { Icon } from "../../Icon/Icon";
+import { Icon } from "../../../redesigned/Icon/Icon";
 
 interface LanguageSwitcherProps {
   className?: string;
@@ -20,9 +20,10 @@ export const LanguageSwitcher = (props: LanguageSwitcherProps) => {
 
   return (
     <Button
-      theme={ButtonTheme.CLEAR}
+      variant={"clear"}
       className={classNames("", {}, [className])}
       onClick={toggleLanguage}
+      style={{ cursor: "pointer" }}
     >
       <Icon Svg={LanguageIcon} fillIcon />
     </Button>

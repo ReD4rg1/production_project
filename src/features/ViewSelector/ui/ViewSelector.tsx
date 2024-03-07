@@ -4,8 +4,8 @@ import { memo } from "react";
 import GridIcon from "@/shared/assets/icons/grid.svg?react";
 import ListIcon from "@/shared/assets/icons/list.svg?react";
 import { ArticleView } from "@/entities/Article";
-import { Button, ButtonTheme } from "@/shared/ui/deprecated/Button";
-import { Icon } from "@/shared/ui/deprecated/Icon";
+import { Button } from "@/shared/ui/redesigned/Button";
+import { Icon } from "@/shared/ui/redesigned/Icon";
 
 interface ViewSelectorProps {
   className?: string;
@@ -26,7 +26,7 @@ export const ViewSelector = memo((props: ViewSelectorProps) => {
       {viewTypes.map((viewType, index) => (
         <Button
           key={index}
-          theme={ButtonTheme.CLEAR}
+          variant={"clear"}
           onClick={() => onViewClick?.(viewType.view)}
         >
           <Icon

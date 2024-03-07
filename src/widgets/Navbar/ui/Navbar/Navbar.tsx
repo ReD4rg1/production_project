@@ -1,13 +1,11 @@
 import { classNames } from "@/shared/lib/classNames/classNames";
 import cls from "./Navbar.module.scss";
 import { useTranslation } from "react-i18next";
-import { memo, useCallback, useMemo, useState } from "react";
-import { Button, ButtonSize, ButtonTheme } from "@/shared/ui/deprecated/Button";
+import { memo, useCallback, useState } from "react";
+import { Button } from "@/shared/ui/redesigned/Button";
 import { LoginModal } from "@/features/AuthByUsername";
 import { useSelector } from "react-redux";
 import { getUserAuthData } from "@/entities/User";
-import { NavbarItem } from "../NavbarItem/NavbarItem";
-import { getNavbarSelectors } from "../../model/selectors/getNavbarSelectors";
 import { HStack } from "@/shared/ui/deprecated/Stack";
 import { NotificationButton } from "@/features/NotificationButton";
 import { AvatarDropdown } from "@/features/avatarDropdown";
@@ -23,7 +21,6 @@ export const Navbar = memo((props: NavbarProps) => {
   const { t } = useTranslation();
   const authData = useSelector(getUserAuthData);
   const [modalIsOpened, setModalIsOpened] = useState(false);
-  const navbarItemsList = useSelector(getNavbarSelectors);
 
   const openModal = useCallback(() => {
     setModalIsOpened(true);
@@ -32,12 +29,6 @@ export const Navbar = memo((props: NavbarProps) => {
   const closeModal = useCallback(() => {
     setModalIsOpened(false);
   }, [setModalIsOpened]);
-
-  const itemsList = useMemo(
-    () =>
-      navbarItemsList.map((item) => <NavbarItem item={item} key={item.path} />),
-    [navbarItemsList]
-  );
 
   if (authData) {
     return (
@@ -58,7 +49,7 @@ export const Navbar = memo((props: NavbarProps) => {
 
   return (
     <header className={classNames(cls.navbar, {}, [className])}>
-      <Button onClick={openModal} size={ButtonSize.M} theme={ButtonTheme.CLEAR}>
+      <Button onClick={openModal} size={"m"} variant={"clear"}>
         {t("Войти")}
       </Button>
       <LoginModal isOpen={modalIsOpened} onClose={closeModal} />

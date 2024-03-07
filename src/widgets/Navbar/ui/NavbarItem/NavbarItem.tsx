@@ -1,5 +1,5 @@
 import cls from "./NavbarItem.module.scss";
-import { AppLink, AppLinkTheme } from "@/shared/ui/deprecated/AppLink";
+import { AppLink } from "@/shared/ui/redesigned/AppLink";
 import { NavbarItemType } from "../../model/types/navbar";
 import { memo } from "react";
 import { useSelector } from "react-redux";
@@ -18,7 +18,7 @@ export const NavbarItem = memo((props: NavbarItemProps) => {
   }
 
   return (
-    <AppLink className={cls.link} theme={AppLinkTheme.SECONDARY} to={item.path}>
+    <AppLink className={cls.link} variant={"secondary"} to={item.path}>
       {item.Icon && <item.Icon width={30} height={30} className={cls.icon} />}
       {/*{t(item.text)}*/}
     </AppLink>
