@@ -1,7 +1,7 @@
 import { classNames } from "@/shared/lib/classNames/classNames";
 import ThemeIcon from "@/shared/assets/icons/theme.svg?react";
-import { Button, ButtonTheme } from "../../../shared/ui/Button/Button";
-import { Icon } from "../../../shared/ui/Icon/Icon";
+import { Button } from "@/shared/ui/redesigned/Button/Button";
+import { Icon } from "@/shared/ui/redesigned/Icon/Icon";
 import { useTheme } from "@/shared/lib/hooks/useTheme/useTheme";
 import { saveJsonSettings } from "@/entities/User";
 import { useCallback } from "react";
@@ -24,9 +24,10 @@ export const ThemeSwitcher = (props: ThemeSwitcherProps) => {
 
   return (
     <Button
-      theme={ButtonTheme.CLEAR}
+      variant={"clear"}
       className={classNames("", {}, [className])}
       onClick={onToggleHandler}
+      style={{ cursor: "pointer" }}
     >
       <Icon Svg={ThemeIcon} fillIcon />
     </Button>

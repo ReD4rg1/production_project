@@ -10,12 +10,15 @@ import { useSelector } from "react-redux";
 import { StateSchema } from "@/app/providers/StoreProvider";
 import { useThrottle } from "@/shared/lib/hooks/useThrottle/useThrottle";
 import { TestProps } from "@/shared/types/tests";
+import { toggleFeatures } from "@/shared/lib/features";
 
 interface PageProps extends TestProps {
   className?: string;
   children: ReactNode;
   onScrollEnd?: () => void;
 }
+
+export const PAGE_ID = "PAGE_ID";
 
 export const Page = (props: PageProps) => {
   const { className, children, onScrollEnd } = props;
@@ -47,14 +50,24 @@ export const Page = (props: PageProps) => {
   }, 100);
 
   return (
-    <section
+    <main
       ref={wrapperRef}
-      className={classNames(cls.wrapper, {}, [className])}
+      className={classNames(
+        toggleFeatures({
+          name: "isAppRedesigned",
+          on: () => cls.PageRedesigned,
+          off: () => cls.Page,
+        }),
+        {},
+        [className]
+      )}
       onScroll={onScroll}
-      data-testid={props["data-testid"]}
+      id={PAGE_ID}
+      data-testid={props["data-testid"] ?? "Page"}
     >
       {children}
+      {onScrollEnd ? <div className={cls.trigger} ref={triggerRef} /> : null}
       <div ref={triggerRef} />
-    </section>
+    </main>
   );
 };

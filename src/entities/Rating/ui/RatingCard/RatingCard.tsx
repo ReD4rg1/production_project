@@ -1,14 +1,14 @@
 import { memo, useCallback, useState } from "react";
-import { Card } from "@/shared/ui/Card";
-import { HStack, VStack } from "@/shared/ui/Stack";
-import { StarRating } from "@/shared/ui/StarRating";
-import { Text } from "@/shared/ui/Text";
-import { Modal } from "@/shared/ui/Modal";
-import { Input, InputStyle } from "@/shared/ui/Input";
+import { Card } from "@/shared/ui/deprecated/Card";
+import { HStack, VStack } from "@/shared/ui/redesigned/Stack";
+import { StarRating } from "@/shared/ui/deprecated/StarRating";
+import { Text } from "@/shared/ui/deprecated/Text";
+import { Modal } from "@/shared/ui/deprecated/Modal";
+import { Input, InputStyle } from "@/shared/ui/deprecated/Input";
 import { useTranslation } from "react-i18next";
-import { Button, ButtonSize, ButtonTheme } from "@/shared/ui/Button";
+import { Button } from "@/shared/ui/redesigned/Button";
 import { useDevice } from "@/shared/lib/hooks/useDevice/useDevice";
-import { Drawer } from "@/shared/ui/Drawer";
+import { Drawer } from "@/shared/ui/deprecated/Drawer";
 
 interface RatingCardProps {
   className?: string;
@@ -89,7 +89,7 @@ export const RatingCard = memo((props: RatingCardProps) => {
               data-testid="RatingCard.Send"
               fullWidth
               onClick={acceptHandle}
-              size={ButtonSize.L}
+              size={"l"}
             >
               {t("Отправить")}
             </Button>
@@ -103,7 +103,7 @@ export const RatingCard = memo((props: RatingCardProps) => {
               <Button
                 data-testid="RatingCard.Close"
                 onClick={cancelHandle}
-                theme={ButtonTheme.OUTLINE_RED}
+                variant={"outline"}
               >
                 {t("Закрыть")}
               </Button>

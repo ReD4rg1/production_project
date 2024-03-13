@@ -1,0 +1,10 @@
+.wrapper path {
+    fill: none;
+    stroke: var(--primary-color);
+    stroke-width: 2px;
+}
+
+.fillIcon path {
+    fill: var(--primary-color);
+    stroke: none;
+}

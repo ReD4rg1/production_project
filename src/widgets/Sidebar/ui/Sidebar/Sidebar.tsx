@@ -1,14 +1,17 @@
 import { classNames } from "@/shared/lib/classNames/classNames";
 import cls from "./Sidebar.module.scss";
-import { memo, useState } from "react";
+import { memo, useMemo, useState } from "react";
+import { useSelector } from "react-redux";
+import { getSidebarItems } from "../../model/selectors/getSidebarItems";
+import { SidebarItem } from "../SidebarItem/SidebarItem";
+import { ToggleFeatures } from "@/shared/lib/features";
+import { AppLogo } from "@/shared/ui/redesigned/Applogo";
+import { SidebarDeprecated } from "../SidebarDeprecated/SidebarDeprecated";
+import { VStack } from "@/shared/ui/redesigned/Stack";
+import { Icon } from "@/shared/ui/redesigned/Icon";
 import { ThemeSwitcher } from "@/features/ThemeSwitcher";
-import { LanguageSwitcher } from "@/shared/ui/LanguageSwitcher";
-import { Button, ButtonSize, ButtonTheme } from "@/shared/ui/Button";
-import AddPost from "@/shared/assets/icons/add-square.svg?react";
-import { AppLink } from "@/shared/ui/AppLink";
-import { useTranslation } from "react-i18next";
-import { Text } from "@/shared/ui/Text";
-import { getRouteArticleCreate } from "@/shared/const/router";
+import { LanguageSwitcher } from "@/shared/ui/deprecated/LanguageSwitcher";
+import ArrowIcon from "@/shared/assets/icons/arrow-down.svg?react";
 
 interface SidebarProps {
   className?: string;
@@ -17,40 +20,59 @@ interface SidebarProps {
 export const Sidebar = memo((props: SidebarProps) => {
   const { className } = props;
   const [collapsed, setCollapsed] = useState(false);
-  const { t } = useTranslation();
+  const sidebarItemsList = useSelector(getSidebarItems);
 
   const onToggle = () => {
     setCollapsed((prev) => !prev);
   };
 
+  const itemsList = useMemo(
+    () =>
+      sidebarItemsList.map((item) => (
+        <SidebarItem item={item} collapsed={collapsed} key={item.path} />
+      )),
+    [collapsed, sidebarItemsList]
+  );
+
   return (
-    <section
-      data-testid={"sidebar"}
-      className={classNames(cls.sidebar, { [cls.collapsed]: collapsed }, [
-        className,
-      ])}
-    >
-      <div className={cls.menu}>
-        {/*Нужно добавить доступ только для авторизованных пользователей*/}
-        <AppLink to={getRouteArticleCreate()} className={cls.item}>
-          <AddPost />
-          <Text title={t("Создать пост")} className={cls.text} />
-        </AppLink>
-      </div>
-      <div className={cls.switchers}>
-        <ThemeSwitcher />
-        <LanguageSwitcher className={classNames(cls.lang, {}, [])} />
-      </div>
-      <div className={cls.buttonToggle}>
-        <Button
-          data-testid={"sidebar-toggle"}
-          onClick={onToggle}
-          size={ButtonSize.M}
-          theme={ButtonTheme.OUTLINE}
+    <ToggleFeatures
+      feature={"isAppRedesigned"}
+      on={
+        <aside
+          data-testid={"sidebar"}
+          className={classNames(
+            cls.SidebarRedesigned,
+            { [cls.collapsedRedesigned]: collapsed },
+            [className]
+          )}
         >
-          {collapsed ? ">" : "<"}
-        </Button>
-      </div>
-    </section>
+          <AppLogo className={cls.appLogo} size={collapsed ? 30 : 50} />
+          <VStack
+            role="navigation"
+            gap="8"
+            className={cls.items}
+            max
+            align={"center"}
+          >
+            {itemsList}
+          </VStack>
+          <Icon
+            data-testid="sidebar-toggle"
+            onClick={onToggle}
+            className={cls.collapseBtn}
+            Svg={ArrowIcon}
+            width={16}
+            height={16}
+            fillIcon
+            clickable
+          />
+          <div className={cls.switchers}>
+            <ThemeSwitcher />
+            <LanguageSwitcher className={cls.lang} />
+          </div>
+        </aside>
+      }
+      off={<SidebarDeprecated />}
+    />
   );
 });

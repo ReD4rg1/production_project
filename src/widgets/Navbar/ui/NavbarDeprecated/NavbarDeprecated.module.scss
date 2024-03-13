@@ -1,0 +1,23 @@
+.navbar {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  width: 100%;
+  height: var(--navbar-height);
+  background: var(--secondary-bg-color);
+
+  .links {
+    flex-grow: 1;
+
+    path {
+      stroke: var(--primary-color);
+    }
+  }
+
+  .btn {
+    position: absolute;
+    right: 20px;
+  }
+}

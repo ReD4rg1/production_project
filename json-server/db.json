@@ -647,7 +647,8 @@
       ],
       "features": {
         "isArticleRatingEnabled": true,
-        "isCounterEnabled": true
+        "isCounterEnabled": true,
+        "isAppRedesigned": true
       },
       "jsonSettings": {
         "theme": "app_dark_theme",
@@ -666,7 +667,8 @@
       ],
       "features": {
         "isArticleRatingEnabled": true,
-        "isCounterEnabled": true
+        "isCounterEnabled": true,
+        "isAppRedesigned": false
       },
       "avatar": "https://cdn.azbooka.ru/cv/w1100/74179a19-42d8-44d7-b26d-3d01badd4d3b.jpg",
       "jsonSettings": {

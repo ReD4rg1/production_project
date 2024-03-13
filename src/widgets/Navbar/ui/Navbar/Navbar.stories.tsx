@@ -16,34 +16,29 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
+const data = {
+  user: {
+    authData: {
+      id: "1",
+      username: "admin",
+      features: { isAppRedesigned: true },
+    },
+  },
+};
+
 export const NormalNavbar: Story = {
   args: {},
-  decorators: [
-    ThemeDecorator(Theme.NORMAL),
-    StoreDecorator({
-      user: { authData: { id: "1", username: "admin" } },
-    }),
-  ],
+  decorators: [ThemeDecorator(Theme.NORMAL), StoreDecorator(data)],
 };
 
 export const DarkNavbar: Story = {
   args: {},
-  decorators: [
-    ThemeDecorator(Theme.DARK),
-    StoreDecorator({
-      user: { authData: { id: "1", username: "admin" } },
-    }),
-  ],
+  decorators: [ThemeDecorator(Theme.DARK), StoreDecorator(data)],
 };
 
 export const RedNavbar: Story = {
   args: {},
-  decorators: [
-    ThemeDecorator(Theme.RED),
-    StoreDecorator({
-      user: { authData: { id: "1", username: "admin" } },
-    }),
-  ],
+  decorators: [ThemeDecorator(Theme.RED), StoreDecorator(data)],
 };
 
 export const NormalUnAuthorizationNavbar: Story = {

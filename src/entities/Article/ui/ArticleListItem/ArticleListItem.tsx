@@ -3,12 +3,12 @@ import cls from "./ArticleListItem.module.scss";
 import { HTMLAttributeAnchorTarget, memo, useState } from "react";
 import { Article, ArticleTextBlock } from "../../model/types/article";
 import Eye from "@/shared/assets/icons/eye.svg?react";
-import { Text, TextSize } from "@/shared/ui/Text";
-import { Button } from "@/shared/ui/Button";
-import { Avatar } from "@/shared/ui/Avatar";
+import { Text, TextSize } from "@/shared/ui/deprecated/Text";
+import { Button } from "@/shared/ui/redesigned/Button";
+import { Avatar } from "@/shared/ui/deprecated/Avatar";
 import { useTranslation } from "react-i18next";
 import { ArticleTextBlockComponent } from "../ArticleTextBlockComponent/ArticleTextBlockComponent";
-import { AppLink } from "@/shared/ui/AppLink";
+import { AppLink } from "@/shared/ui/redesigned/AppLink";
 import { ArticleBlocksType, ArticleView } from "../../model/consts/article";
 import { getRouteArticleDetails } from "@/shared/const/router";
 
