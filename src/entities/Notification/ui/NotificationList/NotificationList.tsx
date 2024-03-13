@@ -3,7 +3,7 @@ import { memo } from "react";
 import { useNotifications } from "../../api/notificationApi";
 import { useTranslation } from "react-i18next";
 import { NotificationItem } from "../NotificationItem/NotificationItem";
-import { VStack } from "@/shared/ui/deprecated/Stack";
+import { VStack } from "@/shared/ui/redesigned/Stack";
 import { Skeleton } from "@/shared/ui/deprecated/Skeleton";
 
 interface NotificationListProps {

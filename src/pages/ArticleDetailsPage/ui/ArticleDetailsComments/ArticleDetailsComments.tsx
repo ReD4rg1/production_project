@@ -13,7 +13,7 @@ import {
   getArticleDetailsCommentsError,
 } from "../../model/selectors/comments";
 import { useTranslation } from "react-i18next";
-import { VStack } from "@/shared/ui/deprecated/Stack";
+import { VStack } from "@/shared/ui/redesigned/Stack";
 import { fetchCommentsByArticleId } from "../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId";
 import { useInitialEffect } from "@/shared/lib/hooks/useInitialEffect/useInitialEffect";
 import { Loader } from "@/shared/ui/deprecated/Loader";

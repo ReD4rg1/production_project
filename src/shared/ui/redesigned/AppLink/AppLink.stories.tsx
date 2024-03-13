@@ -5,7 +5,7 @@ import ThemeDecorator from "@/shared/config/storybook/ThemeDecorator/ThemeDecora
 import { Theme } from "@/shared/const/theme";
 
 const meta = {
-  title: "shared/AppLink",
+  title: "shared/redesigned/AppLink",
   component: AppLink,
   parameters: {
     layout: "centered",

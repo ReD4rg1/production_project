@@ -1,8 +1,8 @@
 import { classNames } from "@/shared/lib/classNames/classNames";
 import cls from "./Drawer.module.scss";
 import { memo, ReactNode, useCallback, useEffect } from "react";
-import { Portal } from "../../../ui/deprecated/Portal/Portal";
-import { Overlay } from "../../../ui/deprecated/Overlay/Overlay";
+import { Portal } from "../../redesigned/Portal/Portal";
+import { Overlay } from "../../redesigned/Overlay/Overlay";
 import {
   AnimationProvider,
   useAnimationLibs,

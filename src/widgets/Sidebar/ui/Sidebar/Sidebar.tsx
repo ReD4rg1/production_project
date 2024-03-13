@@ -7,7 +7,7 @@ import { SidebarItem } from "../SidebarItem/SidebarItem";
 import { ToggleFeatures } from "@/shared/lib/features";
 import { AppLogo } from "@/shared/ui/redesigned/Applogo";
 import { SidebarDeprecated } from "../SidebarDeprecated/SidebarDeprecated";
-import { VStack } from "@/shared/ui/deprecated/Stack";
+import { VStack } from "@/shared/ui/redesigned/Stack";
 import { Icon } from "@/shared/ui/redesigned/Icon";
 import { ThemeSwitcher } from "@/features/ThemeSwitcher";
 import { LanguageSwitcher } from "@/shared/ui/deprecated/LanguageSwitcher";
@@ -61,6 +61,8 @@ export const Sidebar = memo((props: SidebarProps) => {
             onClick={onToggle}
             className={cls.collapseBtn}
             Svg={ArrowIcon}
+            width={16}
+            height={16}
             fillIcon
             clickable
           />

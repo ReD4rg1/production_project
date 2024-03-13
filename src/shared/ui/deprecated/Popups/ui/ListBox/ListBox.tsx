@@ -3,7 +3,7 @@ import { Listbox as HListBox } from "@headlessui/react";
 import popupCls from "../../styles/popup.module.scss";
 import { classNames } from "@/shared/lib/classNames/classNames";
 import { Button, ButtonProps } from "../../../../redesigned/Button/Button";
-import { HStack } from "../../../Stack/HStack/HStack";
+import { HStack } from "../../../../redesigned/Stack/HStack/HStack";
 import { mapDirectionClass } from "../../styles/consts";
 import { DropdownDirection } from "@/shared/types/ui";
 

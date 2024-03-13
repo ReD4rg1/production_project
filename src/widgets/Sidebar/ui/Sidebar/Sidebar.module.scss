@@ -16,7 +16,7 @@
   .collapseBtn {
     position: absolute;
     cursor: pointer;
-    right: 0;
+    right: 10px;
     top: 50%;
     z-index: 10;
     transform: rotate(90deg);
@@ -51,6 +51,6 @@
 
   .collapseBtn {
     transform: rotate(-90deg);
-    right: auto;
+    left: auto;
   }
 }

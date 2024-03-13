@@ -4,7 +4,7 @@ import { AppImage } from "./AppImage";
 import { Theme } from "@/shared/const/theme";
 
 const meta = {
-  title: "shared/AppImage",
+  title: "shared/redesigned/AppImage",
   component: AppImage,
   parameters: {
     layout: "centered",

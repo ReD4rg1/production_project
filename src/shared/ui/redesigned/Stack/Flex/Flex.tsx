@@ -46,9 +46,7 @@ export interface FlexProps extends DivProps {
   gap?: FlexGap;
   max?: boolean;
 }
-/**
- * @deprecated
- * */
+
 export const Flex: FC<FlexProps> = (props) => {
   const {
     className,
